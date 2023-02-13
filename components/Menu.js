@@ -8,7 +8,8 @@ const data = [
 const render = (item) => {
   return (
     <View style={styles.item}>
-      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.title}>{item.item.title}</Text>
+      {console.log(item)}
     </View>
   );
 };
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    backgroundColor: "red",
     fontSize: 32,
+
   },
 });
 
