@@ -9,13 +9,13 @@ Double your max consecutive pullups in only three weeks with this mobile app.
 
 ## Usage/Examples
 
-```javascript
+<!-- ```javascript
 import Component from 'my-project'
 
 function App() {
   return <Component />
 }
-```
+``` -->
 
 ## Run Locally
 
@@ -47,13 +47,13 @@ Start the server
 
 ## Tech Stack
 
-**Client:** React Native, Redux, TailwindCSS
+<!-- **Client:** React Native, Redux, TailwindCSS
 
-**Server:** Node, Express
+**Server:** Node, Express -->
 
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+<!-- What did you learn while building this project? What challenges did you face and how did you overcome them? -->
 
 ## Authors
 
