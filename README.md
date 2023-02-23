@@ -39,11 +39,13 @@ Install dependencies
   npm install
 ```
 
-Start the server
+Start the server *
 
 ```bash
   npx expo start
 ```
+
+ *Note: Mobile device and local machine must be on same network, and unsecured networks (e.g. coffee shop) seem to cause problems for this.*
 
 ## Tech Stack
 
