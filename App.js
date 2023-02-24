@@ -7,11 +7,13 @@ import store from './store';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>This is the beginning of your pullup journey!</Text>
-      <Menu/>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <Provider>
+      <SafeAreaView style={styles.container}>
+        <Text>This is the beginning of your pullup journey!</Text>
+        <Menu />
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
