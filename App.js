@@ -1,6 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import Menu from './components/Menu.js';
+import Input from './components/Input.js';
+import { Provider } from 'react-redux';
+import store from './store';
 
 export default function App() {
   return (
