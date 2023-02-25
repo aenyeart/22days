@@ -1,5 +1,5 @@
 import { FlatList, View, Text, StyleSheet } from "react-native";
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 const data = [
   { title: 'Something' },

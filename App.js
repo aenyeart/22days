@@ -7,10 +7,11 @@ import store from './store';
 
 export default function App() {
   return (
-    <Provider>
+    <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <Text>This is the beginning of your pullup journey!</Text>
         <Menu />
+        <Input />
         <StatusBar style="auto" />
       </SafeAreaView>
     </Provider>
