@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-const initialState = { count: 0 };
+const initialState = { count: 0, latestMaxPullUps: null };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -8,6 +8,8 @@ function reducer(state = initialState, action) {
       return { count: state.count + 1 };
     case 'DECREMENT':
       return { count: state.count - 1 };
+    case 'SET_CURRENT_MAX_PULL_UPS':
+      return { latestMaxPullUps: action.value };
     default:
       return state;
   }
