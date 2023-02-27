@@ -2,8 +2,8 @@ import { FlatList, View, Text, StyleSheet } from "react-native";
 // import { connect } from 'react-redux';
 
 const data = [
-  { title: 'Something' },
-  { title: 'Gedi' },
+  { title: 'Andrew' },
+  { title: '& Gedi' },
 ];
 
 const render = (item) => {

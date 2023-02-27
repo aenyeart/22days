@@ -10,10 +10,8 @@ function reducer(state = initialState, action) {
       return { ...state, count: state.count + 1 };
     case 'DECREMENT':
       return { ...state, count: state.count - 1 };
-    case 'INPUT_CURRENT_MAX_PULL_UPS':
-      return { ...state, currentFieldValue: action.value };
     case 'SET_CURRENT_MAX_PULL_UPS':
-      return { ...state, latestMaxPullUps: state.currentFieldValue, currentFieldValue: '' };
+      return { ...state, latestMaxPullUps: action.value };
     default:
       return state;
   }
