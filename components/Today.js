@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import Incrementer from './Incrementer.js';
 import Input from './Input.js';
 
 function Today({ lastCompletedDay, dispatch }) {
@@ -10,7 +11,9 @@ function Today({ lastCompletedDay, dispatch }) {
     "Second day workout"
   ];
 
-  let isTestDay = true;
+  const isTestDay = (day) => {
+    return day % 4 === 1;
+  };
 
   return (
     <View>
@@ -18,7 +21,7 @@ function Today({ lastCompletedDay, dispatch }) {
         Today is workout #{lastCompletedDay + 1}.
       </Text>
 
-      {isTestDay &&
+      {isTestDay(lastCompletedDay + 1) &&
       <Text>
         Test – Max pull-ups to failure (MTF)
           <Input />
@@ -28,8 +31,8 @@ function Today({ lastCompletedDay, dispatch }) {
 
       <Text>
         {workouts[lastCompletedDay]}
-
       </Text>
+      <Incrementer />
     </View>
   );
 }
