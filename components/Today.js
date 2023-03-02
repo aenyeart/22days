@@ -1,11 +1,63 @@
 import React from 'react';
 import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import Input from './Input.js';
+
+function Today({ lastCompletedDay, dispatch }) {
+
+  const workouts = [
+    "First test day:\n",
+    "Second day workout"
+  ];
+
+  let isTestDay = true;
+
+  return (
+    <View>
+      <Text>
+        Today is workout #{lastCompletedDay + 1}.
+      </Text>
+
+      {isTestDay &&
+      <Text>
+        Test – Max pull-ups to failure (MTF)
+          <Input />
+          {/* TODO Create two input cmpts: max & AMRAP */}
+        2 min rest, \n5-min AMRAP\n, & Test Day Total (TDT)"
+      </Text>}
+
+      <Text>
+        {workouts[lastCompletedDay]}
+
+      </Text>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    color: 'green'
+  },
+});
+
+function mapStateToProps(state) {
+  return {
+    lastCompletedDay: state.lastCompletedDay,
+  };
+}
+
+export default connect(mapStateToProps)(Today);
+
+
 
 /* Data:
-currDay INT
+lastCompletedDay INT
 latestMaxPullUps INT
 workoutComplete BOOL (incr, trigger modal/user feedback)
+workouts ARR of ARR of STRINGS
 
 ## Program Outline
 Four-day block, repeated five times over 20 days:

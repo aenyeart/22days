@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
-function Counter({ count, latestMaxPullUps, dispatch }) {
+function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
   return (
     <View>
       <TextInput
@@ -17,9 +17,12 @@ function Counter({ count, latestMaxPullUps, dispatch }) {
         }
       ></TextInput>
       <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
-      <Text>Count: {count}</Text>
-      <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} />
-      <Button title="Decrement" onPress={() => dispatch({ type: 'DECREMENT' })} />
+      <Text>lastCompletedDay: {lastCompletedDay}</Text>
+
+      <View>
+        <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} />
+        <Button title="Decrement" onPress={() => dispatch({ type: 'DECREMENT' })} />
+      </View>
     </View>
   );
 }
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    count: state.count,
+    lastCompletedDay: state.lastCompletedDay,
     currentFieldValue: state.currentFieldValue,
     latestMaxPullUps: state.latestMaxPullUps,
   };

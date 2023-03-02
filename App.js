@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import Menu from './components/Menu.js';
-import Input from './components/Input.js';
+// import Input from './components/Input.js';
+import Today from './components/Today.js';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -10,8 +11,9 @@ export default function App() {
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <Text>This is the beginning of your pullup journey!</Text>
+        <Today />
         <Menu />
-        <Input />
+        {/* <Input /> */}
         <StatusBar style="auto" />
       </SafeAreaView>
     </Provider>
