@@ -5,31 +5,34 @@ import Incrementer from './Incrementer.js';
 import Input from './Input.js';
 import styles from "../styles/styles.js";
 import workouts from '../constants/workouts.js'
+import messages from '../constants/messages.js'
 
 function Today({ lastCompletedDay, dispatch }) {
-
-
   const isTestDay = (day) => {
     return day % 4 === 1;
   };
 
   return (
     <View>
-      <Text>
-        Today is workout #{lastCompletedDay + 1}.
+      <Text style={styles.title}>
+        This is workout #{lastCompletedDay + 1}:
       </Text>
-
-      {isTestDay(lastCompletedDay + 1) &&
-      <Text>
-        Test – Max pull-ups to failure (MTF)
-          <Input />
-          {/* TODO Create two input cmpts: max & AMRAP */}
-          {"\n"}2 min rest, {"\n"}5-min AMRAP,{"\n"}& Test Day Total (TDT)
-      </Text>}
 
       <Text>
         {workouts[lastCompletedDay]}
       </Text>
+
+      {
+        isTestDay(lastCompletedDay + 1) &&
+        <>
+          <Text>
+            Max pull-ups:
+          </Text>
+          <Input />
+          {/* TODO Create two input cmpts: max & AMRAP */}
+        </>
+      }
+
       <Incrementer />
     </View>
   );
