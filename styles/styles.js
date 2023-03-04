@@ -4,12 +4,11 @@ import { StatusBar } from 'expo-status-bar';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
     padding: 20,
-    // marginTop: {StatusBar.currentHeight} || 0},
-    marginTop: 300,
-    backgroundColor: '#3f0',
+    // backgroundColor: '#3f0',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
