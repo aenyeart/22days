@@ -3,6 +3,8 @@ import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
+import styles from "../styles/styles.js";
+
 
 function Today({ lastCompletedDay, dispatch }) {
 
@@ -26,7 +28,7 @@ function Today({ lastCompletedDay, dispatch }) {
         Test – Max pull-ups to failure (MTF)
           <Input />
           {/* TODO Create two input cmpts: max & AMRAP */}
-        2 min rest, \n5-min AMRAP\n, & Test Day Total (TDT)"
+          {"\n"}2 min rest, {"\n"}5-min AMRAP,{"\n"}& Test Day Total (TDT)
       </Text>}
 
       <Text>
@@ -36,15 +38,15 @@ function Today({ lastCompletedDay, dispatch }) {
     </View>
   );
 }
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    color: 'green'
-  },
-});
+// const styles = StyleSheet.create({
+//   input: {
+//     height: 40,
+//     margin: 12,
+//     borderWidth: 1,
+//     padding: 10,
+//     color: 'green'
+//   },
+// });
 
 function mapStateToProps(state) {
   return {
