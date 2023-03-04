@@ -4,14 +4,10 @@ import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
 import styles from "../styles/styles.js";
-
+import workouts from '../constants/workouts.js'
 
 function Today({ lastCompletedDay, dispatch }) {
 
-  const workouts = [
-    "First test day:\n",
-    "Second day workout"
-  ];
 
   const isTestDay = (day) => {
     return day % 4 === 1;

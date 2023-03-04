@@ -12,7 +12,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
         <StatusBar style="auto" />
-        <Text>This is the beginning of your pullup journey!</Text>
+        <Text style={styles.title}>This is the beginning of your pullup journey!</Text>
         <Today />
         <Menu />
         {/* <Input /> */}
