@@ -39,7 +39,6 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
             Max pull-ups:
           </Text>
           <Input />
-          {/* TODO Create two input cmpts: max & AMRAP */}
         </>
       }
 

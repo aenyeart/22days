@@ -14,8 +14,7 @@ function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
         onSubmitEditing={(event) => {
           dispatch({ type: 'SET_CURRENT_MAX_PULL_UPS', value: event.nativeEvent.text });
           event.target.clear();
-        }
-        }
+        }}
       ></TextInput>
       <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
       <Text>lastCompletedDay: {lastCompletedDay}</Text>
