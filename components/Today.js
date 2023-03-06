@@ -12,20 +12,16 @@ const isTestDay = (day) => {
 };
 
 const workoutAssignment = (currDay) => {
-  if (currDay === 21) return "mtfTest";
-  if (currDay === 20) return "amrapTest";
+  if (currDay === 22) return "mtfTest";
+  if (currDay === 21) return "amrapTest";
   if (currDay % 4 === 0) return "scapHang";
   if (currDay % 4 === 3) return "commando";
   if (currDay % 4 === 2) return "chinUps";
   if (currDay % 4 === 1) return "initialTest";
   return null;
 }
-// 0123456789   % 1 2 3 0 1
-
-// 10 11 12 13 14 15 16 17 18 19
 
 function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
-
   return (
     <View>
       <Text style={styles.title}>
