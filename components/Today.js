@@ -7,7 +7,7 @@ import styles from "../styles/styles.js";
 import workouts from '../constants/workouts.js'
 import messages from '../constants/messages.js'
 
-function Today({ lastCompletedDay, dispatch }) {
+function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
   const isTestDay = (day) => {
     return day % 4 === 1;
   };
@@ -19,7 +19,7 @@ function Today({ lastCompletedDay, dispatch }) {
       </Text>
 
       <Text>
-        {workouts[lastCompletedDay]}
+        {workouts[lastCompletedDay](latestMaxPullUps)}
       </Text>
 
       {
@@ -41,6 +41,7 @@ function Today({ lastCompletedDay, dispatch }) {
 function mapStateToProps(state) {
   return {
     lastCompletedDay: state.lastCompletedDay,
+    latestMaxPullUps: state.latestMaxPullUps,
   };
 }
 

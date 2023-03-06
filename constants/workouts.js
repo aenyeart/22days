@@ -1,7 +1,14 @@
 export default workouts = [
-  `Test – Max pull-ups to failure (MTF)\n2 min rest, \n5-min AMRAP,\n& Test Day Total (TDT)`,
-
+  ()=>`Test – Max pull-ups to failure (MTF)\n2 min rest, \n5-min AMRAP,\n& Test Day Total (TDT)`,
+  (mtf) => `Chin-ups x ${Math.floor(2 * mtf)} (2x current MTF), \n2 min rest, \nPullups x ${Math.floor(1.4 * mtf)} (1.4x MTF)`,
+  (mtf) => `Commando Pullups x ${Math.floor(2 * mtf)} (2x current MTF), 2 min rest, Pullups x ${Math.floor(1.5 * mtf)} (1.5x MTF)`,
+  (mtf) => `Scap-Pull Hang (until failure or prev time +5 sec), 2 min rest, Pullups x ${Math.floor(1.6 * mtf)} (1.6x MTF)`,
+  (mtf) => `Test – Do TDT from day one w/in 5 min`,
+  (mtf) => `Test – Update MTF pullups`,
 ];
+// TODO add input for scap pull hang
+// TODO add input for AMRAP
+
 /*
 ## Program Outline
 Four-day block, repeated five times over 20 days:
