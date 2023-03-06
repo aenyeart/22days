@@ -7,10 +7,24 @@ import styles from "../styles/styles.js";
 import workouts from '../constants/workouts.js'
 import messages from '../constants/messages.js'
 
+const isTestDay = (day) => {
+  return day % 4 === 1;
+};
+
+const workoutAssignment = (currDay) => {
+  if (currDay === 21) return "mtfTest";
+  if (currDay === 20) return "amrapTest";
+  if (currDay % 4 === 0) return "scapHang";
+  if (currDay % 4 === 3) return "commando";
+  if (currDay % 4 === 2) return "chinUps";
+  if (currDay % 4 === 1) return "initialTest";
+  return null;
+}
+// 0123456789   % 1 2 3 0 1
+
+// 10 11 12 13 14 15 16 17 18 19
+
 function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
-  const isTestDay = (day) => {
-    return day % 4 === 1;
-  };
 
   return (
     <View>
@@ -19,7 +33,7 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
       </Text>
 
       <Text>
-        {workouts[lastCompletedDay](latestMaxPullUps)}
+        {workouts[workoutAssignment(lastCompletedDay+1)](latestMaxPullUps)}
       </Text>
 
       {
