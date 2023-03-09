@@ -34,8 +34,8 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 
 // const store = configureStore({reducer});
 
-export default () => {
-  const store = configureStore(persistedReducer);
-  const persistor = persistStore(store);
-  return { store, persistor };
-}
+// export const store = configureStore(persistedReducer);
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+export const persistor = persistStore(store);
