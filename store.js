@@ -1,5 +1,14 @@
-import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
 import AsyncStorage  from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
@@ -11,7 +20,7 @@ const persistConfig = {
 const initialState = {
   lastCompletedDay: 0,
   currentFieldValue: '',
-  latestMaxPullUps: null
+  latestMaxPullUps: 0 // previously 'null'
 };
 
 function reducer(state = initialState, action) {
@@ -37,5 +46,11 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 // export const store = configureStore(persistedReducer);
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 export const persistor = persistStore(store);
