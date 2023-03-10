@@ -28,6 +28,10 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
         This is workout #{lastCompletedDay + 1}:
       </Text>
 
+      { latestMaxPullUps !== null &&
+        <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
+      }
+
       <Text>
         {workouts[workoutAssignment(lastCompletedDay+1)](latestMaxPullUps)}
       </Text>
