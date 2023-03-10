@@ -16,7 +16,6 @@ function Input({ lastCompletedDay, latestMaxPullUps, dispatch }) {
           event.target.clear();
         }}
       ></TextInput>
-      <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
       <Text>lastCompletedDay: {lastCompletedDay}</Text>
     </View>
   );

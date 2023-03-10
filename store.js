@@ -20,7 +20,7 @@ const persistConfig = {
 const initialState = {
   lastCompletedDay: 0,
   currentFieldValue: '',
-  latestMaxPullUps: 0 // previously 'null'
+  latestMaxPullUps: null
 };
 
 function reducer(state = initialState, action) {
@@ -33,6 +33,8 @@ function reducer(state = initialState, action) {
       return { ...state, lastCompletedDay: state.lastCompletedDay - 1 };
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, latestMaxPullUps: action.value };
+    case PURGE:
+      return initialState;
     default:
       return state;
   }
