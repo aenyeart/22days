@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TextInput, View, Button, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import { Text, ScrollView, View, Button, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
@@ -23,7 +23,9 @@ const workoutAssignment = (currDay) => {
 
 function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentAmrap, dispatch }) {
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+
       <Text style={styles.title}>
         This is workout #{lastCompletedDay + 1}:
       </Text>
@@ -54,6 +56,7 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentA
           }}/>
         </>
       }
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
