@@ -3,14 +3,7 @@
 
 Double your max consecutive pullups in only three weeks with this mobile app.
 
-## To-do List
-
-- [ ]
-- [ ] test-day total
-- [ ] add input for scap pull hang
-- [ ] isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
-- [x] Create two input cmpts: max & AMRAP
-
+[Project To-do List](./TODO.md)
 
 ## Acknowledgements
 
