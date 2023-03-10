@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView, View, Button, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import { Text, ScrollView, View, Button, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
@@ -7,9 +7,9 @@ import styles from "../styles/styles.js";
 import workouts from '../constants/workouts.js'
 import messages from '../constants/messages.js'
 
-const isTestDay = (day) => {
-  return day % 4 === 1;
-};
+// const isTestDay = (day) => {
+//   return day % 4 === 1;
+// };
 
 const workoutAssignment = (currDay) => {
   if (currDay === 22) return "mtfTest";
@@ -21,41 +21,76 @@ const workoutAssignment = (currDay) => {
   return null;
 }
 
+const renderInputs = (workout) => {
+  console.log('workout >>>', workout);
+  switch (workout) {
+    case "mtfTest":
+      return <Text>MTF Test</Text>;
+    case "amrapTest":
+      return <Text>AMRAP Test</Text>;
+    case "scapHang":
+      return <Text>Scap-Pull Hang</Text>;;
+    case "initialTest":
+      // return <Text>Initial Test</Text>;
+    return <>
+      <Text>Max consecutive pull-ups:</Text>
+      <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
+      <Text>AMRAP pull-ups in five minutes:</Text>
+      <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
+
+      <Button title="Complete workout" onPress={() => {
+        dispatch({
+          type: 'COMPLETE_WORKOUT', value: {
+            latestMaxPullUps: currentMaxPullUps,
+            latestAmrap: currentAmrap,
+          }
+        });
+      }} />
+    </>;
+    default:
+      // return;
+      return <Text>OOPS!</Text>
+  };
+
+}
+
 function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentAmrap, dispatch }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
 
-      <Text style={styles.title}>
-        This is workout #{lastCompletedDay + 1}:
-      </Text>
+        <Text style={styles.title}>
+          This is workout #{lastCompletedDay + 1}:
+        </Text>
 
-      { latestMaxPullUps !== null &&
-        <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
-      }
+        {latestMaxPullUps !== null &&
+          <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
+        }
 
-      <Text>
-        {workouts[workoutAssignment(lastCompletedDay+1)](latestMaxPullUps)}
-      </Text>
+        <Text>
+          {workouts[workoutAssignment(lastCompletedDay + 1)](latestMaxPullUps)}
+        </Text>
 
-      {
-        isTestDay(lastCompletedDay + 1) &&
-        <>
-          <Text>
-            Max pull-ups:
-          </Text>
+        <View>
+          {renderInputs(workoutAssignment(lastCompletedDay + 1))}
+        </View>
+        {/* {isTestDay(lastCompletedDay + 1) &&
+          <>
+            <Text>Max consecutive pull-ups:</Text>
+            <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
+            <Text>AMRAP pull-ups in five minutes:</Text>
+            <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
 
-          <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
-          <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
-
-          <Button title="Complete workout" onPress={() => {
-            dispatch({type: 'COMPLETE_WORKOUT', value: {
-              latestMaxPullUps: currentMaxPullUps,
-              latestAmrap: currentAmrap,
-            }});
-          }}/>
-        </>
-      }
+            <Button title="Complete workout" onPress={() => {
+              dispatch({
+                type: 'COMPLETE_WORKOUT', value: {
+                  latestMaxPullUps: currentMaxPullUps,
+                  latestAmrap: currentAmrap,
+                }
+              });
+            }} />
+          </>
+        } */}
       </ScrollView>
     </KeyboardAvoidingView>
   );
