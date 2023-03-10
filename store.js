@@ -20,7 +20,10 @@ const persistConfig = {
 const initialState = {
   lastCompletedDay: 0,
   currentFieldValue: '',
-  latestMaxPullUps: 0 // previously 'null'
+  currentMaxPullUps: null,
+  currentAmrap: null,
+  latestMaxPullUps: null,
+  latestAmrap: null,
 };
 
 function reducer(state = initialState, action) {
@@ -32,7 +35,17 @@ function reducer(state = initialState, action) {
     case 'DECREMENT':
       return { ...state, lastCompletedDay: state.lastCompletedDay - 1 };
     case 'SET_CURRENT_MAX_PULL_UPS':
+      return { ...state, currentMaxPullUps: action.value };
+    case 'SET_CURRENT_AMRAP':
+      return { ...state, currentAmrap: action.value };
+    case 'SET_LATEST_MAX_PULL_UPS':
       return { ...state, latestMaxPullUps: action.value };
+    case 'SET_LATEST_AMRAP':
+      return { ...state, latestAmrap: action.value };
+    case 'COMPLETE_WORKOUT':
+      return { ...state, currentMaxPullUps: initialState.currentMaxPullUps, currentAmrap: initialState.currentAmrap, ...action.value };
+    case PURGE:
+      return initialState;
     default:
       return state;
   }
