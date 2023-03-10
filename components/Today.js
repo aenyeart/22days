@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
+import {Text, TextInput, View, Button, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
@@ -21,9 +21,9 @@ const workoutAssignment = (currDay) => {
   return null;
 }
 
-function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
+function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentAmrap, dispatch }) {
   return (
-    <View>
+    <KeyboardAvoidingView>
       <Text style={styles.title}>
         This is workout #{lastCompletedDay + 1}:
       </Text>
@@ -42,11 +42,19 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
           <Text>
             Max pull-ups:
           </Text>
-          <Input />
-          <Input />
+
+          <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
+          <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
+
+          <Button title="Complete workout" onPress={() => {
+            dispatch({type: 'COMPLETE_WORKOUT', value: {
+              latestMaxPullUps: currentMaxPullUps,
+              latestAmrap: currentAmrap,
+            }});
+          }}/>
         </>
       }
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -54,6 +62,8 @@ function mapStateToProps(state) {
   return {
     lastCompletedDay: state.lastCompletedDay,
     latestMaxPullUps: state.latestMaxPullUps,
+    currentMaxPullUps: state.currentMaxPullUps,
+    currentAmrap: state.currentAmrap,
   };
 }
 

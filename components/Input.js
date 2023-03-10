@@ -1,22 +1,20 @@
 import React from 'react';
-import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
+import {Text, TextInput, View, Button, StyleSheet, SafeAreaView} from 'react-native';
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 
-function Input({ lastCompletedDay, latestMaxPullUps, dispatch }) {
+function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
   return (
-    <View>
       <TextInput
         keyboardType="numeric"
         style={styles.input}
-        placeholder="Enter your max pull-ups"
+        placeholder={props.placeholder}
         returnKeyType='done'
         onSubmitEditing={(event) => {
-          dispatch({ type: 'SET_CURRENT_MAX_PULL_UPS', value: event.nativeEvent.text });
-          event.target.clear();
+          dispatch({ type: props.actionType, value: event.nativeEvent.text });
+          // event.target.clear();
         }}
       ></TextInput>
-    </View>
   );
 }
 
