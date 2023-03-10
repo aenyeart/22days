@@ -3,7 +3,7 @@ import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 
-function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
+function Input({ lastCompletedDay, latestMaxPullUps, dispatch }) {
   return (
     <View>
       <TextInput
@@ -30,4 +30,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps)(Input);
