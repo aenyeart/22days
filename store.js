@@ -1,9 +1,30 @@
 import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+import AsyncStorage  from '@react-native-async-storage/async-storage';
 
-const initialState = { lastCompletedDay: 0, currentFieldValue: '', latestMaxPullUps: null };
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  // blacklist: ['navigation'], // navigation will not be persisted
+  // whitelist: ['navigation'], // only navigation will be persisted
+}
+const initialState = {
+  lastCompletedDay: 0,
+  currentFieldValue: '',
+  latestMaxPullUps: 0 // previously 'null'
+};
 
 function reducer(state = initialState, action) {
-  console.log(action);
+  console.log(`ACTION >>>>>>`, action);
 
   switch (action.type) {
     case 'INCREMENT':
@@ -16,7 +37,15 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+const persistedReducer = persistReducer(persistConfig, reducer);
 
-const store = configureStore({reducer});
-
-export default store;
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+export const persistor = persistStore(store);

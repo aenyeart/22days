@@ -1,11 +1,15 @@
+import {Text} from 'react-native';
 import Home from './components/Home.js';
 import { Provider } from 'react-redux';
-import store from './store';
+import { store, persistor } from './store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 export default function App() {
   return (
     <Provider store={store}>
-      <Home />
+      <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
+        <Home />
+      </PersistGate>
     </Provider>
   );
 }
