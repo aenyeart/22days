@@ -6,11 +6,6 @@ export default workouts = {
   amrapTest: (mtf) => `Test – Do TDT from day one w/in 5 min`,
   mtfTest: (mtf) => `Test – Update MTF pullups`,
 };
-// TODO add input for AMRAP
-// TODO test-day total
-// TODO add input for scap pull hang
-// TODO isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
-// TODO Create two input cmpts: max & AMRAP
 
 /*
 ## Program Outline

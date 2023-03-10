@@ -3,6 +3,15 @@
 
 Double your max consecutive pullups in only three weeks with this mobile app.
 
+## To-do List
+
+- [ ]
+- [ ] test-day total
+- [ ] add input for scap pull hang
+- [ ] isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
+- [x] Create two input cmpts: max & AMRAP
+
+
 ## Acknowledgements
 
 - Inspired by and built to accompany the [Double Your Max Pullups in 22 Days!](https://youtu.be/eb7tgP7Bla8) video by Jeff Cavaliere of [ATHLEAN-X](http://youtube.com/user/jdcav24).
