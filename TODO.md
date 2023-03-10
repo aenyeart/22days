@@ -16,3 +16,7 @@
 - [ ] Reconcile variable names for MTF vs latestMaxPullUps
 - [ ] Format rendering of workout instructions for greater clarity & distinction
   - [ ] Add padding or change to SafeAreaView for consistency
+
+## Stretch Goals
+
+- [ ] Integrated timers for 2-min rest and scap-pull hang

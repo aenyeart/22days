@@ -38,10 +38,16 @@ function reducer(state = initialState, action) {
       return { ...state, currentMaxPullUps: action.value };
     case 'SET_CURRENT_AMRAP':
       return { ...state, currentAmrap: action.value };
+    case 'SET_CURRENT_SCAP_HANG':
+      return { ...state, currentScapHang: action.value };
+    case 'SET_TEST_DAY_TOTAL':
+      return { ...state, testDayTotal: state.currentAmrap + state.currentMaxPullUps }; // Should this be computed in the component?
     case 'SET_LATEST_MAX_PULL_UPS':
       return { ...state, latestMaxPullUps: action.value };
     case 'SET_LATEST_AMRAP':
       return { ...state, latestAmrap: action.value };
+    case 'SET_LATEST_SCAP_HANG':
+      return { ...state, latestScapHang: action.value };
     case 'COMPLETE_WORKOUT':
       return { ...state, currentMaxPullUps: initialState.currentMaxPullUps, currentAmrap: initialState.currentAmrap, ...action.value };
     case PURGE:
