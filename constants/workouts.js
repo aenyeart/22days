@@ -6,7 +6,6 @@ export default workouts = {
   amrapTest: (mtf) => `Test – Do TDT from day one w/in 5 min`,
   mtfTest: (mtf) => `Test – Update MTF pullups`,
 };
-// TODO persist the data
 // TODO add input for AMRAP
 // TODO test-day total
 // TODO add input for scap pull hang
