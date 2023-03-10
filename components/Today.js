@@ -43,6 +43,7 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
             Max pull-ups:
           </Text>
           <Input />
+          <Input />
         </>
       }
     </View>
