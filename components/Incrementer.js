@@ -1,10 +1,8 @@
 import React from 'react';
-import { Text, TextInput, View, Button, StyleSheet } from 'react-native';
+import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
-import styles from "../styles/styles.js";
 
-
-function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
+function Counter({ lastCompletedDay, dispatch }) {
   return (
     <View>
       <Button title="Increment" onPress={() => lastCompletedDay < 21 &&dispatch({ type: 'INCREMENT' })} />
@@ -15,9 +13,7 @@ function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
 
 function mapStateToProps(state) {
   return {
-    lastCompletedDay: state.lastCompletedDay,
-    currentFieldValue: state.currentFieldValue,
-    latestMaxPullUps: state.latestMaxPullUps,
+    lastCompletedDay: state.lastCompletedDay
   };
 }
 
