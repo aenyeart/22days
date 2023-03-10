@@ -8,9 +8,11 @@
 - [ ] Handle workout completion
   - [ ] Modal to acknowledge entry
   - [ ] Clearing modal increments day (advances view to next day's workout)
+- [ ] change numerical inputs to iOS selector menu/wheel
 
 ## Small changes
 
 - [ ] Change names of incr/decr buttons
 - [ ] Reconcile variable names for MTF vs latestMaxPullUps
 - [ ] Format rendering of workout instructions for greater clarity & distinction
+  - [ ] Add padding or change to SafeAreaView for consistency

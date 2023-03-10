@@ -10,7 +10,8 @@ function Home({ lastCompletedDay, dispatch }) {
   return (
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
-        <Text style={styles.menuItem}>{lastCompletedDay === 0 ? messages.beginning : `some other text`}</Text>
+      {lastCompletedDay === 0 && <Text style={styles.menuItem}>{ messages.beginning }</Text>}
+        {/* <Text style={styles.menuItem}>{lastCompletedDay === 0 ? messages.beginning : `some other text`}</Text> */}
         <Today />
         <Menu />
       </SafeAreaView>
