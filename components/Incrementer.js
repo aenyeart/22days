@@ -7,8 +7,8 @@ import styles from "../styles/styles.js";
 function Counter({ lastCompletedDay, latestMaxPullUps, dispatch }) {
   return (
     <View>
-      <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} />
-      <Button title="Decrement" onPress={() => dispatch({ type: 'DECREMENT' })} />
+      <Button title="Increment" onPress={() => lastCompletedDay < 21 &&dispatch({ type: 'INCREMENT' })} />
+      <Button title="Decrement" onPress={() => lastCompletedDay > 0 && dispatch({ type: 'DECREMENT' })} />
     </View>
   );
 }
