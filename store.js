@@ -33,8 +33,6 @@ function reducer(state = initialState, action) {
       return { ...state, lastCompletedDay: state.lastCompletedDay - 1 };
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, latestMaxPullUps: action.value };
-    case 'PURGE':
-      return initialState;
     default:
       return state;
   }
