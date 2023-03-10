@@ -41,8 +41,6 @@ function Today({ lastCompletedDay, latestMaxPullUps, dispatch }) {
           <Input />
         </>
       }
-
-      <Incrementer />
     </View>
   );
 }
