@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import AsyncStorage  from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
   key: 'root',
@@ -49,7 +49,12 @@ function reducer(state = initialState, action) {
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: action.value };
     case 'COMPLETE_WORKOUT':
-      return { ...state, currentMaxPullUps: initialState.currentMaxPullUps, currentAmrap: initialState.currentAmrap, ...action.value };
+      return {
+        ...state,
+        // currentMaxPullUps: initialState.currentMaxPullUps,
+        // currentAmrap: initialState.currentAmrap,
+        ...action.value
+      };
     case PURGE:
       return initialState;
     default:

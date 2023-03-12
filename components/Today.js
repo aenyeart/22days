@@ -21,40 +21,39 @@ const workoutAssignment = (currDay) => {
   return null;
 }
 
-const renderInputs = (workout) => {
+const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, currentScapHang) => {
   console.log('workout >>>', workout);
   switch (workout) {
     case "mtfTest":
-      return <Text>MTF Test</Text>;
-    case "amrapTest":
-      return <Text>AMRAP Test</Text>;
-    case "scapHang":
-      return <Text>Scap-Pull Hang</Text>;;
-    case "initialTest":
-      // return <Text>Initial Test</Text>;
-    return <>
-      <Text>Max consecutive pull-ups:</Text>
+      return <>
+      <Text>MTF Test</Text>
       <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
-      <Text>AMRAP pull-ups in five minutes:</Text>
-      <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
+      </>;
+    case "amrapTest":
+      return <>
+      <Text>AMRAP Test</Text>
+        <Input placeholder="Enter your 5-min AMRAP" actionType="SET_CURRENT_AMRAP" />
+      </>;
+    case "scapHang":
+      return <>
+      <Text>Scap-Pull Hang</Text>
+        <Input placeholder="Enter scap-pull hang duration (seconds)" actionType="SET_CURRENT_SCAP_HANG" />
+      </>;
+    case "initialTest":
+      return <>
+        <Text>Max consecutive pull-ups:</Text>
+        <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
+        <Text>AMRAP pull-ups in five minutes:</Text>
+        <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
 
-      <Button title="Complete workout" onPress={() => {
-        dispatch({
-          type: 'COMPLETE_WORKOUT', value: {
-            latestMaxPullUps: currentMaxPullUps,
-            latestAmrap: currentAmrap,
-          }
-        });
-      }} />
-    </>;
+      </>;
     default:
-      // return;
-      return <Text>OOPS!</Text>
+      return;
+      // return <Text>~~~ No logging reps needed for this workout ~~~</Text>
   };
-
 }
 
-function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentAmrap, dispatch }) {
+function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, latestAmrap, currentAmrap, latestScapHang, currentScapHang, dispatch }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -72,7 +71,7 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentA
         </Text>
 
         <View>
-          {renderInputs(workoutAssignment(lastCompletedDay + 1))}
+          {renderInputs(workoutAssignment(lastCompletedDay + 1), dispatch, currentMaxPullUps, currentAmrap)}
         </View>
         {/* {isTestDay(lastCompletedDay + 1) &&
           <>
@@ -91,6 +90,15 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, currentA
             }} />
           </>
         } */}
+        <Button title="Complete workout" onPress={() => {
+          dispatch({
+            type: 'COMPLETE_WORKOUT', value: {
+              latestMaxPullUps: currentMaxPullUps,
+              latestAmrap: currentAmrap,
+              latestScapHang: currentScapHang,
+            }
+          });
+        }} />
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -100,12 +108,16 @@ function mapStateToProps(state) {
   return {
     lastCompletedDay: state.lastCompletedDay,
     latestMaxPullUps: state.latestMaxPullUps,
+    latestAmrap: state.latestAmrap,
+    latestScapHang: state.latestScapHang,
     currentMaxPullUps: state.currentMaxPullUps,
     currentAmrap: state.currentAmrap,
+    currentScapHang: state.currentScapHang,
   };
 }
 
 export default connect(mapStateToProps)(Today);
+// export connect(mapDispatchTo)(renderInputs);
 
 /* Data:
 lastCompletedDay INT

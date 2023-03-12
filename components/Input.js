@@ -12,7 +12,6 @@ function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
         returnKeyType='done'
         onSubmitEditing={(event) => {
           dispatch({ type: props.actionType, value: event.nativeEvent.text });
-          // event.target.clear();
         }}
       ></TextInput>
   );
