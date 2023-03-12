@@ -2,13 +2,17 @@
 
 - [x] Create two input cmpts: max & AMRAP
 - [x] Make text entry visible on smaller screens
-- [ ] Save/render test-day total
-- [ ] add input for scap pull hang
+- [x] Save/render test-day total
+- [x] add input for scap pull hang
 - [ ] isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
 - [ ] Handle workout completion
   - [ ] Modal to acknowledge entry
   - [ ] Clearing modal increments day (advances view to next day's workout)
 - [ ] change numerical inputs to iOS selector menu/wheel
+
+## BUGS
+
+- [ ] value entered into scaphang input persists in next day's MTF placeholder
 
 ## Small changes
 
