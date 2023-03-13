@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import Incrementer from './Incrementer.js';
 import Input from './Input.js';
 import styles from "../styles/styles.js";
-import workouts from '../constants/workouts.js'
-import messages from '../constants/messages.js'
-
-// const isTestDay = (day) => {
-//   return day % 4 === 1;
-// };
+import workouts from '../constants/workouts.js';
+import ScapHang from './workouts/ScapHang.js';
+import messages from '../constants/messages.js';
 
 const workoutAssignment = (currDay) => {
   if (currDay === 22) return "mtfTest";
@@ -35,10 +32,7 @@ const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, curren
         <Input placeholder="Enter your 5-min AMRAP" actionType="SET_CURRENT_AMRAP" />
       </>;
     case "scapHang":
-      return <>
-      <Text>Scap-Pull Hang</Text>
-        <Input placeholder="Enter scap-pull hang duration (seconds)" actionType="SET_CURRENT_SCAP_HANG" />
-      </>;
+      return <ScapHang />
     case "initialTest":
       return <>
         <Text>Max consecutive pull-ups:</Text>
