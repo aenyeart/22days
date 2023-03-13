@@ -1,20 +1,20 @@
 import React from 'react';
-import {Text, TextInput, View, Button, StyleSheet, SafeAreaView} from 'react-native';
+import { Text, TextInput, View, Button, StyleSheet, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 
 function Input({ today, latestMaxPullUps, dispatch, ...props }) {
   return (
-      <TextInput
-        keyboardType="numeric"
-        style={styles.input}
-        placeholder={props.placeholder}
-        returnKeyType='done'
-        onSubmitEditing={(event) => {
-          dispatch({ type: props.actionType, value: event.nativeEvent.text });
-          // event.target.clear();
-        }}
-      ></TextInput>
+    <TextInput
+      keyboardType="numeric"
+      style={styles.input}
+      placeholder={props.placeholder}
+      returnKeyType='done'
+      onEndEditing={(event) => {
+        dispatch({ type: props.actionType, value: event.nativeEvent.text });
+        // event.target.clear();
+      }}
+    ></TextInput>
   );
 }
 
