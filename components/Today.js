@@ -35,10 +35,10 @@ const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, curren
       return <ScapHang />
     case "initialTest":
       return <>
-        <Text>Max consecutive pull-ups:</Text>
+        {/* <Text>Max consecutive pull-ups:</Text>
         <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
         <Text>AMRAP pull-ups in five minutes:</Text>
-        <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
+        <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" /> */}
 
       </>;
     default:

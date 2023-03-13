@@ -1,10 +1,10 @@
 export default workouts = {
-  initialTest: ()=>`Test – Max pull-ups to failure (MTF)\n2 min rest, \n5-min AMRAP,\n& Test Day Total (TDT)`,
-  chinUps: (mtf) => `Chin-ups x ${Math.floor(2 * mtf)} (2x current MTF), \n2 min rest, \nPullups x ${Math.floor(1.4 * mtf)} (1.4x MTF)`,
-  commando: (mtf) => `Commando Pullups x ${Math.floor(2 * mtf)} (2x current MTF), \n2 min rest, \nPullups x ${Math.floor(1.5 * mtf)} (1.5x MTF)`,
-  scapHang: (mtf) => `Scap-Pull Hang (until failure or prev time +5 sec), \n2 min rest, \nPullups x ${Math.floor(1.6 * mtf)} (1.6x MTF)`,
-  amrapTest: (mtf) => `Test – Do TDT from day one w/in 5 min`,
-  mtfTest: (mtf) => `Test – Update MTF pullups`,
+  // initialTest: ()=>`Test – Max pull-ups to failure (MTF)\n2 min rest, \n5-min AMRAP,\n& Test Day Total (TDT)`,
+  // chinUps: (mtf) => `Chin-ups x ${Math.floor(2 * mtf)} (2x current MTF), \n2 min rest, \nPullups x ${Math.floor(1.4 * mtf)} (1.4x MTF)`,
+  // commando: (mtf) => `Commando Pullups x ${Math.floor(2 * mtf)} (2x current MTF), \n2 min rest, \nPullups x ${Math.floor(1.5 * mtf)} (1.5x MTF)`,
+  // scapHang: (mtf) => `Scap-Pull Hang (until failure or prev time +5 sec), \n2 min rest, \nPullups x ${Math.floor(1.6 * mtf)} (1.6x MTF)`,
+  // amrapTest: (mtf) => `Test – Do TDT from day one w/in 5 min`,
+  // mtfTest: (mtf) => `Test – Update MTF pullups`,
 };
 
 /*
