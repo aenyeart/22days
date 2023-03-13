@@ -12,6 +12,7 @@ function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
         returnKeyType='done'
         onSubmitEditing={(event) => {
           dispatch({ type: props.actionType, value: event.nativeEvent.text });
+          // event.target.clear();
         }}
       ></TextInput>
   );
@@ -20,9 +21,21 @@ function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
 function mapStateToProps(state) {
   return {
     lastCompletedDay: state.lastCompletedDay,
-    currentFieldValue: state.currentFieldValue,
     latestMaxPullUps: state.latestMaxPullUps,
+    latestAmrap: state.latestAmrap,
+    latestScapHang: state.latestScapHang,
+    currentMaxPullUps: state.currentMaxPullUps,
+    currentAmrap: state.currentAmrap,
+    currentScapHang: state.currentScapHang,
   };
 }
+
+// function mapStateToProps(state) {
+//   return {
+//     lastCompletedDay: state.lastCompletedDay,
+//     currentFieldValue: state.currentFieldValue,
+//     latestMaxPullUps: state.latestMaxPullUps,
+//   };
+// }
 
 export default connect(mapStateToProps)(Input);

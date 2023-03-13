@@ -73,23 +73,6 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, latestAm
         <View>
           {renderInputs(workoutAssignment(lastCompletedDay + 1), dispatch, currentMaxPullUps, currentAmrap)}
         </View>
-        {/* {isTestDay(lastCompletedDay + 1) &&
-          <>
-            <Text>Max consecutive pull-ups:</Text>
-            <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
-            <Text>AMRAP pull-ups in five minutes:</Text>
-            <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
-
-            <Button title="Complete workout" onPress={() => {
-              dispatch({
-                type: 'COMPLETE_WORKOUT', value: {
-                  latestMaxPullUps: currentMaxPullUps,
-                  latestAmrap: currentAmrap,
-                }
-              });
-            }} />
-          </>
-        } */}
         <Button title="Complete workout" onPress={() => {
           dispatch({
             type: 'COMPLETE_WORKOUT', value: {
