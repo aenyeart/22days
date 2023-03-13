@@ -53,13 +53,13 @@ const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, curren
   };
 }
 
-function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, latestAmrap, currentAmrap, latestScapHang, currentScapHang, dispatch }) {
+function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, currentAmrap, latestScapHang, currentScapHang, dispatch }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
 
         <Text style={styles.title}>
-          This is workout #{lastCompletedDay + 1}:
+          This is workout #{today}:
         </Text>
 
         {latestMaxPullUps !== null &&
@@ -67,11 +67,11 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, latestAm
         }
 
         <Text>
-          {workouts[workoutAssignment(lastCompletedDay + 1)](latestMaxPullUps)}
+          {workouts[workoutAssignment(today)](latestMaxPullUps)}
         </Text>
 
         <View>
-          {renderInputs(workoutAssignment(lastCompletedDay + 1), dispatch, currentMaxPullUps, currentAmrap)}
+          {renderInputs(workoutAssignment(today), dispatch, currentMaxPullUps, currentAmrap)}
         </View>
         <Button title="Complete workout" onPress={() => {
           dispatch({
@@ -89,7 +89,7 @@ function Today({ lastCompletedDay, latestMaxPullUps, currentMaxPullUps, latestAm
 
 function mapStateToProps(state) {
   return {
-    lastCompletedDay: state.lastCompletedDay,
+    today: state.today,
     latestMaxPullUps: state.latestMaxPullUps,
     latestAmrap: state.latestAmrap,
     latestScapHang: state.latestScapHang,
@@ -103,7 +103,7 @@ export default connect(mapStateToProps)(Today);
 // export connect(mapDispatchTo)(renderInputs);
 
 /* Data:
-lastCompletedDay INT
+today INT
 latestMaxPullUps INT
 workoutComplete BOOL (incr, trigger modal/user feedback)
 workouts ARR of ARR of STRINGS

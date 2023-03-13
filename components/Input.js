@@ -3,7 +3,7 @@ import {Text, TextInput, View, Button, StyleSheet, SafeAreaView} from 'react-nat
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 
-function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
+function Input({ today, latestMaxPullUps, dispatch, ...props }) {
   return (
       <TextInput
         keyboardType="numeric"
@@ -20,7 +20,7 @@ function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
 
 function mapStateToProps(state) {
   return {
-    lastCompletedDay: state.lastCompletedDay,
+    today: state.today,
     latestMaxPullUps: state.latestMaxPullUps,
     latestAmrap: state.latestAmrap,
     latestScapHang: state.latestScapHang,
@@ -32,7 +32,7 @@ function mapStateToProps(state) {
 
 // function mapStateToProps(state) {
 //   return {
-//     lastCompletedDay: state.lastCompletedDay,
+//     today: state.today,
 //     currentFieldValue: state.currentFieldValue,
 //     latestMaxPullUps: state.latestMaxPullUps,
 //   };

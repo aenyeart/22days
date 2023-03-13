@@ -18,7 +18,7 @@ const persistConfig = {
   // whitelist: ['navigation'], // only navigation will be persisted
 }
 const initialState = {
-  lastCompletedDay: 0,
+  today: 1,
   currentFieldValue: '',
   currentMaxPullUps: null,
   currentAmrap: null,
@@ -31,9 +31,9 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case 'INCREMENT':
-      return { ...state, lastCompletedDay: state.lastCompletedDay + 1 };
+      return { ...state, today: state.today + 1 };
     case 'DECREMENT':
-      return { ...state, lastCompletedDay: state.lastCompletedDay - 1 };
+      return { ...state, today: state.today - 1 };
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, currentMaxPullUps: action.value };
     case 'SET_CURRENT_AMRAP':

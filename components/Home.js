@@ -6,12 +6,12 @@ import messages from "../constants/messages";
 import styles from "../styles/styles.js";
 import { connect } from 'react-redux'
 
-function Home({ lastCompletedDay, dispatch }) {
+function Home({ today, dispatch }) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      {lastCompletedDay === 0 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
-      {/* <Text style={styles.menuItem}>{lastCompletedDay === 0 ? messages.beginning : `some other text`}</Text> */}
+      {today === 1 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
+      {/* <Text style={styles.menuItem}>{today === 0 ? messages.beginning : `some other text`}</Text> */}
       <Today />
       <Menu />
     </SafeAreaView>
@@ -19,7 +19,7 @@ function Home({ lastCompletedDay, dispatch }) {
 }
 function mapStateToProps(state) {
   return {
-    lastCompletedDay: state.lastCompletedDay,
+    today: state.today,
   };
 }
 
