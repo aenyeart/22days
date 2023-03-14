@@ -7,6 +7,8 @@ import styles from "../styles/styles.js";
 import workouts from '../constants/workouts.js';
 import ScapHang from './workouts/ScapHang.js';
 import messages from '../constants/messages.js';
+import AmrapTest from './workouts/AmrapTest.js';
+import MtfTest from './workouts/MtfTest.js';
 
 const workoutAssignment = (currDay) => {
   if (currDay === 22) return "mtfTest";
@@ -22,25 +24,15 @@ const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, curren
   console.log('workout >>>', workout);
   switch (workout) {
     case "mtfTest":
-      return <>
-      <Text>MTF Test</Text>
-      <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
-      </>;
+      return <MtfTest mtf={currentMaxPullUps} />;
     case "amrapTest":
-      return <>
-      <Text>AMRAP Test</Text>
-        <Input placeholder="Enter your 5-min AMRAP" actionType="SET_CURRENT_AMRAP" />
-      </>;
+      return <AmrapTest amrap={currentAmrap} />
     case "scapHang":
-      return <ScapHang />
+      return <ScapHang mtf={currentMaxPullUps} scapHang={currentScapHang} />
+    case "commando":
+      return <Commando mtf={currentMaxPullUps} />
     case "initialTest":
-      return <>
-        {/* <Text>Max consecutive pull-ups:</Text>
-        <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
-        <Text>AMRAP pull-ups in five minutes:</Text>
-        <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" /> */}
-
-      </>;
+      return <InitialTest mtf={currentMaxPullUps} />
     default:
       return;
       // return <Text>~~~ No logging reps needed for this workout ~~~</Text>
