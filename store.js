@@ -24,10 +24,11 @@ const initialState = {
   currentAmrap: null,
   latestMaxPullUps: null,
   latestAmrap: null,
+  // latestScapHang: null,
 };
 
 function reducer(state = initialState, action) {
-  console.log(`ACTION >>>>>>`, action);
+  console.log(action);
 
   switch (action.type) {
     case 'INCREMENT':

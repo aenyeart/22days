@@ -1,46 +1,8 @@
 import React from 'react';
 import { Text, ScrollView, View, Button, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
-import Incrementer from './Incrementer.js';
-import Input from './Input.js';
 import styles from "../styles/styles.js";
-import workouts from '../constants/workouts.js';
-import ScapHang from './workouts/ScapHang.js';
-import messages from '../constants/messages.js';
-import AmrapTest from './workouts/AmrapTest.js';
-import MtfTest from './workouts/MtfTest.js';
-import ChinUps from './workouts/ChinUps.js';
-
-const workoutAssignment = (currDay) => {
-  if (currDay === 22) return "mtfTest";
-  if (currDay === 21) return "amrapTest";
-  if (currDay % 4 === 0) return "scapHang";
-  if (currDay % 4 === 3) return "commando";
-  if (currDay % 4 === 2) return "chinUps";
-  if (currDay % 4 === 1) return "initialTest";
-  return null;
-}
-
-const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, currentScapHang, testDayTotal) => {
-  console.log('workout >>>', workout);
-  switch (workout) {
-    case "mtfTest":
-      return <MtfTest mtf={currentMaxPullUps} />;
-    case "amrapTest":
-      return <AmrapTest tdt={testDayTotal} />;
-    case "scapHang":
-      return <ScapHang mtf={currentMaxPullUps} scapHang={currentScapHang} />;
-    case "chinUps":
-      return <ChinUps mtf={currentMaxPullUps} />
-    case "commando":
-      return <Commando mtf={currentMaxPullUps} />;
-    case "initialTest":
-      return <InitialTest mtf={currentMaxPullUps} />;
-    default:
-      return;
-      // return <Text>~~~ No logging reps needed for this workout ~~~</Text>
-  };
-}
+import TodaysWorkout from './TodaysWorkout.js';
 
 function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, currentAmrap, latestScapHang, currentScapHang, dispatch }) {
   return (
@@ -55,12 +17,13 @@ function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, curren
           <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
         }
 
-        <Text>
+        {/* <Text>
           {workouts[workoutAssignment(today)](latestMaxPullUps)}
-        </Text>
+        </Text> */}
 
         <View>
-          {renderInputs(workoutAssignment(today), dispatch, currentMaxPullUps, currentAmrap)}
+          <TodaysWorkout workout={workoutAssigner}/>
+          {/* {renderInputs(workoutAssignment(today), dispatch, currentMaxPullUps, currentAmrap)} */}
         </View>
         <Button title="Complete workout" onPress={() => {
           dispatch({
@@ -77,34 +40,17 @@ function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, curren
 }
 
 function mapStateToProps(state) {
-  return {
-    today: state.today,
-    latestMaxPullUps: state.latestMaxPullUps,
-    latestAmrap: state.latestAmrap,
-    latestScapHang: state.latestScapHang,
-    currentMaxPullUps: state.currentMaxPullUps,
-    currentAmrap: state.currentAmrap,
-    currentScapHang: state.currentScapHang,
-  };
+  console.log('STATE ', state);
+  return { ...state };
+  // return {
+  //   today: state.today,
+  //   latestMaxPullUps: state.latestMaxPullUps,
+  //   latestAmrap: state.latestAmrap,
+  //   latestScapHang: state.latestScapHang,
+  //   currentMaxPullUps: state.currentMaxPullUps,
+  //   currentAmrap: state.currentAmrap,
+  //   currentScapHang: state.currentScapHang,
+  // };
 }
 
 export default connect(mapStateToProps)(Today);
-// export connect(mapDispatchTo)(renderInputs);
-
-/* Data:
-today INT
-latestMaxPullUps INT
-workoutComplete BOOL (incr, trigger modal/user feedback)
-workouts ARR of ARR of STRINGS
-
-## Program Outline
-Four-day block, repeated five times over 20 days:
-1. Test – Max to failure (MTF), 2 min rest, 5-min AMRAP, & Test Day Total (TDT)
-2. Chin-ups (2x current MTF), 2 min rest, Pullups (1.4x MTF)
-3. Commando Pullups (2x current MTF), 2 min rest, Pullups (1.5x MTF)
-4. Scap-Pull Hang (until failure or prev time +5 sec), 2 min rest, Pullups (1.6x MTF)
-…
-21. Test – Do TDT from day one w/in 5 min
-22. Test – Update MTF pullups
-
-*/

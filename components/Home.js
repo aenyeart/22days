@@ -11,7 +11,6 @@ function Home({ today, dispatch }) {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       {today === 1 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
-      {/* <Text style={styles.menuItem}>{today === 0 ? messages.beginning : `some other text`}</Text> */}
       <Today />
       <Menu />
     </SafeAreaView>
