@@ -9,6 +9,7 @@ import ScapHang from './workouts/ScapHang.js';
 import messages from '../constants/messages.js';
 import AmrapTest from './workouts/AmrapTest.js';
 import MtfTest from './workouts/MtfTest.js';
+import ChinUps from './workouts/ChinUps.js';
 
 const workoutAssignment = (currDay) => {
   if (currDay === 22) return "mtfTest";
@@ -26,13 +27,15 @@ const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, curren
     case "mtfTest":
       return <MtfTest mtf={currentMaxPullUps} />;
     case "amrapTest":
-      return <AmrapTest amrap={currentAmrap} />
+      return <AmrapTest amrap={currentAmrap} />;
     case "scapHang":
-      return <ScapHang mtf={currentMaxPullUps} scapHang={currentScapHang} />
+      return <ScapHang mtf={currentMaxPullUps} scapHang={currentScapHang} />;
+    case "chinUps":
+      return <ChinUps mtf={currentMaxPullUps} />
     case "commando":
-      return <Commando mtf={currentMaxPullUps} />
+      return <Commando mtf={currentMaxPullUps} />;
     case "initialTest":
-      return <InitialTest mtf={currentMaxPullUps} />
+      return <InitialTest mtf={currentMaxPullUps} />;
     default:
       return;
       // return <Text>~~~ No logging reps needed for this workout ~~~</Text>
