@@ -21,13 +21,13 @@ const workoutAssignment = (currDay) => {
   return null;
 }
 
-const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, currentScapHang) => {
+const renderInputs = (workout, dispatch, currentMaxPullUps, currentAmrap, currentScapHang, testDayTotal) => {
   console.log('workout >>>', workout);
   switch (workout) {
     case "mtfTest":
       return <MtfTest mtf={currentMaxPullUps} />;
     case "amrapTest":
-      return <AmrapTest amrap={currentAmrap} />;
+      return <AmrapTest tdt={testDayTotal} />;
     case "scapHang":
       return <ScapHang mtf={currentMaxPullUps} scapHang={currentScapHang} />;
     case "chinUps":
