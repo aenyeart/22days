@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 import TodaysWorkout from './TodaysWorkout.js';
 
-function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, currentAmrap, latestScapHang, currentScapHang, dispatch }) {
+function Today({ today, latestMaxPullUps }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -13,27 +13,8 @@ function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, curren
           This is workout #{today}:
         </Text>
 
-        {latestMaxPullUps !== null &&
-          <Text>Latest max pull-ups: {latestMaxPullUps}</Text>
-        }
-
-        {/* <Text>
-          {workouts[workoutAssignment(today)](latestMaxPullUps)}
-        </Text> */}
-
-        <View>
-          <TodaysWorkout workout={workoutAssigner}/>
-          {/* {renderInputs(workoutAssignment(today), dispatch, currentMaxPullUps, currentAmrap)} */}
-        </View>
-        <Button title="Complete workout" onPress={() => {
-          dispatch({
-            type: 'COMPLETE_WORKOUT', value: {
-              latestMaxPullUps: currentMaxPullUps,
-              latestAmrap: currentAmrap,
-              latestScapHang: currentScapHang,
-            }
-          });
-        }} />
+        {latestMaxPullUps !== null && <Text>Latest max pull-ups: {latestMaxPullUps}</Text>}
+        <TodaysWorkout />
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -42,15 +23,6 @@ function Today({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap, curren
 function mapStateToProps(state) {
   console.log('STATE ', state);
   return { ...state };
-  // return {
-  //   today: state.today,
-  //   latestMaxPullUps: state.latestMaxPullUps,
-  //   latestAmrap: state.latestAmrap,
-  //   latestScapHang: state.latestScapHang,
-  //   currentMaxPullUps: state.currentMaxPullUps,
-  //   currentAmrap: state.currentAmrap,
-  //   currentScapHang: state.currentScapHang,
-  // };
 }
 
 export default connect(mapStateToProps)(Today);

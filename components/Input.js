@@ -33,12 +33,4 @@ function mapStateToProps(state) {
   };
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     today: state.today,
-//     currentFieldValue: state.currentFieldValue,
-//     latestMaxPullUps: state.latestMaxPullUps,
-//   };
-// }
-
 export default connect(mapStateToProps)(Input);
