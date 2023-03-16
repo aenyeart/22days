@@ -16,17 +16,17 @@ function TodaysWorkout({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap
   console.log('latestScapHang  >>>', latestScapHang);
   switch (workout) {
     case "mtfTest":
-      return <MtfTest mtf={currentMaxPullUps} />;
+      return <MtfTest mtf={latestMaxPullUps} />;
     case "amrapTest":
       return <AmrapTest tdt={testDayTotal} />;
     case "scapHang":
-      return <ScapHang mtf={currentMaxPullUps} scapHang={latestScapHang} />;
+      return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
     case "chinUps":
-      return <ChinUps mtf={currentMaxPullUps} />
+      return <ChinUps mtf={latestMaxPullUps} />
     case "commando":
-      return <Commando mtf={currentMaxPullUps} />;
+      return <Commando mtf={latestMaxPullUps} />;
     case "initialTest":
-      return <InitialTest mtf={currentMaxPullUps} />;
+      return <InitialTest mtf={latestMaxPullUps} />;
     default:
       // return;
       return <Text>~~~ Hmmmmmm..... ~~~</Text>

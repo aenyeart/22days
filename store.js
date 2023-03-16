@@ -49,12 +49,13 @@ function reducer(state = initialState, action) {
       return { ...state, latestAmrap: action.value };
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: action.value };
-    case 'COMPLETE_WORKOUT':
+    case 'COMPLETE_TEST':
       return {
         ...state,
-        // currentMaxPullUps: initialState.currentMaxPullUps,
-        // currentAmrap: initialState.currentAmrap,
-        ...action.value
+        latestMaxPullUps: state.currentMaxPullUps,
+        latestAmrap: state.currentAmrap,
+        currentMaxPullUps: initialState.currentMaxPullUps,
+        currentAmrap: initialState.currentAmrap
       };
     case PURGE:
       return initialState;

@@ -8,7 +8,7 @@ export default InitialTest = () => {
     <Input placeholder="Enter your max pull-ups" actionType="SET_CURRENT_MAX_PULL_UPS" />
     <Text>AMRAP pull-ups in five minutes:</Text>
     <Input placeholder="Enter your AMRAP" actionType="SET_CURRENT_AMRAP" />
-    <CompleteButton value={null} />
+    <CompleteButton action='COMPLETE_TEST' />
 
     </>;
 }
