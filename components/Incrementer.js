@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, Button } from 'react-native';
-import { connect } from 'react-redux';
+import {Button, View} from 'react-native';
+import {connect} from 'react-redux';
 
-function Counter({ lastCompletedDay, dispatch }) {
+function Counter({ today, dispatch }) {
   return (
     <View>
-      <Button title="Increment" onPress={() => lastCompletedDay < 21 &&dispatch({ type: 'INCREMENT' })} />
-      <Button title="Decrement" onPress={() => lastCompletedDay > 0 && dispatch({ type: 'DECREMENT' })} />
+      <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} />
+      <Button title="Decrement" onPress={() => dispatch({ type: 'DECREMENT' })} />
     </View>
   );
 }
 
 function mapStateToProps(state) {
   return {
-    lastCompletedDay: state.lastCompletedDay
+    today: state.today
   };
 }
 

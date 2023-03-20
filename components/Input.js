@@ -1,29 +1,22 @@
 import React from 'react';
-import {Text, TextInput, View, Button, StyleSheet, SafeAreaView} from 'react-native';
-import { connect } from 'react-redux';
+import {TextInput} from 'react-native';
 import styles from "../styles/styles.js";
+import {useDispatch} from 'react-redux'
 
-function Input({ lastCompletedDay, latestMaxPullUps, dispatch, ...props }) {
+function Input({...props}) {
+  const dispatch = useDispatch();
+
   return (
-      <TextInput
-        keyboardType="numeric"
-        style={styles.input}
-        placeholder={props.placeholder}
-        returnKeyType='done'
-        onSubmitEditing={(event) => {
-          dispatch({ type: props.actionType, value: event.nativeEvent.text });
-          // event.target.clear();
-        }}
-      ></TextInput>
+    <TextInput
+      keyboardType="numeric"
+      style={styles.input}
+      placeholder={props.placeholder}
+      returnKeyType='done'
+      onEndEditing={(event) => {
+        dispatch({type: props.actionType, value: event.nativeEvent.text});
+      }}
+    ></TextInput>
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    lastCompletedDay: state.lastCompletedDay,
-    currentFieldValue: state.currentFieldValue,
-    latestMaxPullUps: state.latestMaxPullUps,
-  };
-}
-
-export default connect(mapStateToProps)(Input);
+export default Input;
