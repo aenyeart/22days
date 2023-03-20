@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, TextInput, View, Button, StyleSheet, SafeAreaView } from 'react-native';
-import { connect } from 'react-redux';
+import {TextInput} from 'react-native';
 import styles from "../styles/styles.js";
+import {useDispatch} from 'react-redux'
 
-function Input({ today, latestMaxPullUps, dispatch, ...props }) {
+function Input({...props}) {
+  const dispatch = useDispatch();
 
   return (
     <TextInput
@@ -18,16 +19,4 @@ function Input({ today, latestMaxPullUps, dispatch, ...props }) {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    today: state.today,
-    latestMaxPullUps: state.latestMaxPullUps,
-    latestAmrap: state.latestAmrap,
-    latestScapHang: state.latestScapHang,
-    currentMaxPullUps: state.currentMaxPullUps,
-    currentAmrap: state.currentAmrap,
-    currentScapHang: state.currentScapHang,
-  };
-}
-
-export default connect(mapStateToProps)(Input);
+export default Input;
