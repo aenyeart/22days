@@ -1,5 +1,5 @@
-import { Button } from 'react-native';
-import { connect } from 'react-redux';
+import {Button} from 'react-native';
+import {connect} from 'react-redux';
 
 function CompleteButton({action, dispatch}) {
   return (
@@ -14,6 +14,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(CompleteButton);
-// latestMaxPullUps: currentMaxPullUps,
-// latestAmrap: currentAmrap,
-// latestScapHang: currentScapHang,
