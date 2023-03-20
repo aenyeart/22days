@@ -12,10 +12,7 @@ function Input({ today, latestMaxPullUps, dispatch, ...props }) {
       placeholder={props.placeholder}
       returnKeyType='done'
       onEndEditing={(event) => {
-        console.log('DEBUG>>>props.actionType', props.actionType);
-        console.log('DEBUG>>>event.nativeEvent.text', event.nativeEvent.text);
-        dispatch({ type: props.actionType, value: event.nativeEvent.text });
-        // event.target.clear();
+        dispatch({type: props.actionType, value: event.nativeEvent.text});
       }}
     ></TextInput>
   );
