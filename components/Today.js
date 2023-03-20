@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, ScrollView, View, Button, StyleSheet, KeyboardAvoidingView } from 'react-native';
-import { connect } from 'react-redux';
+import {KeyboardAvoidingView, ScrollView, Text} from 'react-native';
+import {connect} from 'react-redux';
 import styles from "../styles/styles.js";
 import TodaysWorkout from './TodaysWorkout.js';
 
@@ -21,7 +21,6 @@ function Today({ today, latestMaxPullUps }) {
 }
 
 function mapStateToProps(state) {
-  console.log('STATE ', state);
   return { ...state };
 }
 
