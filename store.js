@@ -1,14 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist'
+import {configureStore} from '@reduxjs/toolkit';
+import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
@@ -32,8 +23,12 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case 'INCREMENT':
+      if (state.today === 22) return state;
+
       return { ...state, today: state.today + 1 };
     case 'DECREMENT':
+      if (state.today === 1) return state;
+
       return { ...state, today: state.today - 1 };
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, currentMaxPullUps: action.value };
