@@ -13,9 +13,10 @@ const initialState = {
   currentFieldValue: '',
   currentMaxPullUps: null,
   currentAmrap: null,
+  currentScapHang: null,
   latestMaxPullUps: null,
   latestAmrap: null,
-  // latestScapHang: null,
+  latestScapHang: null,
 };
 
 function reducer(state = initialState, action) {
@@ -43,7 +44,7 @@ function reducer(state = initialState, action) {
     case 'SET_LATEST_AMRAP':
       return { ...state, latestAmrap: action.value };
     case 'SET_LATEST_SCAP_HANG':
-      return { ...state, latestScapHang: action.value };
+      return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
       return {
         ...state,
