@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 function CompleteButton({action, dispatch}) {
   return (
     <Button title="Complete workout" onPress={() => {
-      action && dispatch({type: action});
+      action && dispatch({type: action.type});
       dispatch({ type: 'INCREMENT'});
     }} />
   )

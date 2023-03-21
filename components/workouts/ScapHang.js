@@ -15,6 +15,6 @@ export default ScapHang = ({ mtf, scapHang }) => {
       actionType="SET_CURRENT_SCAP_HANG"
       initialValue={scapHang}
     />
-    <CompleteButton action='SET_LATEST_SCAP_HANG' />
+    <CompleteButton action={{type:'SET_LATEST_SCAP_HANG'}} />
   </>;
 }

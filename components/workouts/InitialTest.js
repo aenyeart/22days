@@ -17,7 +17,6 @@ export default InitialTest = ({ mtf, latestAmrap }) => {
       actionType="SET_CURRENT_AMRAP"
       initialValue={latestAmrap}
     />
-    <CompleteButton action='COMPLETE_TEST' />
-
+    <CompleteButton action={{ type: 'COMPLETE_TEST' }} />
   </>;
 }
