@@ -8,7 +8,7 @@
 - [ ] Handle workout completion
   - [ ] Modal to acknowledge entry
   - [ ] Clearing modal increments day (advances view to next day's workout)
-- [ ] change numerical inputs to iOS selector menu/wheel
+- [x] change numerical inputs to iOS selector menu/wheel
 - [ ] input validation
 - [ ] end-of-cycle report
 
