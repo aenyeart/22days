@@ -1,21 +1,19 @@
 import React from 'react';
-import {TextInput} from 'react-native';
-import styles from "../styles/styles.js";
 import {useDispatch} from 'react-redux'
+import InputSpinner from "react-native-input-spinner";
 
 function Input({...props}) {
   const dispatch = useDispatch();
 
   return (
-    <TextInput
-      keyboardType="numeric"
-      style={styles.input}
-      placeholder={props.placeholder}
-      returnKeyType='done'
-      onEndEditing={(event) => {
-        dispatch({type: props.actionType, value: event.nativeEvent.text});
+    <InputSpinner
+      min={0}
+      step={1}
+      value={props.initialValue}
+      onChange={(num) => {
+        dispatch({type: props.actionType, value: num});
       }}
-    ></TextInput>
+    />
   );
 }
 

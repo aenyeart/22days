@@ -20,7 +20,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  console.log(action);
+  console.log(action.type);
 
   switch (action.type) {
     case 'INCREMENT':
@@ -39,10 +39,10 @@ function reducer(state = initialState, action) {
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
       return { ...state, testDayTotal: state.currentAmrap + state.currentMaxPullUps }; // Should this be computed in the component?
-    case 'SET_LATEST_MAX_PULL_UPS':
-      return { ...state, latestMaxPullUps: action.value };
-    case 'SET_LATEST_AMRAP':
-      return { ...state, latestAmrap: action.value };
+    // case 'SET_LATEST_MAX_PULL_UPS':
+    //   return { ...state, latestMaxPullUps: action.value };
+    // case 'SET_LATEST_AMRAP':
+    //   return { ...state, latestAmrap: action.value };
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
@@ -50,8 +50,6 @@ function reducer(state = initialState, action) {
         ...state,
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
-        currentMaxPullUps: initialState.currentMaxPullUps,
-        currentAmrap: initialState.currentAmrap
       };
     case PURGE:
       return initialState;
