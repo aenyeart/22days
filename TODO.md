@@ -11,6 +11,9 @@
 - [x] change numerical inputs to iOS selector menu/wheel
 - [ ] input validation
 - [ ] end-of-cycle report
+- [ ] option to view previous reports
+- [ ] get rid of incr button, use complete workout btn w/prev day option
+
 
 ## BUGS
 

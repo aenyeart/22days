@@ -17,6 +17,7 @@ const initialState = {
   latestMaxPullUps: null,
   latestAmrap: null,
   latestScapHang: null,
+  history: [],
 };
 
 function reducer(state = initialState, action) {
@@ -24,25 +25,26 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case 'INCREMENT':
-      if (state.today === 22) return state;
-
+      if (state.today === 22) return state; // put logic for report here?
       return { ...state, today: state.today + 1 };
     case 'DECREMENT':
       if (state.today === 1) return state;
-
       return { ...state, today: state.today - 1 };
+    case 'SET_INITIAL_STATS':
+      return { ...state, initialMaxPullUps: state.currentMaxPullUps, initialAmrap: state.currentAmrap}
+      // return { ...state, currentMaxPullUps: action.value }; // dead line?
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, currentMaxPullUps: action.value };
     case 'SET_CURRENT_AMRAP':
       return { ...state, currentAmrap: action.value };
+    case 'SET_FINAL_MAX_PULL_UPS':
+      return { ...state, finalMaxPullUps: action.value };
+    case 'SET_FINAL_AMRAP':
+      return { ...state, finalAmrap: action.value };
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
       return { ...state, testDayTotal: state.currentAmrap + state.currentMaxPullUps }; // Should this be computed in the component?
-    // case 'SET_LATEST_MAX_PULL_UPS':
-    //   return { ...state, latestMaxPullUps: action.value };
-    // case 'SET_LATEST_AMRAP':
-    //   return { ...state, latestAmrap: action.value };
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
@@ -50,6 +52,20 @@ function reducer(state = initialState, action) {
         ...state,
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
+      };
+    case 'SAVE_RESULTS':
+      return {
+        ...state,
+        history: [...state.history, {
+          latestScapHang: state.latestScapHang,
+          initialMaxPullUps: state.initialMaxPullUps,
+          finalMaxPullUps: state.finalMaxPullUps,
+          mtfDelta: state.finalMaxPullUps - state.initialMaxPullUps,
+          initialAmrap: state.initialAmrap,
+          finalAmrap: state.finalAmrap,
+          amrapDelta : state.initialAmrap - state.finalAmrap,
+          latestScapHang: state.latestScapHang,
+        }]
       };
     case PURGE:
       return initialState;
