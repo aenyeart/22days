@@ -1,6 +1,5 @@
 import { Button, Text } from 'react-native';
 import CompleteButton from '../CompleteButton.js';
-initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap
 export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
   const amrapDelta = initialAmrap - finalAmrap;
@@ -19,8 +18,12 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
       Change to AMRAP: {amrapDelta} ({amrapDelta / initialAmrap}%) {`\n`}
     </Text>
     <Text>To begin a new 22-day cycle (preserves record of current & previous cycles):{`\n`}</Text>
-    <Button>New Cycle</Button>
+    <Button
+      title='New Cycle'
+      onPress={() => dispatch({ type: 'START_NEW_CYCLE' })}
+    ></Button>
   </>;
 }
+
 // TODO Save deltas/results in store as own values
 // TODO Add array to store. When completing a cycle/starting a new cycle, push current state into the array

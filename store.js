@@ -14,10 +14,12 @@ const initialState = {
   currentMaxPullUps: null,
   currentAmrap: null,
   currentScapHang: null,
+  initialMaxPullUps: null,
   latestMaxPullUps: null,
   latestAmrap: null,
   latestScapHang: null,
   history: [],
+  renderReport: false,
 };
 
 function reducer(state = initialState, action) {
@@ -53,9 +55,20 @@ function reducer(state = initialState, action) {
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
       };
+    case 'START_NEW_CYCLE':
+      return {
+        ...state,
+        today: 1,
+        currentFieldValue: '',
+        currentMaxPullUps: null,
+        currentAmrap: null,
+        currentScapHang: null,
+        renderReport: false,
+      };
     case 'SAVE_RESULTS':
       return {
         ...state,
+        renderReport: true,
         history: [...state.history, {
           latestScapHang: state.latestScapHang,
           initialMaxPullUps: state.initialMaxPullUps,
