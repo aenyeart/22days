@@ -50,10 +50,12 @@ function reducer(state = initialState, action) {
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
+      let tdt = (state.today === 1) ? state.currentAmrap + state.currentMaxPullUps : state.testDayTotal;
       return {
         ...state,
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
+        testDayTotal: tdt,
       };
     case 'START_NEW_CYCLE':
       return {
