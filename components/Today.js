@@ -9,19 +9,19 @@ function Today({ today, renderReport, latestMaxPullUps, initialMaxPullUps, initi
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        {renderReport ? <Report
-          initialMaxPullUps={initialMaxPullUps}
-          initialAmrap={initialAmrap}
-          finalMaxPullUps={finalMaxPullUps}
-          finalAmrap={finalAmrap}
-        /> :
+        {renderReport ?
+          <Report
+            initialMaxPullUps={initialMaxPullUps}
+            initialAmrap={initialAmrap}
+            finalMaxPullUps={finalMaxPullUps}
+            finalAmrap={finalAmrap}
+          /> :
 
           <>
             <Text style={styles.title}>
               This is workout #{today}:
             </Text>
-
-            {latestMaxPullUps !== null && <Text>Latest max pull-ups: {latestMaxPullUps}</Text>}
+            {/* {latestMaxPullUps !== null && <Text>Latest max pull-ups: {latestMaxPullUps}</Text>} */}
             <TodaysWorkout />
           </>
         }
