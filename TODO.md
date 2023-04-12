@@ -18,7 +18,7 @@
 ## BUGS
 
 - [x] value entered into scaphang input persists in next day's MTF placeholder
-- [ ] AMRAP test day (#21) not displaying test-day-total
+- [x] AMRAP test day (#21) not displaying test-day-total
 
 ## Small changes
 

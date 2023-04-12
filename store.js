@@ -33,8 +33,13 @@ function reducer(state = initialState, action) {
       if (state.today === 1) return state;
       return { ...state, today: state.today - 1 };
     case 'SET_INITIAL_STATS':
-      return { ...state, initialMaxPullUps: state.currentMaxPullUps, initialAmrap: state.currentAmrap}
-      // return { ...state, currentMaxPullUps: action.value }; // dead line?
+      return {
+        ...state,
+        latestMaxPullUps: state.currentMaxPullUps,
+        latestAmrap: state.currentAmrap,
+        initialMaxPullUps: state.currentMaxPullUps,
+        initialAmrap: state.currentAmrap,
+        testDayTotal: state.currentAmrap + state.currentMaxPullUps,}
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, currentMaxPullUps: action.value };
     case 'SET_CURRENT_AMRAP':
@@ -50,12 +55,10 @@ function reducer(state = initialState, action) {
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
-      let tdt = (state.today === 1) ? state.currentAmrap + state.currentMaxPullUps : state.testDayTotal;
       return {
         ...state,
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
-        testDayTotal: tdt,
       };
     case 'START_NEW_CYCLE':
       return {
