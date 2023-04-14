@@ -25,6 +25,7 @@
 - [ ] Change names of incr/decr buttons
 - [ ] Reconcile variable names for MTF vs latestMaxPullUps
 - [ ] Format rendering of workout instructions for greater clarity & distinction
+  - [x] AMRAP test day 21
   - [ ] Add padding or change to SafeAreaView for consistency
 
 ## Stretch Goals & Extra Features
