@@ -7,15 +7,15 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
     <Text>
       FINAL REPORT{`\n`}
       {`\n`}
-      Max-to-Failure Pull-Ups: {`\n`}
-      Day 1: {initialMaxPullUps} {`\n`}
-      Day 22: {finalMaxPullUps} {`\n`}
-      Change to Max Pull-Ups: {mtfDelta} ({100 * (mtfDelta / initialMaxPullUps)}%){`\n`}
+      Max-to-Failure Pull-Ups:{`\n`}
+      Day 1: {initialMaxPullUps} reps{`\n`}
+      Day 22: {finalMaxPullUps} reps{`\n`}
+      Change to Max Pull-Ups: {mtfDelta} reps ({100 * (mtfDelta / initialMaxPullUps)}%){`\n`}
       {`\n`}
-      5-minute AMRAP:
-      Day 1: {initialAmrap} {`\n`}
-      Day 21: {finalAmrap} {`\n`}
-      Change to AMRAP: {amrapDelta} ({100 * (amrapDelta / initialAmrap)}%) {`\n`}
+      5-minute AMRAP:{`\n`}
+      Day 1: {initialAmrap} reps{`\n`}
+      Day 21: {finalAmrap} reps{`\n`}
+      Change to AMRAP: {amrapDelta} reps ({100 * (amrapDelta / initialAmrap)}%) {`\n`}
     </Text>
     <CompleteButton
       title='Close Report'
