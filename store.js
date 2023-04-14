@@ -28,6 +28,8 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case 'TEST_DAYS':
       return {...state, today: 21};
+    case 'CLOSE_REPORT':
+      return {...state, renderReport: false};
     case 'INCREMENT':
       if (state.today === 22) return state; // put logic for report here?
       return { ...state, today: state.today + 1 };

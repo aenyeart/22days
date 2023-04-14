@@ -6,20 +6,29 @@ import messages from "../constants/messages";
 import styles from "../styles/styles.js";
 import { connect } from 'react-redux'
 
-function Home({ today, dispatch }) {
+function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, dispatch }) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      {today === 1 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
-      <Today />
-      <Menu />
+      {renderReport ?
+        <Report
+          initialMaxPullUps={initialMaxPullUps}
+          initialAmrap={initialAmrap}
+          finalMaxPullUps={finalMaxPullUps}
+          finalAmrap={finalAmrap}
+        /> :
+        <>
+          {today === 1 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
+          <Today />
+          <Menu />
+        </>
+      }
+
     </SafeAreaView>
   );
 }
 function mapStateToProps(state) {
-  return {
-    today: state.today,
-  };
+  return { ...state };
 }
 
 export default connect(mapStateToProps)(Home);

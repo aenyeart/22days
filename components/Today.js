@@ -5,26 +5,14 @@ import styles from "../styles/styles.js";
 import TodaysWorkout from './TodaysWorkout.js';
 import Report from "./workouts/Report.js";
 
-function Today({ today, renderReport, latestMaxPullUps, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) {
+function Today({ today }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        {renderReport ?
-          <Report
-            initialMaxPullUps={initialMaxPullUps}
-            initialAmrap={initialAmrap}
-            finalMaxPullUps={finalMaxPullUps}
-            finalAmrap={finalAmrap}
-          /> :
-
-          <>
             <Text style={styles.title}>
               This is workout #{today}:
             </Text>
-            {/* {latestMaxPullUps !== null && <Text>Latest max pull-ups: {latestMaxPullUps}</Text>} */}
             <TodaysWorkout />
-          </>
-        }
       </ScrollView>
     </KeyboardAvoidingView>
   );
