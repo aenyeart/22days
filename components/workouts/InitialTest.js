@@ -4,7 +4,13 @@ import CompleteButton from '../CompleteButton.js';
 
 export default InitialTest = ({ mtf, latestAmrap, today }) => {
   return <>
-    <Text>Test – Max pull-ups to failure (MTF){`\n`}2 min rest, {`\n`}5-min AMRAP,{`\n`}& Test Day Total (TDT)</Text>
+    <Text>
+      Test –{`\n`}
+      Max pull-ups until failure (MTF),{`\n`}
+      2 min rest, {`\n`}
+      5-min AMRAP{`\n`}
+      {`\n`}
+    </Text>
     <Text>Max consecutive pull-ups:</Text>
     <Input
       placeholder="Enter your max pull-ups"
