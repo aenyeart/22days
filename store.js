@@ -26,6 +26,8 @@ function reducer(state = initialState, action) {
   console.log(action.type);
 
   switch (action.type) {
+    case 'TEST_DAYS':
+      return {...state, today: 21};
     case 'INCREMENT':
       if (state.today === 22) return state; // put logic for report here?
       return { ...state, today: state.today + 1 };
@@ -47,6 +49,7 @@ function reducer(state = initialState, action) {
     case 'SET_FINAL_MAX_PULL_UPS':
       return { ...state, finalMaxPullUps: action.value };
     case 'SET_FINAL_AMRAP':
+      console.log("val passed to finalAmrap", action.value);
       return { ...state, finalAmrap: action.value };
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
@@ -63,7 +66,7 @@ function reducer(state = initialState, action) {
     case 'START_NEW_CYCLE':
       return {
         ...state,
-        today: 1,
+        today: 0,
         currentFieldValue: '',
         currentMaxPullUps: null,
         currentAmrap: null,

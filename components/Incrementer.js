@@ -7,6 +7,8 @@ function Counter({ today, dispatch }) {
     <View>
       <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} />
       <Button title="Decrement" onPress={() => dispatch({ type: 'DECREMENT' })} />
+      <Button title="JUMP TO END" onPress={() => dispatch({ type: 'TEST_DAYS' })} />
+
     </View>
   );
 }

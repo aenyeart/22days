@@ -13,6 +13,6 @@ export default AmrapTest = ({tdt}) => {
       actionType="SET_FINAL_AMRAP"
       initialValue={tdt}
     />
-    <CompleteButton action={{ type: 'SET_FINAL_AMRAP' }} />
+    <CompleteButton action={null} />
   </>;
 }

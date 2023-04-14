@@ -2,7 +2,7 @@ import { Button, Text } from 'react-native';
 import CompleteButton from '../CompleteButton.js';
 export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
-  const amrapDelta = initialAmrap - finalAmrap;
+  const amrapDelta = finalAmrap - initialAmrap;
   return <>
     <Text>
       FINAL REPORT{`\n`}
@@ -10,18 +10,18 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
       Max-to-Failure Pull-Ups: {`\n`}
       Day 1: {initialMaxPullUps} {`\n`}
       Day 22: {finalMaxPullUps} {`\n`}
-      Change to Max Pull-Ups: {mtfDelta} ({mtfDelta / initialMaxPullUps}%){`\n`}
+      Change to Max Pull-Ups: {mtfDelta} ({100 * mtfDelta / initialMaxPullUps}%){`\n`}
       {`\n`}
       5-minute AMRAP:
       Day 1: {initialAmrap} {`\n`}
-      Day 22: {finalAmrap} {`\n`}
-      Change to AMRAP: {amrapDelta} ({amrapDelta / initialAmrap}%) {`\n`}
+      Day 21: {finalAmrap} {`\n`}
+      Change to AMRAP: {amrapDelta} ({100 * amrapDelta / initialAmrap}%) {`\n`}
     </Text>
     <Text>To begin a new 22-day cycle (preserves record of current & previous cycles):{`\n`}</Text>
-    <Button
+    <CompleteButton
       title='New Cycle'
-      onPress={() => dispatch({ type: 'START_NEW_CYCLE' })}
-    ></Button>
+      action={{ type: 'START_NEW_CYCLE' }}
+    ></CompleteButton>
   </>;
 }
 
