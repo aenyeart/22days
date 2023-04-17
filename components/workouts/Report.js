@@ -8,7 +8,7 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
     <Text style={styles.title}>
       FINAL REPORT{`\n`}
     </Text>
-    <Text style={styles.report}>
+    <Text style={styles.h2}>
       {`\n`}
       Max-to-Failure Pull-Ups:{`\n`}
     </Text>
