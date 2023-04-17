@@ -1,8 +1,7 @@
-import { Text } from 'react-native';
-import Input from '../Input.js';
+import {Text} from 'react-native';
 import CompleteButton from '../CompleteButton.js';
 
-export default AmrapTest = ({tdt}) => {
+export default ({tdt}) => {
   return <>
     <Text>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
       {`\n`}

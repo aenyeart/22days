@@ -70,6 +70,40 @@ CommandError: Please install @expo/ngrok@^4.1.0 and try again
 npm i @expo/ngrok@^4.1.0
 ```
 
+## Run on iOS device via side-loading
+
+Requirements:
+
+- iPhone, connected via USB to...
+- a Mac computer with XCode installed
+
+Source: [No bundle URL present fixed. Make sure you’re running a packager… | by Onexlab | Medium](https://onexlab-io.medium.com/no-bundle-url-present-fixed-ca2688a80f66)
+
+Setup: `”build:ios”: "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",` added to package.json.
+
+1. In Terminal, go to the project directory and enter: `$ npm run build:ios`
+2. XCode -> Build Phases -> Copy Bundle Resources: click on the **plus button**, then select the file **main.jsbundle**and click on the **Add button**
+3. Try to re-run your app: `npx react-native run-ios`
+4. Trust developer on device: [Invalid code signature due to inadequate entitlements - Stack Overflow](https://stackoverflow.com/questions/61865231/invalid-code-signature-due-to-inadequate-entitlements)
+
+> You will see an Untrusted Developer message.
+> To solve this issue on the device, go to Settings > General > VPN and Device Management in newer iOS versions and Settings > General > Profiles or Settings > General > Device Management in older iOS versions (depending on the device type and the iOS version).
+> There, trust the developer and allow the apps to run.
+
+## Building for Web
+
+```shell
+npx serve web-build
+```
+
+After running the above, the generated HTML, CSS, and JS files will be in the `web-build` directory.
+
+To deploy to [22days.netlify.app](https://22days.netlify.app/), while in the `web-build` directory, run:
+
+```shell
+netlify deploy --prod
+```
+
 ## Tech Stack
 
 <!-- **Client:** React Native, Redux, TailwindCSS

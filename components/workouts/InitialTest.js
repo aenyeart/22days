@@ -1,8 +1,8 @@
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 import Input from '../Input.js';
 import CompleteButton from '../CompleteButton.js';
 
-export default InitialTest = ({ mtf, latestAmrap, today }) => {
+export default ({ mtf, latestAmrap, today }) => {
   return <>
     <Text>
       Test –{`\n`}
