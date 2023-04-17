@@ -5,6 +5,8 @@ import Today from './Today.js';
 import messages from "../constants/messages";
 import styles from "../styles/styles.js";
 import { connect } from 'react-redux'
+import Report from "./workouts/Report.js";
+
 
 function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, dispatch }) {
   return (
@@ -12,6 +14,7 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
       <StatusBar style="auto" />
       {renderReport ?
         <Report
+          style={styles.report}
           initialMaxPullUps={initialMaxPullUps}
           initialAmrap={initialAmrap}
           finalMaxPullUps={finalMaxPullUps}
