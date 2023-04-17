@@ -90,6 +90,13 @@ Setup: `”build:ios”: "react-native bundle --entry-file='index.js' --bundle-o
 > To solve this issue on the device, go to Settings > General > VPN and Device Management in newer iOS versions and Settings > General > Profiles or Settings > General > Device Management in older iOS versions (depending on the device type and the iOS version).
 > There, trust the developer and allow the apps to run.
 
+## Building for Web
+
+```shell
+npx serve web-build
+```
+
+After running the above, the generated HTML, CSS, and JS files will be in the `web-build` directory.
 
 ## Tech Stack
 
