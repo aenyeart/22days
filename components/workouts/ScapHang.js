@@ -8,7 +8,7 @@ export default ({ mtf, scapHang }) => {
       Scap-Pull Hang
       {scapHang === null
         ? " until failure,"
-        : " for at least " + parseInt(scapHang) + 5 + " seconds \n\t(prev time +5 sec) OR until failure,"
+        : ` for at least ${parseInt(scapHang) + 5} seconds \n\t(prev time +5 sec) OR until failure,`
       }
       {`\n`}2 min rest,
       {`\n`}Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
