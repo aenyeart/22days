@@ -15,6 +15,25 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  report: {
+    // flex: 1,
+    // marginTop: StatusBar.currentHeight || 0,
+    // padding: 20,
+    // backgroundColor: '#3f0',
+    // alignItems: 'center',
+    // justifyContent: 'flex-start', // 'center' pushes content above statusbar
+    // backgroundColor: 'red',
+  },
+  h1: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  h2: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
