@@ -9,6 +9,6 @@ export default MtfTest = ({mtf}) => {
       actionType="SET_FINAL_MAX_PULL_UPS"
       initialValue={mtf}
     />
-    <CompleteButton action={{ type: 'SAVE_RESULTS' }} />
+    <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS' }} />
   </>;
 }
