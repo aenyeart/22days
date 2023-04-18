@@ -1,5 +1,6 @@
 import {Text} from 'react-native';
 import CompleteButton from '../CompleteButton.js';
+import Input from '../Input.js';
 
 export default ({tdt}) => {
   return <>

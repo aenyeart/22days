@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
 import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
-export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
+export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
   const amrapDelta = finalAmrap - initialAmrap;
   return <>
@@ -15,7 +15,7 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
     <Text>
       Day 1: {initialMaxPullUps} reps{`\n`}
       Day 22: {finalMaxPullUps} reps{`\n`}
-      Change to Max Pull-Ups: {mtfDelta} reps ({100 * (mtfDelta / initialMaxPullUps)}%){`\n`}
+      Change to Max Pull-Ups: {mtfDelta} reps ({Math.round(100 * mtfDelta / initialMaxPullUps)}%){`\n`}
     </Text>
     <Text style={styles.h2}>
       {`\n`}
@@ -24,7 +24,7 @@ export default Report = ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, fin
     <Text>
       Day 1: {initialAmrap} reps{`\n`}
       Day 21: {finalAmrap} reps{`\n`}
-      Change to AMRAP: {amrapDelta} reps ({100 * (amrapDelta / initialAmrap)}%) {`\n`}
+      Change to AMRAP: {amrapDelta} reps ({ Math.round(100 * amrapDelta / initialAmrap) }%) {`\n`}
     </Text >
     <CompleteButton
       title='Close Report'
