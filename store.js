@@ -14,35 +14,49 @@ const initialState = {
   currentMaxPullUps: null,
   currentAmrap: null,
   currentScapHang: null,
+  initialMaxPullUps: null,
   latestMaxPullUps: null,
   latestAmrap: null,
   latestScapHang: null,
+  history: [],
+  renderReport: false,
 };
 
 function reducer(state = initialState, action) {
   console.log(action.type);
 
   switch (action.type) {
+    case 'TEST_DAYS':
+      return {...state, today: 21};
+    case 'CLOSE_REPORT':
+      return {...state, renderReport: false};
     case 'INCREMENT':
-      if (state.today === 22) return state;
-
+      if (state.today === 22) return state; // put logic for report here?
       return { ...state, today: state.today + 1 };
     case 'DECREMENT':
       if (state.today === 1) return state;
-
       return { ...state, today: state.today - 1 };
+    case 'SET_INITIAL_STATS':
+      return {
+        ...state,
+        latestMaxPullUps: state.currentMaxPullUps,
+        latestAmrap: state.currentAmrap,
+        initialMaxPullUps: state.currentMaxPullUps,
+        initialAmrap: state.currentAmrap,
+        testDayTotal: state.currentAmrap + state.currentMaxPullUps,}
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, currentMaxPullUps: action.value };
     case 'SET_CURRENT_AMRAP':
       return { ...state, currentAmrap: action.value };
+    case 'SET_FINAL_MAX_PULL_UPS':
+      return { ...state, finalMaxPullUps: action.value };
+    case 'SET_FINAL_AMRAP':
+      console.log("val passed to finalAmrap", action.value);
+      return { ...state, finalAmrap: action.value };
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
       return { ...state, testDayTotal: state.currentAmrap + state.currentMaxPullUps }; // Should this be computed in the component?
-    // case 'SET_LATEST_MAX_PULL_UPS':
-    //   return { ...state, latestMaxPullUps: action.value };
-    // case 'SET_LATEST_AMRAP':
-    //   return { ...state, latestAmrap: action.value };
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
@@ -50,6 +64,31 @@ function reducer(state = initialState, action) {
         ...state,
         latestMaxPullUps: state.currentMaxPullUps,
         latestAmrap: state.currentAmrap,
+      };
+    case 'START_NEW_CYCLE':
+      return {
+        ...state,
+        today: 0,
+        currentFieldValue: '',
+        currentMaxPullUps: null,
+        currentAmrap: null,
+        currentScapHang: null,
+        renderReport: false,
+      };
+    case 'SAVE_RESULTS':
+      return {
+        ...state,
+        renderReport: true,
+        history: [...state.history, {
+          latestScapHang: state.latestScapHang,
+          initialMaxPullUps: state.initialMaxPullUps,
+          finalMaxPullUps: state.finalMaxPullUps,
+          mtfDelta: state.finalMaxPullUps - state.initialMaxPullUps,
+          initialAmrap: state.initialAmrap,
+          finalAmrap: state.finalAmrap,
+          amrapDelta : state.initialAmrap - state.finalAmrap,
+          latestScapHang: state.latestScapHang,
+        }]
       };
     case PURGE:
       return initialState;

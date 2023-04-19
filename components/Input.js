@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux'
 import InputSpinner from "react-native-input-spinner";
 
-function Input({...props}) {
+export default ({...props}) => {
   const dispatch = useDispatch();
 
   return (
@@ -16,5 +16,3 @@ function Input({...props}) {
     />
   );
 }
-
-export default Input;

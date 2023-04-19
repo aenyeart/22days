@@ -1,9 +1,9 @@
 import {Button} from 'react-native';
 import {connect} from 'react-redux';
 
-function CompleteButton({action, dispatch}) {
+function CompleteButton({ action, dispatch, title = "Complete workout"}) {
   return (
-    <Button title="Complete workout" onPress={() => {
+    <Button title={title} onPress={() => {
       action && dispatch({type: action.type});
       dispatch({ type: 'INCREMENT'});
     }} />

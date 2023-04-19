@@ -5,6 +5,7 @@ import CompleteButton from '../CompleteButton.js';
 export default ({ mtf, scapHang }) => {
   return <>
     <Text>
+      {/* Scap-Pull Hang x {parseInt(scapHang) + 5} seconds {`\n\t`}(prev time +5 sec), OR until failure, */}
       Scap-Pull Hang
       {scapHang === null
         ? " until failure,"

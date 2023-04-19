@@ -23,7 +23,7 @@ function TodaysWorkout({ today, latestMaxPullUps, currentMaxPullUps, latestAmrap
     case "commando":
       return <Commando mtf={latestMaxPullUps} />;
     case "initialTest":
-      return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} />;
+      return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
     default:
       return <Text>~~~ Hmmmmmm..... ~~~</Text>
   };

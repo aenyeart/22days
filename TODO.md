@@ -10,17 +10,22 @@
   - [ ] Clearing modal increments day (advances view to next day's workout)
 - [x] change numerical inputs to iOS selector menu/wheel
 - [ ] input validation
-- [ ] end-of-cycle report
+- [x] end-of-cycle report
+- [ ] option to view previous reports
+- [ ] get rid of incr button, use complete workout btn w/prev day option
+
 
 ## BUGS
 
 - [x] value entered into scaphang input persists in next day's MTF placeholder
+- [x] AMRAP test day (#21) not displaying test-day-total
 
 ## Small changes
 
 - [ ] Change names of incr/decr buttons
 - [ ] Reconcile variable names for MTF vs latestMaxPullUps
 - [ ] Format rendering of workout instructions for greater clarity & distinction
+  - [x] AMRAP test day 21
   - [ ] Add padding or change to SafeAreaView for consistency
 
 ## Stretch Goals & Extra Features
