@@ -1,7 +1,7 @@
 import {Text} from 'react-native';
 import Input from '../Input.js';
 import CompleteButton from '../CompleteButton.js';
-import {SET_CURRENT_MAX_PULL_UPS} from "../../store/actions";
+import {SET_NEW_MTF} from "../../store/actions";
 
 export default ({ mtf, latestAmrap, today }) => {
   return <>
@@ -15,7 +15,7 @@ export default ({ mtf, latestAmrap, today }) => {
     <Text>Max consecutive pull-ups:</Text>
     <Input
       placeholder="Enter your max pull-ups"
-      actionType={SET_CURRENT_MAX_PULL_UPS}
+      actionType={SET_NEW_MTF}
       initialValue={mtf}
     />
     <Text>AMRAP pull-ups in five minutes:</Text>

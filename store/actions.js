@@ -1,1 +1,1 @@
-export const SET_CURRENT_MAX_PULL_UPS = 'SET_CURRENT_MAX_PULL_UPS';
+export const SET_NEW_MTF = 'SET_NEW_MTF';
