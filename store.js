@@ -87,7 +87,6 @@ function reducer(state = initialState, action) {
           initialAmrap: state.initialAmrap,
           finalAmrap: state.finalAmrap,
           amrapDelta : state.initialAmrap - state.finalAmrap,
-          latestScapHang: state.latestScapHang,
         }]
       };
     case PURGE:
