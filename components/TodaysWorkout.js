@@ -8,7 +8,7 @@ import InitialTest from './workouts/InitialTest.js';
 import ChinUps from './workouts/ChinUps.js';
 import workoutAssigner from "../constants/workoutAssigner";
 
-function TodaysWorkout({ today, latestMaxPullUps, newMtf, latestAmrap, newAmrap, latestScapHang, currentScapHang, testDayTotal, dispatch }) {
+function TodaysWorkout({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal}) {
   const workout = workoutAssigner(today);
 
   switch (workout) {
