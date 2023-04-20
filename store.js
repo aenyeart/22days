@@ -12,7 +12,7 @@ const initialState = {
   today: 1,
   currentFieldValue: '',
   newMtf: null,
-  currentAmrap: null,
+  newAmrap: null,
   currentScapHang: null,
   initialMaxPullUps: null,
   latestMaxPullUps: null,
@@ -40,14 +40,14 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         latestMaxPullUps: state.newMtf,
-        latestAmrap: state.currentAmrap,
+        latestAmrap: state.newAmrap,
         initialMaxPullUps: state.newMtf,
-        initialAmrap: state.currentAmrap,
-        testDayTotal: state.currentAmrap + state.newMtf,}
+        initialAmrap: state.newAmrap,
+        testDayTotal: state.newAmrap + state.newMtf,}
     case 'SET_CURRENT_MAX_PULL_UPS':
       return { ...state, newMtf: action.value };
     case 'SET_CURRENT_AMRAP':
-      return { ...state, currentAmrap: action.value };
+      return { ...state, newAmrap: action.value };
     case 'SET_FINAL_MAX_PULL_UPS':
       return { ...state, finalMaxPullUps: action.value };
     case 'SET_FINAL_AMRAP':
@@ -56,14 +56,14 @@ function reducer(state = initialState, action) {
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
-      return { ...state, testDayTotal: state.currentAmrap + state.newMtf }; // Should this be computed in the component?
+      return { ...state, testDayTotal: state.newAmrap + state.newMtf }; // Should this be computed in the component?
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
       return {
         ...state,
         latestMaxPullUps: state.newMtf,
-        latestAmrap: state.currentAmrap,
+        latestAmrap: state.newAmrap,
       };
     case 'START_NEW_CYCLE':
       return {
@@ -71,7 +71,7 @@ function reducer(state = initialState, action) {
         today: 0,
         currentFieldValue: '',
         newMtf: null,
-        currentAmrap: null,
+        newAmrap: null,
         currentScapHang: null,
         renderReport: false,
       };
