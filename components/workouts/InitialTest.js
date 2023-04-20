@@ -1,7 +1,7 @@
 import {Text} from 'react-native';
 import Input from '../Input.js';
 import CompleteButton from '../CompleteButton.js';
-import {SET_CURRENT_AMRAP, SET_NEW_MTF} from "../../store/actions";
+import {SET_NEW_AMRAP, SET_NEW_MTF} from "../../store/actions";
 
 export default ({ mtf, latestAmrap, today }) => {
   return <>
@@ -21,7 +21,7 @@ export default ({ mtf, latestAmrap, today }) => {
     <Text>AMRAP pull-ups in five minutes:</Text>
     <Input
       placeholder="Enter your AMRAP"
-      actionType={SET_CURRENT_AMRAP}
+      actionType={SET_NEW_AMRAP}
       initialValue={latestAmrap}
     />
     <CompleteButton action={today === 1 ? { type: 'SET_INITIAL_STATS'} : { type: 'COMPLETE_TEST' }} />
