@@ -11,7 +11,7 @@ const persistConfig = {
 const initialState = {
   today: 1,
   currentFieldValue: '',
-  currentMaxPullUps: null,
+  newMtf: null,
   currentAmrap: null,
   currentScapHang: null,
   initialMaxPullUps: null,
@@ -39,13 +39,13 @@ function reducer(state = initialState, action) {
     case 'SET_INITIAL_STATS':
       return {
         ...state,
-        latestMaxPullUps: state.currentMaxPullUps,
+        latestMaxPullUps: state.newMtf,
         latestAmrap: state.currentAmrap,
-        initialMaxPullUps: state.currentMaxPullUps,
+        initialMaxPullUps: state.newMtf,
         initialAmrap: state.currentAmrap,
-        testDayTotal: state.currentAmrap + state.currentMaxPullUps,}
+        testDayTotal: state.currentAmrap + state.newMtf,}
     case 'SET_CURRENT_MAX_PULL_UPS':
-      return { ...state, currentMaxPullUps: action.value };
+      return { ...state, newMtf: action.value };
     case 'SET_CURRENT_AMRAP':
       return { ...state, currentAmrap: action.value };
     case 'SET_FINAL_MAX_PULL_UPS':
@@ -56,13 +56,13 @@ function reducer(state = initialState, action) {
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
-      return { ...state, testDayTotal: state.currentAmrap + state.currentMaxPullUps }; // Should this be computed in the component?
+      return { ...state, testDayTotal: state.currentAmrap + state.newMtf }; // Should this be computed in the component?
     case 'SET_LATEST_SCAP_HANG':
       return { ...state, latestScapHang: state.currentScapHang };
     case 'COMPLETE_TEST':
       return {
         ...state,
-        latestMaxPullUps: state.currentMaxPullUps,
+        latestMaxPullUps: state.newMtf,
         latestAmrap: state.currentAmrap,
       };
     case 'START_NEW_CYCLE':
@@ -70,7 +70,7 @@ function reducer(state = initialState, action) {
         ...state,
         today: 0,
         currentFieldValue: '',
-        currentMaxPullUps: null,
+        newMtf: null,
         currentAmrap: null,
         currentScapHang: null,
         renderReport: false,
