@@ -6,13 +6,13 @@
 - [x] add input for scap pull hang
 - [x] isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
 - [ ] Handle workout completion
-  - [ ] Modal to acknowledge entry
+  - [ ] Modal to acknowledge entry (Gratification/Celebration)
   - [ ] Clearing modal increments day (advances view to next day's workout)
 - [x] change numerical inputs to iOS selector menu/wheel
 - [ ] input validation
 - [x] end-of-cycle report
 - [ ] option to view previous reports
-- [ ] get rid of incr button, use complete workout btn w/prev day option
+- [x] get rid of incr button, use complete workout btn w/prev day option
 
 
 ## BUGS
@@ -22,9 +22,9 @@
 
 ## Small changes
 
-- [ ] Change names of incr/decr buttons
-- [ ] Reconcile variable names for MTF vs latestMaxPullUps
-- [ ] Format rendering of workout instructions for greater clarity & distinction
+- [x] Change names of incr/decr buttons
+- [x] Reconcile variable names for MTF vs latestMaxPullUps
+- [x] Format rendering of workout instructions for greater clarity & distinction
   - [x] AMRAP test day 21
   - [ ] Add padding or change to SafeAreaView for consistency
 
