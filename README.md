@@ -93,7 +93,7 @@ Setup: `”build:ios”: "react-native bundle --entry-file='index.js' --bundle-o
 ## Building for Web
 
 ```shell
-npx serve web-build
+npx expo export:web
 ```
 
 After running the above, the generated HTML, CSS, and JS files will be in the `web-build` directory.
