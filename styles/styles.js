@@ -1,12 +1,24 @@
-import { StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import {StyleSheet} from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+
+const textStyle = {
+  color: '#FFFFFF',
+};
 
 const styles = StyleSheet.create({
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: '100%',
+  },
+  text: textStyle,
+
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     padding: 20,
-    // backgroundColor: '#3f0',
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
