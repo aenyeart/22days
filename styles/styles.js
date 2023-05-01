@@ -1,10 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
 
-const textStyle = {
-  color: '#FFFFFF',
-};
-
 const styles = StyleSheet.create({
   background: {
     position: 'absolute',
@@ -13,7 +9,6 @@ const styles = StyleSheet.create({
     top: 0,
     height: '100%',
   },
-  text: textStyle,
 
   container: {
     flex: 1,
@@ -42,13 +37,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   h2: {
-    ...textStyle,
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
   },
   title: {
-    ...textStyle,
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 10,
@@ -61,7 +54,6 @@ const styles = StyleSheet.create({
     color: 'green'
   },
   menuItem: {
-    ...textStyle,
     backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,

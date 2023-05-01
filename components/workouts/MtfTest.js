@@ -1,6 +1,7 @@
-import {Text} from 'react-native';
 import Input from '../Input.js';
 import CompleteButton from '../CompleteButton.js';
+import {Text} from "../Text.js";
+
 export default ({mtf}) => {
   return <>
     <Text>Test – Update MTF pullups</Text>

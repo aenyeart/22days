@@ -1,5 +1,4 @@
 import {connect} from 'react-redux';
-import {Text} from 'react-native'
 import ScapHang from './workouts/ScapHang.js';
 import Commando from './workouts/Commando.js';
 import AmrapTest from './workouts/AmrapTest.js';
@@ -7,6 +6,7 @@ import MtfTest from './workouts/MtfTest.js';
 import InitialTest from './workouts/InitialTest.js';
 import ChinUps from './workouts/ChinUps.js';
 import workoutAssigner from "../constants/workoutAssigner";
+import {Text} from "./Text.js";
 
 function TodaysWorkout({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal}) {
   const workout = workoutAssigner(today);

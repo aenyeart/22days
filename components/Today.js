@@ -1,8 +1,9 @@
 import React from 'react';
-import { KeyboardAvoidingView, ScrollView, Text } from 'react-native';
-import { connect } from 'react-redux';
+import {KeyboardAvoidingView, ScrollView} from 'react-native';
+import {connect} from 'react-redux';
 import styles from "../styles/styles.js";
 import TodaysWorkout from './TodaysWorkout.js';
+import {Text} from "./Text.js";
 
 function Today({ today }) {
   return (
