@@ -1,10 +1,11 @@
 import {Text} from 'react-native';
 import Input from '../Input.js';
 import CompleteButton from '../CompleteButton.js';
+import styles from "../../styles/styles";
 
 export default ({ mtf, scapHang }) => {
   return <>
-    <Text>
+    <Text style={styles.text}>
       {/* Scap-Pull Hang x {parseInt(scapHang) + 5} seconds {`\n\t`}(prev time +5 sec), OR until failure, */}
       Scap-Pull Hang
       {scapHang === null

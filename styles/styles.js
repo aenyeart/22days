@@ -42,11 +42,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   h2: {
+    ...textStyle,
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
   },
   title: {
+    ...textStyle,
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 10,
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     color: 'green'
   },
   menuItem: {
+    ...textStyle,
     backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,
