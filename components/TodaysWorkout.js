@@ -15,7 +15,7 @@ function TodaysWorkout({ today, latestMaxPullUps, latestAmrap, latestScapHang, t
     case "mtfTest":
       return <MtfTest mtf={latestMaxPullUps} />;
     case "amrapTest":
-      return <AmrapTest tdt={testDayTotal} />;
+      return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap}/>;
     case "scapHang":
       return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
     case "chinUps":

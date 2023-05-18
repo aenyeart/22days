@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {SET_NEW_AMRAP, SET_NEW_MTF} from "./store/actions";
+import {SET_NEW_AMRAP, SET_NEW_MTF} from "./actions";
 
 const persistConfig = {
   key: 'root',
@@ -52,8 +52,8 @@ function reducer(state = initialState, action) {
     case 'SET_FINAL_MAX_PULL_UPS':
       return { ...state, finalMaxPullUps: action.value };
     case 'SET_FINAL_AMRAP':
-      console.log("val passed to finalAmrap", action.value);
-      return { ...state, finalAmrap: action.value };
+      console.log("val passed to finalAmrap", state.latestAmrap);
+      return { ...state, finalAmrap: state.latestAmrap };
     case 'SET_CURRENT_SCAP_HANG':
       return { ...state, currentScapHang: action.value };
     case 'SET_TEST_DAY_TOTAL':
