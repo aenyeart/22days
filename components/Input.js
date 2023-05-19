@@ -11,6 +11,7 @@ export default ({...props}) => {
       step={1}
       value={props.initialValue}
       onChange={(num) => {
+        console.log('onChange num', num);
         dispatch({type: props.actionType, value: num});
       }}
     />

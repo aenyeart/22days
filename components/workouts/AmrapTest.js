@@ -10,29 +10,11 @@ export default ({ tdt, latestAmrap }) => {
       Try to beat {tdt} reps, your total pull-ups from Day 1.{`\n`}
     </Text>
 
-    {/* TODO Idea: Add callback function for Input onChange that passes a value for the CompleteButton to use. */}
     <Input
-      actionType={{ type: "SET_FINAL_AMRAP" }}
+      actionType="SET_LATEST_AMRAP"
+      // created a new action/dispatch for this very specific case
       initialValue={latestAmrap}
     />
     <CompleteButton action={{type: "SET_FINAL_AMRAP"}} />
   </>;
 }
-/*
-case 'TEST_DAYS':
-case 'CLOSE_REPORT':
-case 'INCREMENT':
-case 'DECREMENT':
-case 'SET_INITIAL_STATS':
-case SET_NEW_MTF:
-case SET_NEW_AMRAP:
-case 'SET_FINAL_MAX_PULL_UPS':
-case 'SET_FINAL_AMRAP':
-case 'SET_CURRENT_SCAP_HANG':
-case 'SET_TEST_DAY_TOTAL':
-case 'SET_LATEST_SCAP_HANG':
-case 'COMPLETE_TEST':
-case 'START_NEW_CYCLE':
-case 'SAVE_RESULTS':
-case PURGE:
-*/
