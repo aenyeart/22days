@@ -1,7 +1,7 @@
 import {Text} from 'react-native';
 import Home from './components/Home.js';
 import { Provider } from 'react-redux';
-import { store, persistor } from './store';
+import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 export default function App() {

@@ -20,6 +20,11 @@ export default ({ mtf, scapHang }) => {
       actionType="SET_CURRENT_SCAP_HANG"
       initialValue={scapHang}
     />
-    <CompleteButton action={{type:'SET_LATEST_SCAP_HANG'}} />
+    <CompleteButton action=
+    {{type:'SET_LATEST_SCAP_HANG'}}
+    // Did onChange get called? IF NOT, what is Input's value property?  -> scapHang
+    // Could have Bool switch in state to track if input was changed (listener). Switch resets to false when completeBtn or PrevBtn tapped.
+    // Could also compare vals
+    />
   </>;
 }
