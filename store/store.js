@@ -79,7 +79,7 @@ function reducer(state = initialState, action) {
     case SET_TEST_DAY_TOTAL:
       return { ...state, testDayTotal: state.newAmrap + state.newMtf }; // Should this be computed in the component?
     case SET_LATEST_SCAP_HANG:
-      return { ...state, latestScapHang: state.currentScapHang };
+      return { ...state, latestScapHang: action.value };
     case COMPLETE_TEST:
       return {
         ...state,

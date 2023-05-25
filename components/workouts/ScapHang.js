@@ -1,11 +1,12 @@
 import {Text} from 'react-native';
-import Input from '../Input.js';
+import {useState} from 'react';
+import InputEncapsulated from '../InputEncapsulated.js';
 import CompleteButton from '../CompleteButton.js';
 
 export default ({ mtf, scapHang }) => {
+  const [newScapHang, setNewScapHang] = useState(scapHang);
   return <>
     <Text>
-      {/* Scap-Pull Hang x {parseInt(scapHang) + 5} seconds {`\n\t`}(prev time +5 sec), OR until failure, */}
       Scap-Pull Hang
       {scapHang === null
         ? " until failure,"
@@ -15,16 +16,13 @@ export default ({ mtf, scapHang }) => {
       {`\n`}Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
     </Text>
     <Text>Scap-Pull Hang seconds:</Text>
-    <Input
+    <InputEncapsulated
       placeholder="Enter scap-pull hang duration (seconds)"
-      actionType="SET_CURRENT_SCAP_HANG"
-      initialValue={scapHang}
+      initialValue={newScapHang}
+      handleChange={setNewScapHang}
     />
     <CompleteButton action=
-    {{type:'SET_LATEST_SCAP_HANG'}}
-    // Did onChange get called? IF NOT, what is Input's value property?  -> scapHang
-    // Could have Bool switch in state to track if input was changed (listener). Switch resets to false when completeBtn or PrevBtn tapped.
-    // Could also compare vals
+    {{type:'SET_LATEST_SCAP_HANG', value: newScapHang}}
     />
   </>;
 }
