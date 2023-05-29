@@ -1,5 +1,5 @@
 import {Text} from 'react-native';
-import Input from '../InputEncapsulated.js';
+import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import {useState} from "react";
 

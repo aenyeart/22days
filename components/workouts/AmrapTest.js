@@ -1,6 +1,6 @@
 import {Text} from 'react-native';
 import CompleteButton from '../CompleteButton.js';
-import Input from '../InputEncapsulated.js';
+import Input from '../NumberInput.js';
 import {useState} from "react";
 
 export default ({ tdt, latestAmrap }) => {
