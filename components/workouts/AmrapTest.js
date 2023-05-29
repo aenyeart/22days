@@ -1,9 +1,11 @@
 import {Text} from 'react-native';
 import CompleteButton from '../CompleteButton.js';
-import Input from '../Input.js';
-import { SET_NEW_AMRAP } from '../../store/actions.js';
+import Input from '../InputEncapsulated.js';
+import {useState} from "react";
 
 export default ({ tdt, latestAmrap }) => {
+  const [newAmrap, setNewAmrap] = useState(latestAmrap);
+
   return <>
     <Text>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
       {`\n`}
@@ -11,10 +13,9 @@ export default ({ tdt, latestAmrap }) => {
     </Text>
 
     <Input
-      actionType="SET_LATEST_AMRAP"
-      // created a new action/dispatch for this very specific case
-      initialValue={latestAmrap}
+      initialValue={newAmrap}
+      handleChange={setNewAmrap}
     />
-    <CompleteButton action={{type: "SET_FINAL_AMRAP"}} />
+    <CompleteButton action={{type: "SET_FINAL_AMRAP", value: newAmrap}} />
   </>;
 }

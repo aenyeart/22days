@@ -1,24 +1,25 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE, } from 'redux-persist'
+import {configureStore} from '@reduxjs/toolkit';
+import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
-  TEST_DAYS,
   CLOSE_REPORT,
-  INCREMENT,
-  DECREMENT,
-  SET_INITIAL_STATS,
-  SET_NEW_MTF,
-  SET_NEW_AMRAP,
-  SET_LATEST_AMRAP,
-  SET_FINAL_MAX_PULL_UPS,
-  SET_FINAL_AMRAP,
-  SET_CURRENT_SCAP_HANG,
-  SET_TEST_DAY_TOTAL,
-  SET_LATEST_SCAP_HANG,
   COMPLETE_TEST,
+  DECREMENT,
+  INCREMENT,
+  SAVE_RESULTS,
+  SET_CURRENT_SCAP_HANG,
+  SET_FINAL_AMRAP,
+  SET_FINAL_MAX_PULL_UPS,
+  SET_INITIAL_STATS,
+  SET_LATEST_AMRAP,
+  SET_LATEST_SCAP_HANG,
+  SET_NEW_AMRAP,
+  SET_NEW_MTF,
+  SET_TEST_DAY_TOTAL,
   START_NEW_CYCLE,
-  SAVE_RESULTS
+  TEST_DAYS
 } from "./actions";
+
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
@@ -72,8 +73,8 @@ function reducer(state = initialState, action) {
     case SET_FINAL_MAX_PULL_UPS:
       return { ...state, finalMaxPullUps: action.value };
     case SET_FINAL_AMRAP:
-      console.log("val passed to finalAmrap", state.latestAmrap); // intent to receive value present in input field
-      return { ...state, finalAmrap: state.latestAmrap };
+      console.log("val passed to finalAmrap", action.value); // intent to receive value present in input field
+      return { ...state, finalAmrap: action.value };
     case SET_CURRENT_SCAP_HANG:
       return { ...state, currentScapHang: action.value };
     case SET_TEST_DAY_TOTAL:
