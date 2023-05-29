@@ -9,7 +9,6 @@ import {
   SAVE_RESULTS,
   SET_CURRENT_SCAP_HANG,
   SET_FINAL_AMRAP,
-  SET_FINAL_MAX_PULL_UPS,
   SET_INITIAL_STATS,
   SET_LATEST_AMRAP,
   SET_LATEST_SCAP_HANG,
@@ -70,8 +69,8 @@ function reducer(state = initialState, action) {
     case SET_LATEST_AMRAP:
       console.log('latestAmrap updating to', action.value);
       return { ...state, latestAmrap: action.value };
-    case SET_FINAL_MAX_PULL_UPS:
-      return { ...state, finalMaxPullUps: action.value };
+    // case SET_FINAL_MAX_PULL_UPS:
+    //   return { ...state, finalMaxPullUps: action.value };
     case SET_FINAL_AMRAP:
       console.log("val passed to finalAmrap", action.value); // intent to receive value present in input field
       return { ...state, finalAmrap: action.value };
@@ -101,11 +100,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         renderReport: true,
+        finalMaxPullUps: action.value,
         history: [...state.history, {
           latestScapHang: state.latestScapHang,
           initialMaxPullUps: state.initialMaxPullUps,
-          finalMaxPullUps: state.finalMaxPullUps,
-          mtfDelta: state.finalMaxPullUps - state.initialMaxPullUps,
+          finalMaxPullUps: action.value,
+          mtfDelta: action.value - state.initialMaxPullUps,
           initialAmrap: state.initialAmrap,
           finalAmrap: state.finalAmrap,
           amrapDelta: state.initialAmrap - state.finalAmrap,
