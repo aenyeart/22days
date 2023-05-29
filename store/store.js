@@ -57,11 +57,11 @@ function reducer(state = initialState, action) {
     case SET_INITIAL_STATS:
       return {
         ...state,
-        latestMaxPullUps: state.newMtf,
-        latestAmrap: state.newAmrap,
-        initialMaxPullUps: state.newMtf,
-        initialAmrap: state.newAmrap,
-        testDayTotal: state.newAmrap + state.newMtf,
+        latestMaxPullUps: action.value.newMtf,
+        latestAmrap: action.value.newAmrap,
+        initialMaxPullUps: action.value.newMtf,
+        initialAmrap: action.value.newAmrap,
+        testDayTotal: action.value.newAmrap + action.value.newMtf,
       }
     case SET_NEW_MTF:
       return { ...state, newMtf: action.value };
@@ -84,8 +84,8 @@ function reducer(state = initialState, action) {
     case COMPLETE_TEST:
       return {
         ...state,
-        latestMaxPullUps: state.newMtf,
-        latestAmrap: state.newAmrap,
+        latestMaxPullUps: action.value.newMtf,
+        latestAmrap: action.value.newAmrap,
       };
     case START_NEW_CYCLE:
       return {

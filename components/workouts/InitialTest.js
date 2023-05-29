@@ -1,9 +1,12 @@
 import {Text} from 'react-native';
-import Input from '../Input.js';
+import Input from '../InputEncapsulated.js';
 import CompleteButton from '../CompleteButton.js';
-import {SET_NEW_AMRAP, SET_NEW_MTF} from "../../store/actions";
+import {useState} from "react";
 
 export default ({ mtf, latestAmrap, today }) => {
+  const [newMtf, setNewMtf] = useState(mtf);
+  const [newAmrap, setNewAmrap] = useState(latestAmrap);
+
   return <>
     <Text>
       Test –{`\n`}
@@ -14,16 +17,17 @@ export default ({ mtf, latestAmrap, today }) => {
     </Text>
     <Text>Max consecutive pull-ups:</Text>
     <Input
-      placeholder="Enter your max pull-ups"
-      actionType={SET_NEW_MTF}
       initialValue={mtf}
+      handleChange={setNewMtf}
     />
     <Text>AMRAP pull-ups in five minutes:</Text>
     <Input
-      placeholder="Enter your AMRAP"
-      actionType={SET_NEW_AMRAP}
       initialValue={latestAmrap}
+      handleChange={setNewAmrap}
     />
-    <CompleteButton action={today === 1 ? { type: 'SET_INITIAL_STATS'} : { type: 'COMPLETE_TEST' }} />
+    <CompleteButton action={today === 1
+      ? { type: 'SET_INITIAL_STATS', value: {newMtf, newAmrap} }
+      : { type: 'COMPLETE_TEST', value: {newMtf, newAmrap} }
+    } />
   </>;
 }
