@@ -1,6 +1,6 @@
 import {Text} from 'react-native';
 import {useState} from 'react';
-import InputEncapsulated from '../InputEncapsulated.js';
+import InputEncapsulated from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 
 export default ({ mtf, scapHang }) => {
