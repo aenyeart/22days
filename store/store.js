@@ -10,10 +10,7 @@ import {
   SET_CURRENT_SCAP_HANG,
   SET_FINAL_AMRAP,
   SET_INITIAL_STATS,
-  SET_LATEST_AMRAP,
   SET_LATEST_SCAP_HANG,
-  SET_NEW_AMRAP,
-  SET_NEW_MTF,
   SET_TEST_DAY_TOTAL,
   START_NEW_CYCLE,
   TEST_DAYS
@@ -62,15 +59,6 @@ function reducer(state = initialState, action) {
         initialAmrap: action.value.newAmrap,
         testDayTotal: action.value.newAmrap + action.value.newMtf,
       }
-    case SET_NEW_MTF:
-      return { ...state, newMtf: action.value };
-    case SET_NEW_AMRAP:
-      return { ...state, newAmrap: action.value };
-    case SET_LATEST_AMRAP:
-      console.log('latestAmrap updating to', action.value);
-      return { ...state, latestAmrap: action.value };
-    // case SET_FINAL_MAX_PULL_UPS:
-    //   return { ...state, finalMaxPullUps: action.value };
     case SET_FINAL_AMRAP:
       console.log("val passed to finalAmrap", action.value); // intent to receive value present in input field
       return { ...state, finalAmrap: action.value };
