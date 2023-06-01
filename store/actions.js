@@ -1,2 +1,12 @@
-export const SET_NEW_MTF = 'SET_NEW_MTF';
-export const SET_NEW_AMRAP = 'SET_NEW_AMRAP';
+export const TEST_DAYS = 'TEST_DAYS';
+export const CLOSE_REPORT = 'CLOSE_REPORT';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+export const SET_INITIAL_STATS = 'SET_INITIAL_STATS';
+export const SET_FINAL_AMRAP = 'SET_FINAL_AMRAP';
+export const SET_CURRENT_SCAP_HANG = 'SET_CURRENT_SCAP_HANG';
+export const SET_TEST_DAY_TOTAL = 'SET_TEST_DAY_TOTAL';
+export const SET_LATEST_SCAP_HANG = 'SET_LATEST_SCAP_HANG';
+export const COMPLETE_TEST = 'COMPLETE_TEST';
+export const START_NEW_CYCLE = 'START_NEW_CYCLE';
+export const SAVE_RESULTS = 'SAVE_RESULTS';

@@ -5,16 +5,13 @@
 - [x] Save/render test-day total
 - [x] add input for scap pull hang
 - [x] isTestDay needs logic accounting for WHICH test day, esp days 21 & 22. Can use workoutAssignment to specify.
-- [ ] Handle workout completion
-  - [ ] Modal to acknowledge entry (Gratification/Celebration)
-  - [ ] Clearing modal increments day (advances view to next day's workout)
+- [x] Handle workout completion
 - [x] change numerical inputs to iOS selector menu/wheel
 - [ ] input validation
 - [x] end-of-cycle report
 - [ ] option to view previous reports
 - [x] get rid of incr button, use complete workout btn w/prev day option
 - [x] custom Text component for consistent styling
-
 
 ## BUGS
 
@@ -31,6 +28,7 @@
 
 ## Stretch Goals & Extra Features
 
+- [ ] Modal to acknowledge entry (Gratification/Celebration)
+- [ ] Clearing modal increments day (advances view to next day's workout)
 - [ ] Integrated timers for 2-min rest and scap-pull hang
 - [ ] add abbreviation and workout guides, more detailed instructions
-- [ ]

@@ -1,15 +1,17 @@
-import Input from '../Input.js';
-import CompleteButton from '../CompleteButton.js';
 import {Text} from "../Text.js";
+import Input from '../NumberInput.js';
+import CompleteButton from '../CompleteButton.js';
+import {useState} from "react";
 
 export default ({mtf}) => {
+  const [newMtf, setNewMtf] = useState(mtf);
+
   return <>
     <Text>Test – Update MTF pullups</Text>
     <Input
-      placeholder="Enter your max pull-ups"
-      actionType="SET_FINAL_MAX_PULL_UPS"
       initialValue={mtf}
+      handleChange={setNewMtf}
     />
-    <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS' }} />
+    <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS', value: newMtf }} />
   </>;
 }

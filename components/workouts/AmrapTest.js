@@ -1,18 +1,20 @@
 import CompleteButton from '../CompleteButton.js';
-import Input from '../Input.js';
-import {Text} from "../Text.js";
+import Input from '../NumberInput.js';
+import {useState} from "react";
 
-export default ({tdt}) => {
+export default ({ tdt, latestAmrap }) => {
+  const [newAmrap, setNewAmrap] = useState(latestAmrap);
+
   return <>
     <Text>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
       {`\n`}
       Try to beat {tdt} reps, your total pull-ups from Day 1.{`\n`}
     </Text>
+
     <Input
-      // placeholder={tdt}  // doesn't seem to render in counter
-      actionType="SET_FINAL_AMRAP"
-      initialValue={tdt}
+      initialValue={newAmrap}
+      handleChange={setNewAmrap}
     />
-    <CompleteButton action={null} />
+    <CompleteButton action={{type: "SET_FINAL_AMRAP", value: newAmrap}} />
   </>;
 }

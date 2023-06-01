@@ -1,11 +1,12 @@
-import Input from '../Input.js';
+import {useState} from 'react';
+import InputEncapsulated from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import {Text} from "../Text.js";
 
 export default ({ mtf, scapHang }) => {
+  const [newScapHang, setNewScapHang] = useState(scapHang);
   return <>
     <Text>
-      {/* Scap-Pull Hang x {parseInt(scapHang) + 5} seconds {`\n\t`}(prev time +5 sec), OR until failure, */}
       Scap-Pull Hang
       {scapHang === null
         ? " until failure,"
@@ -15,11 +16,13 @@ export default ({ mtf, scapHang }) => {
       {`\n`}Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
     </Text>
     <Text>Scap-Pull Hang seconds:</Text>
-    <Input
+    <InputEncapsulated
       placeholder="Enter scap-pull hang duration (seconds)"
-      actionType="SET_CURRENT_SCAP_HANG"
-      initialValue={scapHang}
+      initialValue={newScapHang}
+      handleChange={setNewScapHang}
     />
-    <CompleteButton action={{type:'SET_LATEST_SCAP_HANG'}} />
+    <CompleteButton action=
+    {{type:'SET_LATEST_SCAP_HANG', value: newScapHang}}
+    />
   </>;
 }

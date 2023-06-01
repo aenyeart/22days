@@ -1,7 +1,7 @@
 import {Text} from 'react-native';
 import Home from './components/Home.js';
+import { store, persistor } from './store/store';
 import {Provider} from 'react-redux';
-import {persistor, store} from './store';
 import {PersistGate} from 'redux-persist/integration/react';
 import {LinearGradient} from "expo-linear-gradient";
 import styles from "./styles/styles";
