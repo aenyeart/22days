@@ -1,4 +1,4 @@
-import {Text} from 'react-native';
+import {Text} from './components/Text.js';
 import Home from './components/Home.js';
 import { store, persistor } from './store/store';
 import {Provider} from 'react-redux';
