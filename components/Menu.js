@@ -7,10 +7,10 @@ import { Text } from './Text.js';
 
 export default function Menu() {
   return (
-    <View>
+    <View style={{width: "100%"}}>
       <Incrementer />
       <Pressable onPress={() => persistor.purge()}>
-        <Text>Purge</Text>
+        <Text style={{ width: "100%", textAlign: "center", paddingHorizontal: "auto" }}>Purge</Text>
       </Pressable>
     </View>
   );
