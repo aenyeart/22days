@@ -2,7 +2,8 @@ import React from 'react';
 import ReactNative from 'react-native';
 
 const textStyles = {
-  color: "white"
+  color: "white",
+  backgroundColor: "purple"
 };
 
 export const Text = ({style, ...props}) => (

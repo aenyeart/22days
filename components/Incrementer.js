@@ -1,13 +1,13 @@
 import React from 'react';
-import {Button, View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {connect} from 'react-redux';
 
 function Counter({ today, dispatch }) {
   return (
     <View>
-      {/* <Button title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} /> */}
-      <Button title="Previous" onPress={() => dispatch({ type: 'DECREMENT' })} />
-      <Button title="JUMP TO END" onPress={() => dispatch({ type: 'TEST_DAYS' })} />
+      {/* <Pressable title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} /> */}
+      <Pressable title="Previous" onPress={() => dispatch({ type: 'DECREMENT' })} />
+      <Pressable title="JUMP TO END" onPress={() => dispatch({ type: 'TEST_DAYS' })} />
 
     </View>
   );
