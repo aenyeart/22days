@@ -7,8 +7,8 @@ import {Text} from "./Text.js";
 
 function Today({ today }) {
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+    <KeyboardAvoidingView behavior="padding" style={{ width: "100%" }}>
+      <ScrollView contentContainerStyle={{ width: "100%" }}>
             <Text style={styles.title}>
               This is workout #{today}:
             </Text>
