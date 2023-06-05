@@ -54,10 +54,22 @@ const styles = StyleSheet.create({
     color: 'green'
   },
   menuItem: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#000',
+    width: "100%",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+  },
+  pressable: {
+    backgroundColor: '#6641AF',
+    width: "100%",
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'flex-start', // 'center' pushes content above statusbar
+    // padding: 20,
+    // marginVertical: 8,
+    // marginHorizontal: 16,
   },
 });
 
