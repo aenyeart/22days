@@ -5,9 +5,11 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {LinearGradient} from "expo-linear-gradient";
 import styles from "./styles/styles";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 export default function App() {
   return (
+    <SafeAreaProvider>
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
         <LinearGradient
@@ -19,5 +21,6 @@ export default function App() {
         <Home />
       </PersistGate>
     </Provider>
+    </SafeAreaProvider>
   );
 }
