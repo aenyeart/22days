@@ -1,6 +1,7 @@
-import { Text } from 'react-native';
 import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
+import {Text} from "../Text.js";
+
 export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
   const amrapDelta = finalAmrap - initialAmrap;

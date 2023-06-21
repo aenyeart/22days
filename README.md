@@ -19,6 +19,16 @@ function App() {
 }
 ``` -->
 
+## Component Hierarchy
+
+index.js -> App.js -> Home.js ->
+ StatusBar
+ Report.js
+ Today.js -> KeyboardAvoidingView -> ScrollView -> TodaysWorkout.js
+  -> Text.js, Input.js, CompleteButton
+ Menu.js -> Incrementer.js, Pressable
+
+
 ## Run Locally
 
 See the React Native documentation for help with [Setting up the development environment to work on a React Native app.](https://reactnative.dev/docs/environment-setup)

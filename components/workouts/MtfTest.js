@@ -1,4 +1,4 @@
-import {Text} from 'react-native';
+import {Text} from "../Text.js";
 import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import {useState} from "react";

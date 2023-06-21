@@ -1,7 +1,8 @@
-import {Text} from 'react-native';
 import CompleteButton from '../CompleteButton.js';
 import Input from '../NumberInput.js';
 import {useState} from "react";
+import { Text } from '../Text.js';
+
 
 export default ({ tdt, latestAmrap }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);

@@ -11,6 +11,7 @@
 - [x] end-of-cycle report
 - [ ] option to view previous reports
 - [x] get rid of incr button, use complete workout btn w/prev day option
+- [x] custom Text component for consistent styling
 
 ## BUGS
 

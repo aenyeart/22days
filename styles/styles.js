@@ -1,12 +1,19 @@
-import { StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import {StyleSheet} from 'react-native';
+import {StatusBar} from 'expo-status-bar';
 
 const styles = StyleSheet.create({
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: '100%',
+  },
+
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     padding: 20,
-    // backgroundColor: '#3f0',
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
@@ -47,10 +54,22 @@ const styles = StyleSheet.create({
     color: 'green'
   },
   menuItem: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#000',
+    width: "100%",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+  },
+  pressable: {
+    backgroundColor: '#6641AF',
+    width: "100%",
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'flex-start', // 'center' pushes content above statusbar
+    // padding: 20,
+    // marginVertical: 8,
+    // marginHorizontal: 16,
   },
 });
 
