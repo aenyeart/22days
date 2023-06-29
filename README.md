@@ -100,6 +100,22 @@ Setup: `”build:ios”: "react-native bundle --entry-file='index.js' --bundle-o
 > To solve this issue on the device, go to Settings > General > VPN and Device Management in newer iOS versions and Settings > General > Profiles or Settings > General > Device Management in older iOS versions (depending on the device type and the iOS version).
 > There, trust the developer and allow the apps to run.
 
+## Using React Native Debugger
+
+Shortened from [Debugging tools - Expo Documentation](https://docs.expo.dev/debugging/tools/#react-native-debugger) and [jhen0409/react-native-debugger: The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools](https://github.com/jhen0409/react-native-debugger#documentation):
+
+1. Install React Native Debugger (RND) on your machine. If you're on macOS you can run: `brew install react-native-debugger`
+2. Open RND, then press [Command] + [T] to open a new tab.
+3. In the new RND tab, specify the port that Expo is running on. After launching 22days (via `npx expo start`), you can find this information in the Terminal. For example, the following line in the Terminal indicates that the port number is `19000`:
+
+  ``` bash
+      Metro waiting on exp://192.168.68.66:19000"
+  ```
+
+4. After setting the port number in RND, ensure that 22days is running in Simulator.
+5. In Terminal / Expo's CLI, press 'm' to toggle the Developer Menu in the Simulator. From that menu, select 'Debug Remote JS'.
+
+
 ## Building for Web
 
 ```shell
