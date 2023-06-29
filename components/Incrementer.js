@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { Text } from './Text.js';
 
 
-function Counter({ today, dispatch }) {
+function Counter({ dispatch }) {
   return (
     <View>
       {/* <Pressable title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} /> */}
