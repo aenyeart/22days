@@ -6,13 +6,15 @@ import TodaysWorkout from './TodaysWorkout.js';
 import {Text} from "./Text.js";
 import {Button, Icon} from "@rneui/themed";
 
-function Today({ today }) {
+function Today({ today, dispatch }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={{ width: "100%" }}>
       <ScrollView contentContainerStyle={{ width: "100%" }}>
         <Button type="outline"
                 containerStyle={{width: '60%'}}
-                buttonStyle={{ justifyContent: 'flex-start' }}>
+                buttonStyle={{ justifyContent: 'flex-start' }}
+                onPress={() => dispatch({ type: 'DECREMENT' })}
+        >
           <Icon name="back-in-time" type="entypo" color="white" />
           <Text>Previous Workout</Text>
         </Button>
