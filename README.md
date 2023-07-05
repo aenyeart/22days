@@ -55,7 +55,10 @@ Start the server *
 
 ```bash
   npx expo start
+  # If you prefer a different command, this is configured via scripts in package.json to run by using the following command:
+  npm start
 ```
+
 
  Note: Mobile device and local machine must be on same network, and unsecured networks (e.g. coffee shop) seem to cause problems for this.
  A workaround from Expo docs:

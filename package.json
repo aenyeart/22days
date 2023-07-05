@@ -2,7 +2,7 @@
   "name": "22days",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "npx expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
