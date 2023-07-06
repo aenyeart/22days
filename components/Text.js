@@ -3,7 +3,7 @@ import ReactNative from 'react-native';
 
 const textStyles = {
   color: "white",
-  backgroundColor: "purple"
+  fontSize: 18,
 };
 
 export const Text = ({style, ...props}) => (
