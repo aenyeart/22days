@@ -51,7 +51,11 @@ function Today({ today, dispatch }) {
                    onPress={() => dispatch({type: 'DECREMENT'})}
         >
           <Icon name="back-in-time" type="entypo" color="white" size={24} style={{
-            borderStyle: 'solid', borderRadius: 30, borderWidth: 1, borderColor: 'white', padding: 12,
+            borderStyle: 'solid',
+            borderRadius: '100%',
+            borderWidth: 1,
+            borderColor: 'rgba(255, 255, 255, .5)',
+            padding: 12,
             marginRight: 10,
           }} />
           <Text style={{fontWeight: "600"}}>Previous Workout</Text>
