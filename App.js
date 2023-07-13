@@ -14,8 +14,8 @@ export default function App() {
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
         <LinearGradient
           colors={['rgba(72, 56, 103, 1)', 'rgba(61, 120, 234, 1)']}
-          useAngle={true}
-          angle={123}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
           style={styles.background}
         />
         <Home />
