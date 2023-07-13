@@ -6,7 +6,7 @@ import TodaysWorkout from './TodaysWorkout.js';
 import {Text} from "./Text.js";
 import {Icon} from "@rneui/themed";
 
-function Today({ today, dispatch }) {
+function Today({today, dispatch}) {
   return (
     <>
       <View style={{
@@ -41,26 +41,26 @@ function Today({ today, dispatch }) {
             borderColor: 'rgba(255, 255, 255, .5)',
             padding: 12,
             marginRight: 10,
-          }} />
+          }}/>
           <Text style={{fontWeight: "600"}}>Previous Workout</Text>
         </Pressable>
       </View>
 
-    <KeyboardAvoidingView behavior="padding" style={{ width: "100%" }}>
-      <ScrollView contentContainerStyle={{ width: "100%" }}>
-            <Text style={styles.title}>
-              This is workout #{today}:
-            </Text>
-            <TodaysWorkout />
-      </ScrollView>
-    </KeyboardAvoidingView>
+      <KeyboardAvoidingView behavior="padding" style={{width: "100%"}}>
+        <ScrollView contentContainerStyle={{width: "100%"}}>
+          <Text style={styles.title}>
+            This is workout #{today}:
+          </Text>
+          <TodaysWorkout/>
+        </ScrollView>
+      </KeyboardAvoidingView>
 
     </>
   );
 }
 
 function mapStateToProps(state) {
-  return { ...state };
+  return {...state};
 }
 
 export default connect(mapStateToProps)(Today);
