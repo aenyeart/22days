@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native';
-import Menu from './Menu.js';
+import DevMenu from './DevMenu.js';
 import Today from './Today.js';
 import messages from "../constants/messages";
 import styles from "../styles/styles.js";
@@ -10,11 +10,11 @@ import {Text} from "./Text.js";
 
 function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, dispatch }) {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.home}>
       <StatusBar style="auto" />
       {renderReport ?
         <Report
-          style={styles.report}
+          style={styles.container}
           initialMaxPullUps={initialMaxPullUps}
           initialAmrap={initialAmrap}
           finalMaxPullUps={finalMaxPullUps}
@@ -22,8 +22,8 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
         /> :
         <>
           {today === 1 && <Text style={styles.menuItem}>{messages.beginning}</Text>}
-          <Today />
-          <Menu />
+          <Today style={styles.container}/>
+          <DevMenu />
         </>
       }
 

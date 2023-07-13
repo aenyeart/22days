@@ -9,11 +9,22 @@ const styles = StyleSheet.create({
     top: 0,
     height: '100%',
   },
-
+  home: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+    marginHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'flex-start', // 'center' pushes content above statusbar
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5,
+  },
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    padding: 20,
+    marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
@@ -53,7 +64,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: 'green'
   },
-  menuItem: {
+ DevMenuItem: {
     backgroundColor: '#000',
     width: "100%",
     padding: 20,
@@ -64,9 +75,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#6641AF',
     width: "100%",
     flex: 1,
-    padding: 20,
+    padding: 15,
     alignItems: 'center',
-    justifyContent: 'flex-start', // 'center' pushes content above statusbar
+    // justifyContent: 'flex-start', // 'center' pushes content above statusbar
     // padding: 20,
     // marginVertical: 8,
     // marginHorizontal: 16,

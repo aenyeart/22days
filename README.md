@@ -26,7 +26,7 @@ index.js -> App.js -> Home.js ->
  Report.js
  Today.js -> KeyboardAvoidingView -> ScrollView -> TodaysWorkout.js
   -> Text.js, Input.js, CompleteButton
- Menu.js -> Incrementer.js, Pressable
+DevMenu.js -> Incrementer.js, Pressable
 
 
 ## Run Locally
