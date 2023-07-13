@@ -7,7 +7,6 @@ import { Text } from './Text.js';
 function Counter({ dispatch }) {
   return (
     <View>
-      {/* <Pressable title="Increment" onPress={() => dispatch({ type: 'INCREMENT' })} /> */}
       <Pressable onPress={() => dispatch({ type: 'TEST_DAYS' })}>
         <Text>JUMP TO END</Text>
       </Pressable >
