@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
