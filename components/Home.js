@@ -7,12 +7,13 @@ import messages from "../constants/messages";
 import { connect } from 'react-redux'
 import Report from "./workouts/Report.js";
 import { Text } from "./Text.js";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, dispatch }) {
   return (
     <>
       <StatusBar style="auto" />
-      <SafeAreaView style={styles.outer}>
+      <SafeAreaProvider style={styles.outer}>
         {/* <View style={styles.main}> */}
         {renderReport ?
           <Report
@@ -29,7 +30,7 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
           </>
         }
         {/* </View> */}
-      </SafeAreaView>
+      </SafeAreaProvider>
     </>
   );
 }
