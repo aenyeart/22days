@@ -75,9 +75,7 @@ function Today({ today, dispatch }) {
           </Text>
           <TodaysWorkout />
         </View>
-        {/* </ScrollView> */}
       </View>
-      {/* </KeyboardAvoidingView> */}
     </>
   );
 }
