@@ -15,24 +15,10 @@ import {Header} from "@rneui/base";
 
 function Today({ today, dispatch }) {
 
-  const { height, width } = Dimensions.get('window');
-  const localStyles = StyleSheet.create({
-    outer: {
-      display: "flex",
-      width: "100%",
-      alignItems: 'center',
-      marginTop: .05 * height,
-    },
-    inner: {
-      marginHorizontal: 'auto',
-      width: "80%",
-    },
-  });
-
   return (
     <>
-
       <Header
+      // TODO: Extract styles to localStyles object below
         containerStyle={{
           paddingHorizontal: "10%",
           borderBottomWidth: 0,
@@ -69,7 +55,6 @@ function Today({ today, dispatch }) {
 
       <View style={localStyles.outer}>
         <View style={localStyles.inner}>
-          {/* <ScrollView contentContainerStyle={{width: "100%"}}> */}
           <Text style={styles.title}>
             This is workout #{today}:
           </Text>
@@ -80,9 +65,25 @@ function Today({ today, dispatch }) {
   );
 }
 
-
 function mapStateToProps(state) {
   return { ...state };
 }
 
 export default connect(mapStateToProps)(Today);
+
+
+const { height, width } = Dimensions.get('window');
+const localStyles = StyleSheet.create({
+  outer: {
+    display: "flex",
+    width: "100%",
+    alignItems: 'center',
+    marginTop: .05 * height,
+  },
+  inner: {
+    // NOTE: not changing anything
+    // marginHorizontal: 'auto',
+    width: "80%",
+    // backgroundColor: "red" // DEBUG ONLY
+  },
+});
