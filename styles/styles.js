@@ -71,17 +71,17 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
-  pressable: {
-    backgroundColor: '#6641AF',
-    width: "100%",
-    flex: 1,
-    padding: 15,
-    alignItems: 'center',
+  // pressable: {
+  //   backgroundColor: '#6641AF',
+  //   width: "100%",
+  //   flex: 1,
+  //   padding: 15,
+  //   alignItems: 'center',
     // justifyContent: 'flex-start', // 'center' pushes content above statusbar
     // padding: 20,
     // marginVertical: 8,
     // marginHorizontal: 16,
-  },
+  // },
 });
 
 export default styles;
