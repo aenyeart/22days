@@ -24,7 +24,7 @@ function App() {
 index.js -> App.js -> Home.js ->
  StatusBar
  Report.js
- Today.js -> KeyboardAvoidingView -> ScrollView -> TodaysWorkout.js
+ Today.js -> KeyboardAvoidingView -> ScrollView -> Workout.js
   -> Text.js, Input.js, CompleteButton
 DevMenu.js -> Incrementer.js, Pressable
 

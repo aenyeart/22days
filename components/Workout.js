@@ -5,10 +5,10 @@ import AmrapTest from './workouts/AmrapTest.js';
 import MtfTest from './workouts/MtfTest.js';
 import InitialTest from './workouts/InitialTest.js';
 import ChinUps from './workouts/ChinUps.js';
-import workoutAssigner from "../constants/workoutAssigner";
+import workoutAssigner from "../constants/workoutAssigner.js";
 import {Text} from "./Text.js";
 
-function TodaysWorkout({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal}) {
+function Workout({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal}) {
   const workout = workoutAssigner(today);
 
   switch (workout) {
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
   return { ...state };
 }
 
-export default connect(mapStateToProps)(TodaysWorkout);
+export default connect(mapStateToProps)(Workout);

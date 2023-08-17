@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
-import TodaysWorkout from './TodaysWorkout.js';
+import Workout from './Workout.js';
 import { Text } from "./Text.js";
 import { Icon } from "@rneui/themed";
 import {Header} from "@rneui/base";
@@ -58,7 +58,7 @@ function Today({ today, dispatch }) {
           <Text style={styles.title}>
             This is workout #{today}:
           </Text>
-          <TodaysWorkout />
+          <Workout />
         </View>
       </View>
     </>
