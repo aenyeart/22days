@@ -14,8 +14,7 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
   return (
     <>
       <StatusBar style="auto" />
-      <SafeAreaProvider style={styles.outer}>
-        {/* <View style={styles.main}> */}
+      <View style={styles.outer}>
         {renderReport ?
           <Report
             style={styles.container}
@@ -30,8 +29,7 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
             {/* <DevMenu /> */}
           </>
         }
-        {/* </View> */}
-      </SafeAreaProvider>
+      </View>
       {/*
         - One quick way to get the complete button all the way at the bottom at full width is to place it beneath the SafeAreaProvider. (This button could be placed in the Today component, but I'm not sure how to get it to the bottom of the screen at full width yet.)
         - Another way would be to place it in the Today component, and then use flexbox to push it to the bottom of the screen. (This would be a good way to learn flexbox.)
