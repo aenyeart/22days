@@ -62,9 +62,9 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
         }
       />
 
-      <View style={localStyles.outer}>
-        <View style={localStyles.inner}>
-          <Text style={styles.title}>
+      {/* Wrapper (RED) should fill remainder of screen height at full width  */}
+      <View style={localStyles.wrapper}>
+          <Text style={localStyles.title}>
             This is workout #{today}:
           </Text>
             {
@@ -72,6 +72,8 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
                 switch (workout) {
                   case "mtfTest":
                     return <MtfTest mtf={latestMaxPullUps} />;
+                    // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
+                    // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
                   case "amrapTest":
                     return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
                   case "scapHang":
@@ -88,11 +90,14 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
               })()
             }
         </View>
-      </View>
+      {/* </View> */}
     </>
   );
 }
-
+// how do I get the wrapper to fill the remainder of the screen height at full width?
+// I could do this by setting the height of the wrapper to the height of the screen minus the height of the header.
+// How do I get the height of the header?
+//
 
 function mapStateToProps(state) {
   return { ...state };
@@ -103,16 +108,18 @@ export default connect(mapStateToProps)(Today);
 
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
-  outer: {
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 10,
+    width: '80%',
+  },
+  wrapper: {
     display: "flex",
     width: "100%",
+    height: height,
     alignItems: 'center',
     marginTop: .05 * height,
-  },
-  inner: {
-    // NOTE: not changing anything
-    // marginHorizontal: 'auto',
-    width: "80%",
-    // backgroundColor: "red" // DEBUG ONLY
+    backgroundColor: "red" // DEBUG ONLY
   },
 });

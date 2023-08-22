@@ -38,7 +38,7 @@ function Home({ today, renderReport, initialMaxPullUps, initialAmrap, finalMaxPu
       {/* TODO: Add logic to conditionally render CompleteButton on all days except the report view.
       Perhaps the report view could be a modal that pops up when the user clicks the CompleteButton on the last day.
       */}
-      <CompleteButton />
+      {/* <CompleteButton /> */}
     </>
   );
 }

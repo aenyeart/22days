@@ -10,9 +10,10 @@ export default ({ mtf, latestAmrap, today }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
 
   return (
-    <>
-      <SafeAreaProvider style={localStyles.inner}>
-        {/* <View style={localStyles.inner}> */}
+    <View style={localStyles.outer}>
+    {/* GREEN */}
+        <View style={localStyles.inner}>
+          {/* PINK */}
           <Text>
             Test –{`\n`}
             Max pull-ups until failure (MTF),{`\n`}
@@ -30,25 +31,31 @@ export default ({ mtf, latestAmrap, today }) => {
             initialValue={latestAmrap}
             handleChange={setNewAmrap}
           />
-        {/* </View> */}
-      </SafeAreaProvider>
+        </View>
 
       <CompleteButton action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }
       } />
-    </>
+    </View>
   );
 }
 
 const localStyles = {
+  outer: {
+    display: "flex",
+    flex: '.8 0 auto',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(1, 128, 1, .75)',
+  },
   inner: {
     display: 'flex',
+    flex: '0 1 auto',
+    height: '90%',
+    width: '80%',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-  },
-  outer: {
-
+    backgroundColor: 'rgba(255, 0, 255, .75)',
   },
 };
