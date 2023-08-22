@@ -136,7 +136,7 @@ const localStyles = StyleSheet.create({
       alignSelf: 'stretch',
       width: .8 * width,
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: 'left',
       justifyContent: 'space-around',
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
     },

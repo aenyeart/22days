@@ -11,27 +11,25 @@ export default ({ style, mtf, latestAmrap, today }) => {
 
   return (
     <View style={style.outer}>
-    {/* GREEN */}
-        <View style={style.inner}>
-          {/* PINK */}
-          <Text>
-            Test –{`\n`}
-            Max pull-ups until failure (MTF),{`\n`}
-            2 min rest, {`\n`}
-            5-min AMRAP{`\n`}
-            {`\n`}
-          </Text>
-          <Text>Max consecutive pull-ups:</Text>
-          <Input
-            initialValue={mtf}
-            handleChange={setNewMtf}
-          />
-          <Text>AMRAP pull-ups in five minutes:</Text>
-          <Input
-            initialValue={latestAmrap}
-            handleChange={setNewAmrap}
-          />
-        </View>
+      {/* GREEN */}
+      <View style={style.inner}>
+        {/* PINK */}
+        <Text>
+          Maximum consecutive pull-ups until failure (no breaks):
+        </Text>
+        <Input
+          initialValue={mtf}
+          handleChange={setNewMtf}
+        />
+        <Text>
+          2-min rest
+        </Text>
+        <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
+        <Input
+          initialValue={latestAmrap}
+          handleChange={setNewAmrap}
+        />
+      </View>
 
       <CompleteButton action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
