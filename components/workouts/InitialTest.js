@@ -5,14 +5,14 @@ import { useState } from "react";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 
-export default ({ mtf, latestAmrap, today }) => {
+export default ({ style, mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
 
   return (
-    <View style={localStyles.outer}>
+    <View style={style.outer}>
     {/* GREEN */}
-        <View style={localStyles.inner}>
+        <View style={style.inner}>
           {/* PINK */}
           <Text>
             Test –{`\n`}
@@ -40,22 +40,3 @@ export default ({ mtf, latestAmrap, today }) => {
     </View>
   );
 }
-
-const localStyles = {
-  outer: {
-    display: "flex",
-    flex: '.8 0 auto',
-    justifyContent: 'space-between',
-    backgroundColor: 'rgba(1, 128, 1, .75)',
-  },
-  inner: {
-    display: 'flex',
-    flex: '0 1 auto',
-    height: '90%',
-    width: '80%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    backgroundColor: 'rgba(255, 0, 255, .75)',
-  },
-};

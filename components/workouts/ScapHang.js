@@ -1,28 +1,35 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import InputEncapsulated from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
-import {Text} from "../Text.js";
+import { Text } from "../Text.js";
+import { View } from 'react-native';
 
-export default ({ mtf, scapHang }) => {
+export default ({ mtf, scapHang, style }) => {
   const [newScapHang, setNewScapHang] = useState(scapHang);
-  return <>
-    <Text>
-      Scap-Pull Hang
-      {scapHang === null
-        ? " until failure,"
-        : ` for at least ${parseInt(scapHang) + 5} seconds \n\t(prev time +5 sec) OR until failure,`
-      }
-      {`\n`}2 min rest,
-      {`\n`}Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
-    </Text>
-    <Text>Scap-Pull Hang seconds:</Text>
-    <InputEncapsulated
-      placeholder="Enter scap-pull hang duration (seconds)"
-      initialValue={newScapHang}
-      handleChange={setNewScapHang}
-    />
-    <CompleteButton action=
-    {{type:'SET_LATEST_SCAP_HANG', value: newScapHang}}
-    />
-  </>;
+  return (
+    <View style={style.outer}>
+      {/* GREEN */}
+      <View style={style.inner}>
+        {/* PINK */}
+        <Text>
+          Scap-Pull Hang
+          {scapHang === null
+            ? " until failure,"
+            : ` for at least ${parseInt(scapHang) + 5} seconds \n\t(prev time +5 sec) OR until failure,`
+          }
+          {`\n`}2 min rest,
+          {`\n`}Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
+        </Text>
+        <Text>Scap-Pull Hang seconds:</Text>
+        <InputEncapsulated
+          placeholder="Enter scap-pull hang duration (seconds)"
+          initialValue={newScapHang}
+          handleChange={setNewScapHang}
+        />
+      </View>
+        <CompleteButton action=
+          {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
+        />
+      </View>
+      );
 }

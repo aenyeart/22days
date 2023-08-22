@@ -71,19 +71,19 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
               (() => {
                 switch (workout) {
                   case "mtfTest":
-                    return <MtfTest mtf={latestMaxPullUps} />;
+                    return <MtfTest mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
                     // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
                     // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
                   case "amrapTest":
-                    return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
+                    return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} style={localStyles.workoutStyles} />;
                   case "scapHang":
-                    return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
+                    return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} style={localStyles.workoutStyles} />;
                   case "chinUps":
-                    return <ChinUps mtf={latestMaxPullUps} />
+                    return <ChinUps mtf={latestMaxPullUps} style={localStyles.workoutStyles} />
                   case "commando":
-                    return <Commando mtf={latestMaxPullUps} />;
+                    return <Commando mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
                   case "initialTest":
-                    return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
+                    return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} style={localStyles.workoutStyles} />;
                   default:
                     return <Text>~~~ Hmmmmmm..... ~~~</Text>
                 };
@@ -120,6 +120,25 @@ const localStyles = StyleSheet.create({
     height: height,
     alignItems: 'center',
     marginTop: .05 * height,
-    backgroundColor: "red" // DEBUG ONLY
+    // backgroundColor: "red" // DEBUG ONLY
+  },
+  workoutStyles: {
+    outer: {
+      display: "flex",
+      flex: '.8 0 auto',
+      justifyContent: 'space-between',
+      // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
+    },
+    inner: {
+      display: 'flex',
+      flex: '.85 1 auto',
+      // height: '90%',
+      alignSelf: 'stretch',
+      width: .8 * width,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
+    },
   },
 });
