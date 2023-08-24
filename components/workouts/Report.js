@@ -30,11 +30,11 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }
     <CompleteButton
       title='Close Report'
       action={{ type: 'CLOSE_REPORT' }}
-    ></CompleteButton>
+    />
     <Text>{`\n`}To begin a new 22-day cycle (preserves record of current & previous cycles):{`\n`}</Text>
     <CompleteButton
       title='New Cycle'
       action={{ type: 'START_NEW_CYCLE' }}
-    ></CompleteButton>
+    />
   </>;
 }

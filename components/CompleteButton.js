@@ -27,4 +27,7 @@ const localStyles = StyleSheet.create({
   // flex: 1,  // NOTE: this is what was causing the text to not show up
   padding: 15,
   alignItems: 'center',
+  position: 'absolute',
+  left: "-10%",
+  bottom: -2,
 });

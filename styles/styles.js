@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
+  // title: {
+  //   fontSize: 24,
+  //   fontWeight: 'bold',
+  //   marginTop: 10,
+  // },
   input: {
     height: 40,
     margin: 12,
