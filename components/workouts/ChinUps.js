@@ -9,8 +9,15 @@ export default ({ mtf, style }) => {
     {/* GREEN */}
     <View style={style.inner}>
       {/* PINK */}
-      <Text>Chin-ups x {Math.floor(2 * mtf)} (2x current MTF), {`\n`}2 min rest, {`\n`}Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)</Text>
-
+      <Text>
+        Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
+      </Text>
+      <Text>
+        2 min rest
+      </Text>
+      <Text>
+        Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
+      </Text>
     </View>
     <CompleteButton action={null} />
   </View>
