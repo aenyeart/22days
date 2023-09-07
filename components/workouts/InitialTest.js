@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View, Dimensions } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
+import Timeline from '../Timeline.js';
 
 
 export default ({ style, mtf, latestAmrap, today }) => {
@@ -33,6 +34,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
         {/* PINK */}
         <View ref={viewRef}>
           <TimelineNode />
+          <Timeline />
           <Text>
             Maximum consecutive pull-ups until failure (no breaks):
           </Text>
@@ -43,6 +45,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
         </View>
         <View ref={viewRef}>
           <TimelineNode />
+          <Timeline />
           <Text>
             2-min rest
           </Text>
@@ -50,6 +53,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
 
         <View ref={viewRef}>
           <TimelineNode />
+          <Timeline />
           <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
           <Input
             initialValue={latestAmrap}

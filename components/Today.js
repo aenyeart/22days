@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
-// import Workout from './Workout.js';
 import { Text } from "./Text.js";
 import { Icon } from "@rneui/themed";
 import { Header, Card } from "@rneui/base";
@@ -128,9 +127,9 @@ const localStyles = StyleSheet.create({
       flex: '.8 0 auto',
       justifyContent: 'space-between',
       // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
-      borderLeftWidth: 2,          // 2-pixel left border
-      borderColor: 'white',       // White border color
-      paddingLeft: 15,
+      // borderLeftWidth: 2,          // 2-pixel left border
+      // borderColor: 'white',       // White border color
+      // paddingLeft: 15,
     },
     inner: {
       display: 'flex',
