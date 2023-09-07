@@ -35,7 +35,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
         <View ref={viewRef}>
           <TimelineNode />
           <Timeline />
-          <Text>
+          <Text style={{ paddingLeft: 8 }}>
             Maximum consecutive pull-ups until failure (no breaks):
           </Text>
           <Input
@@ -46,7 +46,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
         <View ref={viewRef}>
           <TimelineNode />
           <Timeline />
-          <Text>
+          <Text style={{ paddingLeft: 8 }}>
             2-min rest
           </Text>
         </View>
@@ -54,7 +54,9 @@ export default ({ style, mtf, latestAmrap, today }) => {
         <View ref={viewRef}>
           <TimelineNode />
           <Timeline />
-          <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
+          <Text style={{ paddingLeft: 8 }}>
+            Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:
+          </Text>
           <Input
             initialValue={latestAmrap}
             handleChange={setNewAmrap}
