@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet, Dimensions } from 'react-native';
 import { Text } from './Text.js';
 import { connect } from 'react-redux';
 
@@ -20,14 +20,16 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(CompleteButton);
+const { height, width } = Dimensions.get('window');
 
 const localStyles = StyleSheet.create({
   backgroundColor: '#6641AF',
-  width: "100%",
+  width: 1.1 * width,
   // flex: 1,  // NOTE: this is what was causing the text to not show up
   padding: 15,
   alignItems: 'center',
   position: 'absolute',
-  left: "-10%",
+  left: "-11%", // NOTE: if button loses alignment, adjust this value
   bottom: -2,
+  borderTopLeftRadius: 40,
 });
