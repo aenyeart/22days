@@ -6,10 +6,10 @@ import {
   Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
-import styles from "../styles/styles.js";
+// import styles from "../styles/styles.js";
 import { Text } from "./Text.js";
 import { Icon, Divider } from "@rneui/themed";
-import { Header, Card } from "@rneui/base";
+import { Header } from "@rneui/base";
 
 import ScapHang from './workouts/ScapHang.js';
 import Commando from './workouts/Commando.js';
@@ -56,7 +56,7 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
               padding: 12,
               marginRight: 10,
             }} />
-            <Text style={{ fontWeight: "600" }}>Previous Workout</Text>
+            <Text style={{ fontWeight: "600", fontSize: 20}}>Previous Workout</Text>
           </Pressable>
         }
       />
