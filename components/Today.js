@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
 import { Text } from "./Text.js";
-import { Icon } from "@rneui/themed";
+import { Icon, Divider } from "@rneui/themed";
 import { Header, Card } from "@rneui/base";
 
 import ScapHang from './workouts/ScapHang.js';
@@ -64,8 +64,9 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
           <Text style={localStyles.title}>
-            This is workout #{today}:
+            Workout #{today}:
           </Text>
+          <Divider style={{ width: '80%', marginBottom: 20 }} />
             {
               (() => {
                 switch (workout) {
@@ -108,9 +109,11 @@ export default connect(mapStateToProps)(Today);
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
   title: {
+    textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 10,
+    marginBottom: 20,
     width: '80%',
   },
   wrapper: {
