@@ -3,7 +3,7 @@ import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { useState, useRef, useEffect } from "react";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 
 
 export default ({ style, mtf, latestAmrap, today }) => {
@@ -15,12 +15,12 @@ export default ({ style, mtf, latestAmrap, today }) => {
     // Ensure the view has been rendered before measuring
     if (viewRef.current) {
       viewRef.current.measure((x, y, width, height, pageX, pageY) => {
-        console.log('X coordinate:', x);
-        console.log('Y coordinate:', y);
-        console.log('Width:', width);
-        console.log('Height:', height);
-        console.log('Page X coordinate:', pageX);
-        console.log('Page Y coordinate:', pageY);
+        // console.log('X coordinate:', x);
+        // console.log('Y coordinate:', y);
+        // console.log('Width:', width);
+        // console.log('Height:', height);
+        // console.log('Page X coordinate:', pageX);
+        // console.log('Page Y coordinate:', pageY);
       });
     }
   }, []);
@@ -30,16 +30,6 @@ export default ({ style, mtf, latestAmrap, today }) => {
       {/* GREEN */}
       <View style={style.inner}>
         {/* PINK */}
-        <Text>
-          Maximum consecutive pull-ups until failure (no breaks):
-        </Text>
-        <Input
-          initialValue={mtf}
-          handleChange={setNewMtf}
-        />
-        <Text>
-          2-min rest
-        </Text>
         <View ref={viewRef}>
           <View style={{
             width: 11,
@@ -50,13 +40,48 @@ export default ({ style, mtf, latestAmrap, today }) => {
             top: 10,
             borderRadius: 50
 
-            }}></View>
-          <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
+          }}></View>
+          <Text>
+            Maximum consecutive pull-ups until failure (no breaks):
+          </Text>
+          <Input
+            initialValue={mtf}
+            handleChange={setNewMtf}
+          />
         </View>
-        <Input
-          initialValue={latestAmrap}
-          handleChange={setNewAmrap}
-        />
+        <View ref={viewRef}>
+          <View style={{
+            width: 11,
+            height: 11,
+            backgroundColor: '#D5FF2C',
+            position: 'absolute',
+            left: -22,
+            top: 10,
+            borderRadius: 50
+
+          }}></View>
+          <Text>
+            2-min rest
+          </Text>
+        </View>
+
+        <View ref={viewRef}>
+          <View style={{
+            width: 11,
+            height: 11,
+            backgroundColor: '#D5FF2C',
+            position: 'absolute',
+            left: -22,
+            top: 10,
+            borderRadius: 50
+
+          }}></View>
+          <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
+          <Input
+            initialValue={latestAmrap}
+            handleChange={setNewAmrap}
+          />
+        </View>
       </View>
 
       <CompleteButton action={today === 1
