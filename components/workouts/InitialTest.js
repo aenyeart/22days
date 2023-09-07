@@ -4,6 +4,7 @@ import CompleteButton from '../CompleteButton.js';
 import { useState, useRef, useEffect } from "react";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View, Dimensions } from 'react-native';
+import TimelineNode from '../TimelineNode.js';
 
 
 export default ({ style, mtf, latestAmrap, today }) => {
@@ -31,16 +32,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
       <View style={style.inner}>
         {/* PINK */}
         <View ref={viewRef}>
-          <View style={{
-            width: 11,
-            height: 11,
-            backgroundColor: '#D5FF2C',
-            position: 'absolute',
-            left: -22,
-            top: 10,
-            borderRadius: 50
-
-          }}></View>
+          <TimelineNode />
           <Text>
             Maximum consecutive pull-ups until failure (no breaks):
           </Text>
@@ -50,32 +42,14 @@ export default ({ style, mtf, latestAmrap, today }) => {
           />
         </View>
         <View ref={viewRef}>
-          <View style={{
-            width: 11,
-            height: 11,
-            backgroundColor: '#D5FF2C',
-            position: 'absolute',
-            left: -22,
-            top: 10,
-            borderRadius: 50
-
-          }}></View>
+          <TimelineNode />
           <Text>
             2-min rest
           </Text>
         </View>
 
         <View ref={viewRef}>
-          <View style={{
-            width: 11,
-            height: 11,
-            backgroundColor: '#D5FF2C',
-            position: 'absolute',
-            left: -22,
-            top: 10,
-            borderRadius: 50
-
-          }}></View>
+          <TimelineNode />
           <Text>Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:</Text>
           <Input
             initialValue={latestAmrap}
