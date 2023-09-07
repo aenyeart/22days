@@ -42,12 +42,12 @@ export default ({ style, mtf, latestAmrap, today }) => {
         </Text>
         <View ref={viewRef}>
           <View style={{
-            width: 15,
-            height: 15,
+            width: 11,
+            height: 11,
             backgroundColor: '#D5FF2C',
             position: 'absolute',
-            left: -20,
-            top: 20,
+            left: -22,
+            top: 10,
             borderRadius: 50
 
             }}></View>

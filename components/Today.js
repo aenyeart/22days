@@ -105,7 +105,7 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Today);
 
-
+// TODO: Extract window dimensions to store for global use
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
   title: {
@@ -128,6 +128,9 @@ const localStyles = StyleSheet.create({
       flex: '.8 0 auto',
       justifyContent: 'space-between',
       // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
+      borderLeftWidth: 2,          // 2-pixel left border
+      borderColor: 'white',       // White border color
+      paddingLeft: 15,
     },
     inner: {
       display: 'flex',
