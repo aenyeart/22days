@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 import InputEncapsulated from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
@@ -8,16 +8,16 @@ import Timeline from "../Timeline";
 
 export default ({ mtf, scapHang, style }) => {
   const [newScapHang, setNewScapHang] = useState(scapHang);
-  const viewRef = useRef(null);
 
   return (
     <View style={style.outer}>
       {/* GREEN */}
       <View style={style.inner}>
         {/* PINK */}
-        <View ref={viewRef}>
+        <Timeline />
+
+        <View>
           <TimelineNode />
-          <Timeline />
           <Text style={{marginBottom: 20}}>
             Scap-Pull Hang
             {scapHang === null
@@ -32,16 +32,14 @@ export default ({ mtf, scapHang, style }) => {
           />
         </View>
 
-        <View ref={viewRef}>
-        <TimelineNode />
+        <View>
         <Timeline />
         <Text>
           2 min rest
         </Text>
         </View>
 
-        <View ref={viewRef}>
-        <TimelineNode />
+        <View>
         <Timeline />
         <Text>
           Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
