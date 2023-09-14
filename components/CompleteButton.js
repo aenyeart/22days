@@ -8,9 +8,19 @@ function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
       style={localStyles}
       onPress={() => {
         action && dispatch(action);
-        dispatch({ type: 'INCREMENT' }) ;
+        dispatch({ type: 'INCREMENT' });
       }} >
-      <Text style={{ backgroundColor: "transparent", margin: 10, }}>{title}</Text>
+      <Text style={{
+        backgroundColor: "transparent",
+        margin: 10,
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: "600",
+        marginBottom: 20,
+
+      }}>
+        {title}
+      </Text>
     </Pressable>
   )
 }
@@ -24,12 +34,12 @@ const { height, width } = Dimensions.get('window');
 
 const localStyles = StyleSheet.create({
   backgroundColor: '#6641AF',
-  width: 1.1 * width,
+  width: 1.05 * width,
   // flex: 1,  // NOTE: this is what was causing the text to not show up
   padding: 15,
   alignItems: 'center',
   position: 'absolute',
-  left: "-11%", // NOTE: if button loses alignment, adjust this value
+  left: "-13%", // NOTE: if button loses alignment, adjust this value
   bottom: -2,
   borderTopLeftRadius: 40,
 });

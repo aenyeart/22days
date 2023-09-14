@@ -6,11 +6,9 @@ import {
   Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
-import styles from "../styles/styles.js";
-// import Workout from './Workout.js';
 import { Text } from "./Text.js";
-import { Icon } from "@rneui/themed";
-import { Header, Card } from "@rneui/base";
+import { Icon, Divider } from "@rneui/themed";
+import { Header } from "@rneui/base";
 
 import ScapHang from './workouts/ScapHang.js';
 import Commando from './workouts/Commando.js';
@@ -57,7 +55,7 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
               padding: 12,
               marginRight: 10,
             }} />
-            <Text style={{ fontWeight: "600" }}>Previous Workout</Text>
+            <Text style={{ fontWeight: "600", fontSize: 20}}>Previous Workout</Text>
           </Pressable>
         }
       />
@@ -65,8 +63,9 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
           <Text style={localStyles.title}>
-            This is workout #{today}:
+            Workout #{today}:
           </Text>
+          <Divider style={{ width: '80%', marginBottom: 20 }} />
             {
               (() => {
                 switch (workout) {
@@ -94,10 +93,6 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
     </>
   );
 }
-// how do I get the wrapper to fill the remainder of the screen height at full width?
-// I could do this by setting the height of the wrapper to the height of the screen minus the height of the header.
-// How do I get the height of the header?
-//
 
 function mapStateToProps(state) {
   return { ...state };
@@ -105,13 +100,15 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Today);
 
-
+// TODO: Extract window dimensions to store for global use
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
   title: {
+    textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 10,
+    marginBottom: 20,
     width: '80%',
   },
   wrapper: {
@@ -132,8 +129,9 @@ const localStyles = StyleSheet.create({
     inner: {
       display: 'flex',
       flex: '.85 1 auto',
-      // height: '90%',
       alignSelf: 'stretch',
+      marginVertical: 20,
+      paddingBottom: 20,
       width: .8 * width,
       flexDirection: 'column',
       alignItems: 'left',
