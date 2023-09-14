@@ -10,6 +10,7 @@ export default ({ tdt, latestAmrap, style }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
 
   return (
+    // BUG: Final Report is triggered by tapping somewhere outside the complete button
     <View style={style.outer}>
       {/* GREEN */}
       <View style={style.inner}>
@@ -17,7 +18,7 @@ export default ({ tdt, latestAmrap, style }) => {
         <View>
           <TimelineNode />
           <Timeline />
-          <Text>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
+          <Text style={style.text}>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
             {`\n`}
             Try to beat {tdt} reps, your total pull-ups from Day 1.{`\n`}
           </Text>

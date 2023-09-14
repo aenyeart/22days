@@ -18,7 +18,9 @@ export default ({ mtf, scapHang, style }) => {
         <View>
           <TimelineNode />
           <Timeline />
-          <Text style={{ marginBottom: 20 }}>
+          <Text style={style.text}>
+            {/* <Text style={{ marginBottom: 20 }}> */}
+
             Scap-Pull Hang for time
             {scapHang === null
               ? " until failure (seconds):"
@@ -34,14 +36,14 @@ export default ({ mtf, scapHang, style }) => {
 
         <View>
           <TimelineNode />
-          <Text>
+          <Text style={style.text}>
             2 min rest
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text>
+          <Text style={style.text}>
             Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
           </Text>
         </View>

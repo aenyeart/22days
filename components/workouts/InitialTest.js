@@ -19,7 +19,7 @@ export default ({ style, mtf, latestAmrap, today }) => {
         <View>
           <TimelineNode />
           <Timeline />
-          <Text style={{ paddingLeft: 8 }}>
+          <Text style={style.text}>
             Maximum consecutive pull-ups until failure (no breaks):
           </Text>
           <Input
@@ -29,14 +29,14 @@ export default ({ style, mtf, latestAmrap, today }) => {
         </View>
         <View>
           <TimelineNode />
-          <Text style={{ paddingLeft: 8 }}>
+          <Text style={style.text}>
             2-min rest
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text style={{ paddingLeft: 8 }}>
+          <Text style={style.text}>
             Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:
           </Text>
           <Input

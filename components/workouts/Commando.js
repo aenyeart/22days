@@ -13,21 +13,21 @@ export default ({ mtf, style }) => {
         <View>
           <TimelineNode />
           <Timeline />
-          <Text>
+          <Text style={style.text}>
             Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text>
+          <Text style={style.text}>
             2 min rest
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text>
+          <Text style={style.text}>
             Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
           </Text>
         </View>

@@ -17,7 +17,7 @@ export default ({ mtf, style }) => {
         <View >
           <TimelineNode />
           <Timeline />
-          <Text>Test – Update MTF pullups</Text>
+          <Text style={style.text}>Test – Update MTF pullups</Text>
           <Input
             initialValue={mtf}
             handleChange={setNewMtf}

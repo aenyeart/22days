@@ -138,5 +138,8 @@ const localStyles = StyleSheet.create({
       justifyContent: 'space-around',
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
     },
+    text: {
+      paddingLeft: 8
+    },
   },
 });
