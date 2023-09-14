@@ -1,66 +1,144 @@
 import React from 'react';
-import {KeyboardAvoidingView, Pressable, ScrollView, View} from 'react-native';
-import {connect} from 'react-redux';
+import {
+  Pressable,
+  StyleSheet,
+  View,
+  Dimensions,
+} from 'react-native';
+import { connect } from 'react-redux';
 import styles from "../styles/styles.js";
-import TodaysWorkout from './TodaysWorkout.js';
-import {Text} from "./Text.js";
-import {Icon} from "@rneui/themed";
+// import Workout from './Workout.js';
+import { Text } from "./Text.js";
+import { Icon } from "@rneui/themed";
+import { Header, Card } from "@rneui/base";
 
-function Today({today, dispatch}) {
+import ScapHang from './workouts/ScapHang.js';
+import Commando from './workouts/Commando.js';
+import AmrapTest from './workouts/AmrapTest.js';
+import MtfTest from './workouts/MtfTest.js';
+import InitialTest from './workouts/InitialTest.js';
+import ChinUps from './workouts/ChinUps.js';
+import workoutAssigner from "../constants/workoutAssigner.js";
+
+
+function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal, dispatch }) {
+  const workout = workoutAssigner(today);
+
   return (
     <>
-      <View style={{
-        width: '100%',
-        opacity: 0.3,
-        backgroundColor: '#FFFFFF',
-        borderBottomRightRadius: 35,
-        height: 100,
-        position: 'absolute',
-        top: 0,
-      }}/>
+      <Header
+        // TODO: Extract styles to localStyles object below
+        containerStyle={{
+          paddingHorizontal: "10%",
+          borderBottomWidth: 0,
+          borderBottomRightRadius: 35,
+          backgroundColor: "rgba(255, 255, 255, .3)",
+        }}
 
-      <View style={{
-        height: 80,
-        width: '100%',
-        flexDirection: "row",
-        alignItems: "flex-end",
-        paddingBottom: 10,
-      }}>
-        <Pressable type="outline"
-                   style={{
-                     width: '60%',
-                     flexDirection: "row",
-                     alignItems: "center",
-                   }}
-                   onPress={() => dispatch({type: 'DECREMENT'})}
-        >
-          <Icon name="back-in-time" type="entypo" color="white" size={24} style={{
-            borderStyle: 'solid',
-            borderRadius: '100%',
-            borderWidth: 1,
-            borderColor: 'rgba(255, 255, 255, .5)',
-            padding: 12,
-            marginRight: 10,
-          }}/>
-          <Text style={{fontWeight: "600"}}>Previous Workout</Text>
-        </Pressable>
-      </View>
+        placement={'left'}
+        leftContainerStyle={{flex: 0, width: 0}}
+        rightContainerStyle={{flex: 0, width: 0}}
 
-      <KeyboardAvoidingView behavior="padding" style={{width: "100%"}}>
-        <ScrollView contentContainerStyle={{width: "100%"}}>
-          <Text style={styles.title}>
+        centerContainerStyle={{paddingHorizontal: 0}}
+        centerComponent={
+          <Pressable type="outline"
+            style={{
+              width: '60%',
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+            onPress={() => dispatch({ type: 'DECREMENT' })}
+          >
+            <Icon name="back-in-time" type="entypo" color="white" size={24} style={{
+              borderStyle: 'solid',
+              borderRadius: '100%',
+              borderWidth: 1,
+              borderColor: 'rgba(255, 255, 255, .5)',
+              padding: 12,
+              marginRight: 10,
+            }} />
+            <Text style={{ fontWeight: "600" }}>Previous Workout</Text>
+          </Pressable>
+        }
+      />
+
+      {/* Wrapper (RED) should fill remainder of screen height at full width  */}
+      <View style={localStyles.wrapper}>
+          <Text style={localStyles.title}>
             This is workout #{today}:
           </Text>
-          <TodaysWorkout/>
-        </ScrollView>
-      </KeyboardAvoidingView>
-
+            {
+              (() => {
+                switch (workout) {
+                  case "mtfTest":
+                    return <MtfTest mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+                    // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
+                    // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
+                  case "amrapTest":
+                    return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} style={localStyles.workoutStyles} />;
+                  case "scapHang":
+                    return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} style={localStyles.workoutStyles} />;
+                  case "chinUps":
+                    return <ChinUps mtf={latestMaxPullUps} style={localStyles.workoutStyles} />
+                  case "commando":
+                    return <Commando mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+                  case "initialTest":
+                    return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} style={localStyles.workoutStyles} />;
+                  default:
+                    return <Text>~~~ Hmmmmmm..... ~~~</Text>
+                };
+              })()
+            }
+        </View>
+      {/* </View> */}
     </>
   );
 }
+// how do I get the wrapper to fill the remainder of the screen height at full width?
+// I could do this by setting the height of the wrapper to the height of the screen minus the height of the header.
+// How do I get the height of the header?
+//
 
 function mapStateToProps(state) {
-  return {...state};
+  return { ...state };
 }
 
 export default connect(mapStateToProps)(Today);
+
+
+const { height, width } = Dimensions.get('window');
+const localStyles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 10,
+    width: '80%',
+  },
+  wrapper: {
+    display: "flex",
+    width: "100%",
+    height: height,
+    alignItems: 'center',
+    marginTop: .05 * height,
+    // backgroundColor: "red" // DEBUG ONLY
+  },
+  workoutStyles: {
+    outer: {
+      display: "flex",
+      flex: '.8 0 auto',
+      justifyContent: 'space-between',
+      // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
+    },
+    inner: {
+      display: 'flex',
+      flex: '.85 1 auto',
+      // height: '90%',
+      alignSelf: 'stretch',
+      width: .8 * width,
+      flexDirection: 'column',
+      alignItems: 'left',
+      justifyContent: 'space-around',
+      // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
+    },
+  },
+});

@@ -5,7 +5,7 @@ import Incrementer from "./Incrementer";
 import { Text } from './Text.js';
 
 
-export default function Menu() {
+export default function DevMenu() {
   return (
     <View style={{width: "100%"}}>
       <Incrementer />
