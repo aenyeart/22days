@@ -34,31 +34,73 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
         }}
 
         // placement={'left'}
-        // leftContainerStyle={{ width: 25 }}
-        // rightContainerStyle={{ width: 10 }}
+        // leftContainerStyle={{ width: 0 }}
+        // rightContainerStyle={{ width: 0 }}
 
-        centerContainerStyle={{ paddingHorizontal: 0 }}
-        centerComponent={
-          <Pressable type="outline"
-            style={{
-              width: '100%',
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              marginRight: 50,
-            }}
-            onPress={() => dispatch({ type: 'DECREMENT' })}
-          >
-            <Icon name="return-up-back" type="ionicon" color="white" size={24} style={{
+        centerContainerStyle={{ width: 250, }}
+
+        // centerComponent={
+        //   <Pressable type="outline"
+        //     style={{
+        //       flexDirection: "row",
+        //       alignItems: "center",
+        //     }}
+        //     onPress={() => dispatch({ type: 'DECREMENT' })}
+        // >
+
+        //     <TouchableOpacity
+        //       onPress={docsNavigate}
+        //       style={{ position: 'absolute', left: -70 }}>
+        //       <Icon name="description" color="white" />
+        //     </TouchableOpacity>
+        //     <TouchableOpacity onPress={playgroundNavigate}>
+        //       <Icon type="antdesign" name="rocket1" color="white" />
+        //     </TouchableOpacity>
+        //   </View>
+        // }
+
+        leftComponent={
+          <View>
+            <Icon name="return-up-back" type="ionicon" color="white" size={28} style={{
               padding: 12,
+              position: 'fixed',
+              right: -11,
+              top: -2,
             }} />
-            <Text style={{
-              fontWeight: "600",
-              fontSize: 20
-            }}>
-              Previous Workout
-            </Text>
-          </Pressable>
+          </View>
+
+        }
+        rightComponent={
+          <View style={{flex: 0}}>
+          </View>
+
+        }
+
+        centerComponent={
+          <View>
+            <Pressable type="outline"
+              style={{
+                width: '100%',
+                display: "flex",
+                position: "relative",
+                flexDirection: "row",
+                alignItems: "center",
+                // justifyContent: "center",
+                // marginRight: 50,
+              }}
+              onPress={() => dispatch({ type: 'DECREMENT' })}
+            >
+
+              <Text style={{
+                fontWeight: "600",
+                fontSize: 20,
+                paddingVertical: 12,
+
+              }}>
+                Previous Workout
+              </Text>
+            </Pressable>
+          </View>
         }
       />
 
