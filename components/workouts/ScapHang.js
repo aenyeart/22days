@@ -19,9 +19,9 @@ export default ({ mtf, scapHang, style }) => {
           <TimelineNode />
           <Timeline />
           <Text style={{ marginBottom: 20 }}>
-            Scap-Pull Hang
+            Scap-Pull Hang for time
             {scapHang === null
-              ? " until failure,"
+              ? " until failure (seconds):"
               : ` for at least ${parseInt(scapHang) + 5} seconds (prev time +5 sec) OR until failure:`
             }
           </Text>
