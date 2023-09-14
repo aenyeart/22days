@@ -11,9 +11,9 @@ export default ({ mtf, style }) => {
     <View style={style.inner}>
       {/* PINK */}
 
-      <Timeline />
 
       <View>
+      <Timeline />
       <TimelineNode />
       <Text>
         Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)

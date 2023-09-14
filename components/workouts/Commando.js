@@ -10,28 +10,26 @@ export default ({ mtf, style }) => {
       {/* GREEN */}
       <View style={style.inner}>
         {/* PINK */}
-
-        <Timeline />
-
         <View>
-        <TimelineNode />
-        <Text>
-          Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
-        </Text>
+          <TimelineNode />
+          <Timeline />
+          <Text>
+            Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
+          </Text>
         </View>
 
         <View>
-        <TimelineNode />
-        <Text>
-          2 min rest
-        </Text>
+          <TimelineNode />
+          <Text>
+            2 min rest
+          </Text>
         </View>
 
         <View>
-        <TimelineNode />
-        <Text>
-          Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
-        </Text>
+          <TimelineNode />
+          <Text>
+            Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
+          </Text>
         </View>
       </View>
       <CompleteButton action={null} />

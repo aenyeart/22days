@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import InputEncapsulated from '../NumberInput.js';
+import { useState } from 'react';
+import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { View } from 'react-native';
@@ -14,18 +14,18 @@ export default ({ mtf, scapHang, style }) => {
       {/* GREEN */}
       <View style={style.inner}>
         {/* PINK */}
-        <Timeline />
 
         <View>
           <TimelineNode />
-          <Text style={{marginBottom: 20}}>
+          <Timeline />
+          <Text style={{ marginBottom: 20 }}>
             Scap-Pull Hang
             {scapHang === null
               ? " until failure,"
               : ` for at least ${parseInt(scapHang) + 5} seconds (prev time +5 sec) OR until failure:`
             }
           </Text>
-          <InputEncapsulated
+          <Input
             placeholder="Enter scap-pull hang duration (seconds)"
             initialValue={newScapHang}
             handleChange={setNewScapHang}
@@ -33,17 +33,17 @@ export default ({ mtf, scapHang, style }) => {
         </View>
 
         <View>
-        <Timeline />
-        <Text>
-          2 min rest
-        </Text>
+          <TimelineNode />
+          <Text>
+            2 min rest
+          </Text>
         </View>
 
         <View>
-        <Timeline />
-        <Text>
-          Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
-        </Text>
+          <TimelineNode />
+          <Text>
+            Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
+          </Text>
         </View>
 
       </View>
