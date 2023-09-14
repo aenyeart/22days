@@ -10,7 +10,8 @@ export default () => {
       position: 'absolute',
       left: -22,
       top: 5,
-      borderRadius: 50
+      borderRadius: 50,
+      zIndex: 1,
 
     }} />
   );

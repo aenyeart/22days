@@ -4,12 +4,12 @@ export default () => {
 
   return (
     <View style={{
-      width: 2,
+      width: 1,
       height: Dimensions.get('window').height,
       backgroundColor: 'white',
       position: 'absolute',
       left: -17,
-      top: 5,
+      top: 6,
     }} />
   );
 
