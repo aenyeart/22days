@@ -4,7 +4,7 @@ import InputSpinner from "react-native-input-spinner";
 
 export default ({ ...props }) => {
 
-  const { height, width } = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
 
   return (
     <InputSpinner
@@ -12,7 +12,12 @@ export default ({ ...props }) => {
       colorLeft={"#FF9595"}
       colorRight={"#3FE180"}
       fontSize={28}
-      style={{marginTop: 25, padding: 8, borderRadius: 40, width: .8 * width}}
+      style={{
+        marginTop: 5,
+        padding: 8,
+        borderRadius: 40,
+        width: .8 * width,
+      }}
       min={0}
       step={1}
       value={props.initialValue}

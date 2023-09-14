@@ -7,6 +7,7 @@ import InitialTest from './workouts/InitialTest.js';
 import ChinUps from './workouts/ChinUps.js';
 import workoutAssigner from "../constants/workoutAssigner.js";
 import {Text} from "./Text.js";
+// TODO: Ascertain whether this can be utilized again / imported into Today.js instead of all this logic living in Today.js
 
 function Workout({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal}) {
   const workout = workoutAssigner(today);
