@@ -13,7 +13,7 @@ export default ({ ...props }) => {
       colorRight={"#3FE180"}
       fontSize={28}
       style={{
-        marginTop: 5,
+        marginTop: 15,
         padding: 8,
         borderRadius: 40,
         width: .8 * width,

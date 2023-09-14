@@ -131,7 +131,7 @@ const localStyles = StyleSheet.create({
       flex: '.85 1 auto',
       alignSelf: 'stretch',
       marginVertical: 20,
-      paddingBottom: 20,
+      paddingBottom: 60,
       width: .8 * width,
       flexDirection: 'column',
       alignItems: 'left',
