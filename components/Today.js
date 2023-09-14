@@ -6,7 +6,6 @@ import {
   Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
-// import styles from "../styles/styles.js";
 import { Text } from "./Text.js";
 import { Icon, Divider } from "@rneui/themed";
 import { Header } from "@rneui/base";
@@ -94,10 +93,6 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
     </>
   );
 }
-// how do I get the wrapper to fill the remainder of the screen height at full width?
-// I could do this by setting the height of the wrapper to the height of the screen minus the height of the header.
-// How do I get the height of the header?
-//
 
 function mapStateToProps(state) {
   return { ...state };
@@ -130,14 +125,10 @@ const localStyles = StyleSheet.create({
       flex: '.8 0 auto',
       justifyContent: 'space-between',
       // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
-      // borderLeftWidth: 2,          // 2-pixel left border
-      // borderColor: 'white',       // White border color
-      // paddingLeft: 15,
     },
     inner: {
       display: 'flex',
       flex: '.85 1 auto',
-      // height: '90%',
       alignSelf: 'stretch',
       marginVertical: 20,
       paddingBottom: 20,
