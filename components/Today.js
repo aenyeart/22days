@@ -27,68 +27,70 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
       <Header
         // TODO: Extract styles to localStyles object below
         containerStyle={{
-          paddingHorizontal: "10%",
+          // paddingHorizontal: "10%",
           borderBottomWidth: 0,
           borderBottomRightRadius: 35,
           backgroundColor: "rgba(255, 255, 255, .3)",
         }}
 
-        placement={'left'}
-        leftContainerStyle={{flex: 0, width: 0}}
-        rightContainerStyle={{flex: 0, width: 0}}
+        // placement={'left'}
+        // leftContainerStyle={{ width: 25 }}
+        // rightContainerStyle={{ width: 10 }}
 
-        centerContainerStyle={{paddingHorizontal: 0}}
+        centerContainerStyle={{ paddingHorizontal: 0 }}
         centerComponent={
           <Pressable type="outline"
             style={{
-              width: '60%',
+              width: '100%',
               flexDirection: "row",
               alignItems: "center",
+              justifyContent: "center",
+              marginRight: 50,
             }}
             onPress={() => dispatch({ type: 'DECREMENT' })}
           >
-            <Icon name="back-in-time" type="entypo" color="white" size={24} style={{
-              borderStyle: 'solid',
-              borderRadius: '100%',
-              borderWidth: 1,
-              borderColor: 'rgba(255, 255, 255, .5)',
+            <Icon name="return-up-back" type="ionicon" color="white" size={24} style={{
               padding: 12,
-              marginRight: 10,
             }} />
-            <Text style={{ fontWeight: "600", fontSize: 20}}>Previous Workout</Text>
+            <Text style={{
+              fontWeight: "600",
+              fontSize: 20
+            }}>
+              Previous Workout
+            </Text>
           </Pressable>
         }
       />
 
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
-          <Text style={localStyles.title}>
-            Workout #{today}:
-          </Text>
-          <Divider style={{ width: '80%', marginBottom: 20 }} />
-            {
-              (() => {
-                switch (workout) {
-                  case "mtfTest":
-                    return <MtfTest mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
-                    // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
-                    // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
-                  case "amrapTest":
-                    return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} style={localStyles.workoutStyles} />;
-                  case "scapHang":
-                    return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} style={localStyles.workoutStyles} />;
-                  case "chinUps":
-                    return <ChinUps mtf={latestMaxPullUps} style={localStyles.workoutStyles} />
-                  case "commando":
-                    return <Commando mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
-                  case "initialTest":
-                    return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} style={localStyles.workoutStyles} />;
-                  default:
-                    return <Text>~~~ Hmmmmmm..... ~~~</Text>
-                };
-              })()
-            }
-        </View>
+        <Text style={localStyles.title}>
+          Workout #{today}:
+        </Text>
+        <Divider style={{ width: '80%', marginBottom: 20 }} />
+        {
+          (() => {
+            switch (workout) {
+              case "mtfTest":
+                return <MtfTest mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+              // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
+              // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
+              case "amrapTest":
+                return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} style={localStyles.workoutStyles} />;
+              case "scapHang":
+                return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} style={localStyles.workoutStyles} />;
+              case "chinUps":
+                return <ChinUps mtf={latestMaxPullUps} style={localStyles.workoutStyles} />
+              case "commando":
+                return <Commando mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+              case "initialTest":
+                return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} style={localStyles.workoutStyles} />;
+              default:
+                return <Text>~~~ Hmmmmmm..... ~~~</Text>
+            };
+          })()
+        }
+      </View>
       {/* </View> */}
     </>
   );
