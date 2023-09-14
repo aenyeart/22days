@@ -37,7 +37,9 @@ export default ({ style, mtf, latestAmrap, today }) => {
         <View>
           <TimelineNode />
           <Text style={style.text}>
-            Do pull-ups for AMRAP(i) in 5-min. {`\n`}Breaks allowed, but timer must not stop:
+            Do pull-ups for AMRAP(i) within a 5-min period:
+            {`\n`}– Breaks are allowed, but the timer must not stop.
+            {`\n`}– Try to beat {tdt} reps, your total pull-ups from Day 1.
           </Text>
           <Input
             initialValue={latestAmrap}

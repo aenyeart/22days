@@ -18,9 +18,9 @@ export default ({ tdt, latestAmrap, style }) => {
         <View>
           <TimelineNode />
           <Timeline />
-          <Text style={style.text}>Test – Do AMRAP pull-ups in a 5-minute period. (Breaks allowed.){`\n`}
-            {`\n`}
-            Try to beat {tdt} reps, your total pull-ups from Day 1.{`\n`}
+          <Text style={style.text}>Test – Do pull-ups for AMRAP(i) within a 5-min period:
+            {`\n`}– Breaks are allowed, but the timer must not stop.
+            {`\n`}– Try to beat {tdt} reps, your total pull-ups from Day 1.
           </Text>
 
           <Input

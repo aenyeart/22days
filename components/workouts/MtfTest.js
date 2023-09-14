@@ -17,7 +17,7 @@ export default ({ mtf, style }) => {
         <View >
           <TimelineNode />
           <Timeline />
-          <Text style={style.text}>Test – Update MTF pullups</Text>
+          <Text style={style.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
           <Input
             initialValue={mtf}
             handleChange={setNewMtf}
