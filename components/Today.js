@@ -25,77 +25,33 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
   return (
     <>
       <Header
-        // TODO: Extract styles to localStyles object below
         containerStyle={{
-          // paddingHorizontal: "10%",
           borderBottomWidth: 0,
           borderBottomRightRadius: 35,
           backgroundColor: "rgba(255, 255, 255, .3)",
         }}
-
-        // placement={'left'}
-        // leftContainerStyle={{ width: 0 }}
-        // rightContainerStyle={{ width: 0 }}
-
-        centerContainerStyle={{ width: 250, }}
-
-        // centerComponent={
-        //   <Pressable type="outline"
-        //     style={{
-        //       flexDirection: "row",
-        //       alignItems: "center",
-        //     }}
-        //     onPress={() => dispatch({ type: 'DECREMENT' })}
-        // >
-
-        //     <TouchableOpacity
-        //       onPress={docsNavigate}
-        //       style={{ position: 'absolute', left: -70 }}>
-        //       <Icon name="description" color="white" />
-        //     </TouchableOpacity>
-        //     <TouchableOpacity onPress={playgroundNavigate}>
-        //       <Icon type="antdesign" name="rocket1" color="white" />
-        //     </TouchableOpacity>
-        //   </View>
-        // }
-
-        leftComponent={
-          <View>
-            <Icon name="return-up-back" type="ionicon" color="white" size={28} style={{
-              padding: 12,
-              position: 'fixed',
-              right: -11,
-              top: -2,
-            }} />
-          </View>
-
-        }
-        rightComponent={
-          <View style={{flex: 0}}>
-          </View>
-
-        }
-
         centerComponent={
-          <View>
-            <Pressable type="outline"
-              style={{
-                width: '100%',
-                display: "flex",
-                position: "relative",
-                flexDirection: "row",
-                alignItems: "center",
-                // justifyContent: "center",
-                // marginRight: 50,
-              }}
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              marginTop: 5,
+            }}>
+            <Pressable
               onPress={() => dispatch({ type: 'DECREMENT' })}
-            >
-
+              style={{ position: 'absolute', left: -50, padding: 10}}>
+              <Icon name="chevron-left" color="white" />
+            </Pressable>
+            <Pressable
+              onPress={() => dispatch({ type: 'DECREMENT' })}
+              style={{
+                flexDirection: 'row',
+              }}
+              >
               <Text style={{
                 fontWeight: "600",
                 fontSize: 20,
                 paddingVertical: 12,
-
               }}>
                 Previous Workout
               </Text>
