@@ -56,7 +56,6 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
               }}>
                 Previous Workout
               </Text>
-            {/* <View style={{height: 10, width: '100%'}}/> */}
             </Pressable>
           </View>
         }
@@ -91,7 +90,6 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
           })()
         }
       </View>
-      {/* </View> */}
     </>
   );
 }
