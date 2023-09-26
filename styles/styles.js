@@ -1,6 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
+import { Dimensions } from 'react-native';
 
+export const screen = Dimensions.get('window');
 const styles = StyleSheet.create({
   background: {
     position: 'absolute',
@@ -71,17 +73,29 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
-  // pressable: {
-  //   backgroundColor: '#6641AF',
-  //   width: "100%",
-  //   flex: 1,
-  //   padding: 15,
-  //   alignItems: 'center',
-    // justifyContent: 'flex-start', // 'center' pushes content above statusbar
-    // padding: 20,
-    // marginVertical: 8,
-    // marginHorizontal: 16,
-  // },
+  workoutStyles: {
+    outer: {
+      display: "flex",
+      flex: '.8 0 auto',
+      justifyContent: 'space-between',
+      // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
+    },
+    inner: {
+      display: 'flex',
+      flex: '.85 1 auto',
+      alignSelf: 'stretch',
+      marginVertical: 20,
+      paddingBottom: 60,
+      width: .8 * screen.width,
+      flexDirection: 'column',
+      alignItems: 'left',
+      justifyContent: 'space-between',
+      // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
+    },
+    text: {
+      paddingLeft: 8
+    },
+  },
 });
 
 export default styles;
