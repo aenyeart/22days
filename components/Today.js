@@ -71,19 +71,19 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
           (() => {
             switch (workout) {
               case "mtfTest":
-                return <MtfTest mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+                return <MtfTest mtf={latestMaxPullUps} />;
               // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
               // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
               case "amrapTest":
-                return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />; // TODO continue refactoring remaining workouts to use workoutStyles from styles.js instead of props
+                return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
               case "scapHang":
-                return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} style={localStyles.workoutStyles} />;
+                return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
               case "chinUps":
-                return <ChinUps mtf={latestMaxPullUps} style={localStyles.workoutStyles} />
+                return <ChinUps mtf={latestMaxPullUps} />
               case "commando":
-                return <Commando mtf={latestMaxPullUps} style={localStyles.workoutStyles} />;
+                return <Commando mtf={latestMaxPullUps} />;
               case "initialTest":
-                return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} style={localStyles.workoutStyles} />;
+                return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
               default:
                 return <Text>~~~ Hmmmmmm..... ~~~</Text>
             };

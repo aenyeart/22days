@@ -5,20 +5,22 @@ import { Text } from "../Text.js";
 import { View } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
+import styles  from "../../styles/styles.js";
 
 export default ({ mtf, scapHang, style }) => {
   const [newScapHang, setNewScapHang] = useState(scapHang);
+  const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={style.outer}>
+    <View style={workoutStyles.outer}>
       {/* GREEN */}
-      <View style={style.inner}>
+      <View style={workoutStyles.inner}>
         {/* PINK */}
 
         <View>
           <TimelineNode />
           <Timeline />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             {/* <Text style={{ marginBottom: 20 }}> */}
 
             Scap-Pull Hang for time
@@ -36,14 +38,14 @@ export default ({ mtf, scapHang, style }) => {
 
         <View>
           <TimelineNode />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             2 min rest
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
           </Text>
         </View>

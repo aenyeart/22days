@@ -5,19 +5,21 @@ import { useState } from "react";
 import { View } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
+import styles  from "../../styles/styles.js";
 
 export default ({ mtf, style }) => {
   const [newMtf, setNewMtf] = useState(mtf);
+  const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={style.outer}>
+    <View style={workoutStyles.outer}>
       {/* GREEN */}
-      <View style={style.inner}>
+      <View style={workoutStyles.inner}>
         {/* PINK */}
         <View >
           <TimelineNode />
           <Timeline />
-          <Text style={style.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
+          <Text style={workoutStyles.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
           <Input
             initialValue={mtf}
             handleChange={setNewMtf}

@@ -5,21 +5,22 @@ import { useState } from "react";
 import { View } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
+import styles from "../../styles/styles.js";
 
-
-export default ({ style, mtf, latestAmrap, today }) => {
+export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
+  const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={style.outer}>
+    <View style={workoutStyles.outer}>
       {/* GREEN */}
-      <View style={style.inner}>
+      <View style={workoutStyles.inner}>
         {/* PINK */}
         <View>
           <TimelineNode />
           <Timeline />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             Maximum consecutive pull-ups until failure (no breaks):
           </Text>
           <Input
@@ -29,14 +30,14 @@ export default ({ style, mtf, latestAmrap, today }) => {
         </View>
         <View>
           <TimelineNode />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             2-min rest
           </Text>
         </View>
 
         <View>
           <TimelineNode />
-          <Text style={style.text}>
+          <Text style={workoutStyles.text}>
             Do pull-ups for AMRAP(i) within a 5-min period:
             {`\n`}– Breaks are allowed, but the timer must not stop.
           </Text>
