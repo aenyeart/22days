@@ -12,7 +12,7 @@ export default ({ mtf, scapHang, style }) => {
   const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={workoutStyles.outer}>
+    <>
       {/* GREEN */}
       <View style={workoutStyles.inner}>
         {/* PINK */}
@@ -54,6 +54,6 @@ export default ({ mtf, scapHang, style }) => {
       <CompleteButton action=
         {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
       />
-    </View>
+    </>
   );
 }

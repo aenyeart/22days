@@ -10,7 +10,7 @@ export default ({ mtf, style }) => {
 
 
   return (
-    <View style={workoutStyles.outer}>
+    <>
       {/* GREEN */}
       <View style={workoutStyles.inner}>
         {/* PINK */}
@@ -37,7 +37,7 @@ export default ({ mtf, style }) => {
         </View>
       </View>
       <CompleteButton action={null} />
-    </View>
+    </>
 
   );
 }

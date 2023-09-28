@@ -13,7 +13,7 @@ export default ({ mtf, latestAmrap, today }) => {
   const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={workoutStyles.outer}>
+    <>
       {/* GREEN */}
       <View style={workoutStyles.inner}>
         {/* PINK */}
@@ -52,6 +52,6 @@ export default ({ mtf, latestAmrap, today }) => {
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }
       } />
-    </View>
+    </>
   );
 }

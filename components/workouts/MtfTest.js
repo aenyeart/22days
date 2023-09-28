@@ -12,7 +12,7 @@ export default ({ mtf, style }) => {
   const workoutStyles = styles.workoutStyles;
 
   return (
-    <View style={workoutStyles.outer}>
+    <>
       {/* GREEN */}
       <View style={workoutStyles.inner}>
         {/* PINK */}
@@ -27,6 +27,6 @@ export default ({ mtf, style }) => {
         </View>
       </View>
       <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS', value: newMtf }} />
-    </View>
+    </>
   );
 }

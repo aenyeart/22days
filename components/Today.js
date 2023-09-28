@@ -67,28 +67,30 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
           Workout #{today}:
         </Text>
         <Divider style={{ width: '80%', marginBottom: 20 }} />
-        {
-          (() => {
-            switch (workout) {
-              case "mtfTest":
-                return <MtfTest mtf={latestMaxPullUps} />;
-              // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
-              // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
-              case "amrapTest":
-                return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
-              case "scapHang":
-                return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
-              case "chinUps":
-                return <ChinUps mtf={latestMaxPullUps} />
-              case "commando":
-                return <Commando mtf={latestMaxPullUps} />;
-              case "initialTest":
-                return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
-              default:
-                return <Text>~~~ Hmmmmmm..... ~~~</Text>
-            };
-          })()
-        }
+        <View style={localStyles.workoutWrapper}>
+          {
+            (() => {
+              switch (workout) {
+                case "mtfTest":
+                  return <MtfTest mtf={latestMaxPullUps} />;
+                // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
+                // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
+                case "amrapTest":
+                  return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
+                case "scapHang":
+                  return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
+                case "chinUps":
+                  return <ChinUps mtf={latestMaxPullUps} />
+                case "commando":
+                  return <Commando mtf={latestMaxPullUps} />;
+                case "initialTest":
+                  return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
+                default:
+                  return <Text>~~~ Hmmmmmm..... ~~~</Text>
+              };
+            })()
+          }
+        </View>
       </View>
     </>
   );

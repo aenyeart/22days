@@ -13,7 +13,7 @@ export default ({ tdt, latestAmrap }) => {
   const workoutStyles = styles.workoutStyles;
   return (
     // BUG: Final Report is triggered by tapping somewhere outside the complete button
-    <View style={workoutStyles.outer}>
+    <>
       {/* GREEN */}
       <View style={workoutStyles.inner}>
         {/* PINK */}
@@ -32,6 +32,6 @@ export default ({ tdt, latestAmrap }) => {
         </View>
       </View>
       <CompleteButton action={{ type: "SET_FINAL_AMRAP", value: newAmrap }} />
-    </View>
+    </>
   );
 }
