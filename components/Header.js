@@ -1,9 +1,10 @@
 import { Header } from "@rneui/themed";
-import { View, Pressable} from "react-native";
+import { View, Pressable } from "react-native";
 import { Icon } from "@rneui/themed";
-
+import { connect } from "react-redux";
 import { Text } from "./Text";
-export default () => {
+
+function Previous({ dispatch }) {
   return (
     <Header
       containerStyle={{
@@ -41,5 +42,11 @@ export default () => {
         </View>
       }
     />
-  );
+  )
 }
+
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(mapStateToProps)(Previous);
