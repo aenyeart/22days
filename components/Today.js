@@ -1,14 +1,12 @@
 import React from 'react';
 import {
-  Pressable,
   StyleSheet,
   View,
   Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Text } from "./Text.js";
-import { Icon, Divider } from "@rneui/themed";
-import { Header } from "@rneui/base";
+import { Divider } from "@rneui/themed";
 
 import ScapHang from './workouts/ScapHang.js';
 import Commando from './workouts/Commando.js';
@@ -17,50 +15,14 @@ import MtfTest from './workouts/MtfTest.js';
 import InitialTest from './workouts/InitialTest.js';
 import ChinUps from './workouts/ChinUps.js';
 import workoutAssigner from "../constants/workoutAssigner.js";
-
+import Header from './Header.js';
 
 function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal, dispatch }) {
   const workout = workoutAssigner(today);
 
   return (
     <>
-      <Header
-        containerStyle={{
-          borderBottomWidth: 0,
-          borderBottomRightRadius: 35,
-          backgroundColor: "rgba(255, 255, 255, .3)",
-        }}
-        centerComponent={
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              marginTop: 5,
-              alignItems: 'center',
-            }}>
-            <Pressable
-              onPress={() => dispatch({ type: 'DECREMENT' })}
-              style={{
-                position: 'absolute',
-                left: -50,
-                padding: 11
-              }}>
-              <Icon name="chevron-left" color="white" />
-            </Pressable>
-            <Pressable
-              onPress={() => dispatch({ type: 'DECREMENT' })}>
-              <Text style={{
-                fontWeight: "600",
-                fontSize: 20,
-                paddingVertical: 11,
-              }}>
-                Previous Workout
-              </Text>
-            </Pressable>
-          </View>
-        }
-      />
-
+      <Header />
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
         <Text style={localStyles.title}>
@@ -121,27 +83,10 @@ const localStyles = StyleSheet.create({
     marginTop: .05 * height,
     // backgroundColor: "red" // DEBUG ONLY
   },
-  workoutStyles: {
-    outer: {
-      display: "flex",
-      flex: '.8 0 auto',
-      justifyContent: 'space-between',
-      // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
-    },
-    inner: {
-      display: 'flex',
-      flex: '.85 1 auto',
-      alignSelf: 'stretch',
-      marginVertical: 20,
-      paddingBottom: 60,
-      width: .8 * width,
-      flexDirection: 'column',
-      alignItems: 'left',
-      justifyContent: 'space-between',
-      // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
-    },
-    text: {
-      paddingLeft: 8
-    },
+  workoutWrapper: {
+    display: "flex",
+    flex: '.8 0 auto',
+    justifyContent: 'space-between',
+    // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
   },
 });
