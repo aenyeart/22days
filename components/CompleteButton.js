@@ -11,7 +11,9 @@ function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
   return (
     <Pressable
       style={localStyles}
-      onPress={() => { handlePress() }} >
+      onPress={() => { handlePress() }}
+      hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Increase hitSlop
+    >
       <Text style={{
         backgroundColor: "transparent",
         margin: 10,

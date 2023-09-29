@@ -22,6 +22,7 @@ function Previous({ dispatch }) {
           }}>
           <Pressable
             onPress={() => dispatch({ type: 'DECREMENT' })}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Increase hitSlop
             style={{
               position: 'absolute',
               left: -50,
@@ -30,7 +31,9 @@ function Previous({ dispatch }) {
             <Icon name="chevron-left" color="white" />
           </Pressable>
           <Pressable
-            onPress={() => dispatch({ type: 'DECREMENT' })}>
+            onPress={() => dispatch({ type: 'DECREMENT' })}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 30 }} // Increase hitSlop
+          >
             <Text style={{
               fontWeight: "600",
               fontSize: 20,
@@ -40,7 +43,7 @@ function Previous({ dispatch }) {
             </Text>
           </Pressable>
         </View>
-      }
+      } // End centerComponent
     />
   )
 }
