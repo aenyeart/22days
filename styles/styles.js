@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    // marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar
     shadowColor: '#000',
@@ -54,11 +53,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
   },
-  // title: {
-  //   fontSize: 24,
-  //   fontWeight: 'bold',
-  //   marginTop: 10,
-  // },
   input: {
     height: 40,
     margin: 12,
@@ -74,12 +68,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   workoutStyles: {
-    outer: {
-      display: "flex",
-      flex: '.8 0 auto',
-      justifyContent: 'space-between',
-      // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
-    },
     inner: {
       display: 'flex',
       flex: '.85 1 auto',
