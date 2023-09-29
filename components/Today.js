@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Text } from "./Text.js";
 import { Divider } from "@rneui/themed";
 
+import Report from './workouts/Report.js';
 import ScapHang from './workouts/ScapHang.js';
 import Commando from './workouts/Commando.js';
 import AmrapTest from './workouts/AmrapTest.js';
@@ -17,8 +18,28 @@ import ChinUps from './workouts/ChinUps.js';
 import workoutAssigner from "../constants/workoutAssigner.js";
 import Header from './Header.js';
 
-function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal, dispatch }) {
-  const workout = workoutAssigner(today);
+function Today({ today, renderReport, latestMaxPullUps, latestAmrap, latestScapHang, testDayTotal, dispatch, initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) {
+  const workout = workoutAssigner(today, renderReport);
+  const renderTodaysWorkout = () => {
+    switch (workout) {
+      case "mtfTest":
+        return <MtfTest mtf={latestMaxPullUps} />;
+      case "amrapTest":
+        return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
+      case "scapHang":
+        return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
+      case "chinUps":
+        return <ChinUps mtf={latestMaxPullUps} />
+      case "commando":
+        return <Commando mtf={latestMaxPullUps} />;
+      case "initialTest":
+        return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
+      case "report":
+        return <Report />;
+      default:
+        return <Text>~~~ Hmmmmmm..... ~~~</Text>
+    };
+  }
 
   return (
     <>
@@ -26,32 +47,11 @@ function Today({ today, latestMaxPullUps, latestAmrap, latestScapHang, testDayTo
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
         <Text style={localStyles.title}>
-          Workout #{today}:
+          {renderReport ? `FINAL REPORT:` : `Workout #${today}:`}
         </Text>
         <Divider style={{ width: '80%', marginBottom: 20 }} />
         <View style={localStyles.workoutWrapper}>
-          {
-            (() => {
-              switch (workout) {
-                case "mtfTest":
-                  return <MtfTest mtf={latestMaxPullUps} />;
-                // CURRENT Idea: Keep the buttons where they are and manipulate the appearance via styling
-                // Another Idea: trigger state change of "completionProps" to newMtf, which specifies the prop values passed to the button
-                case "amrapTest":
-                  return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
-                case "scapHang":
-                  return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
-                case "chinUps":
-                  return <ChinUps mtf={latestMaxPullUps} />
-                case "commando":
-                  return <Commando mtf={latestMaxPullUps} />;
-                case "initialTest":
-                  return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
-                default:
-                  return <Text>~~~ Hmmmmmm..... ~~~</Text>
-              };
-            })()
-          }
+          {renderTodaysWorkout()}
         </View>
       </View>
     </>
@@ -64,7 +64,6 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Today);
 
-// TODO: Extract window dimensions to store for global use
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
   title: {
