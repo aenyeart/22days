@@ -38,9 +38,10 @@ const localStyles = StyleSheet.create({
   width: 1.05 * width,
   // flex: 1,  // NOTE: this is what was causing the text to not show up
   padding: 15,
+  paddingBottom: 25,
   alignItems: 'center',
   position: 'absolute',
-  left: "-13%", // NOTE: if button loses alignment, adjust this value
+  left: "-12%", // NOTE: if button loses alignment, adjust this value
   bottom: -2,
-  borderTopLeftRadius: 40,
+  borderTopLeftRadius: 45,
 });
