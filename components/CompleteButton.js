@@ -3,13 +3,15 @@ import { Text } from './Text.js';
 import { connect } from 'react-redux';
 
 function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
+  const handlePress = () => {
+    action && dispatch(action);
+    dispatch({ type: 'INCREMENT' });
+  }
+
   return (
     <Pressable
       style={localStyles}
-      onPress={() => {
-        action && dispatch(action);
-        dispatch({ type: 'INCREMENT' });
-      }} >
+      onPress={() => { handlePress() }} >
       <Text style={{
         backgroundColor: "transparent",
         margin: 10,
@@ -17,7 +19,6 @@ function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
         fontSize: 20,
         fontWeight: "600",
         marginBottom: 20,
-
       }}>
         {title}
       </Text>
