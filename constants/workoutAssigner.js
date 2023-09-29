@@ -1,4 +1,5 @@
-export default (currDay) => {
+export default (currDay, report) => {
+  if (report === true) return "report";
   if (currDay === 22) return "mtfTest";
   if (currDay === 21) return "amrapTest";
   if (currDay % 4 === 0) return "scapHang";
