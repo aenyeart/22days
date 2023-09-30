@@ -22,7 +22,7 @@ function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
     >
       <Pressable
         onPressIn={() => { setPressIn(true) }}
-        // onPressOut={() => { setPressIn(false) && setPressOut(true) }} // See TODO above
+        onPressOut={() => { setPressIn(false) }}
         onPress={() => { handlePress() }}
         style={localStyles.button}
       // hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Increase hitSlop. BUG Not working since nesting in LinearGradient.
