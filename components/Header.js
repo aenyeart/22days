@@ -4,7 +4,11 @@ import { Icon } from "@rneui/themed";
 import { connect } from "react-redux";
 import { Text } from "./Text";
 
-function Previous({ dispatch }) {
+function Previous({ dispatch, renderReport }) {
+  const handlePress = () => {
+    renderReport ? dispatch({ type: 'CLOSE_REPORT' }) : dispatch({ type: 'DECREMENT' })
+  }
+
   return (
     <Header
       containerStyle={{
@@ -21,7 +25,7 @@ function Previous({ dispatch }) {
             alignItems: 'center',
           }}>
           <Pressable
-            onPress={() => dispatch({ type: 'DECREMENT' })}
+            onPress={() => handlePress()}
             hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Increase hitSlop
             style={{
               position: 'absolute',
@@ -31,7 +35,7 @@ function Previous({ dispatch }) {
             <Icon name="chevron-left" color="white" />
           </Pressable>
           <Pressable
-            onPress={() => dispatch({ type: 'DECREMENT' })}
+            onPress={() => handlePress()}
             hitSlop={{ top: 10, bottom: 10, left: 10, right: 30 }} // Increase hitSlop
           >
             <Text style={{
@@ -39,7 +43,7 @@ function Previous({ dispatch }) {
               fontSize: 20,
               paddingVertical: 11,
             }}>
-              Previous Workout
+              { renderReport ? 'Close Report' : 'Previous Workout' }
             </Text>
           </Pressable>
         </View>
@@ -48,8 +52,8 @@ function Previous({ dispatch }) {
   )
 }
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {...state};
 }
 
 export default connect(mapStateToProps)(Previous);
