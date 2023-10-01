@@ -3,21 +3,14 @@
 
 Double your max consecutive pullups in only three weeks with this mobile app.
 
-[Project To-do List](./TODO.md)
+
 
 ## Acknowledgements
 
 - Inspired by and built to accompany the [Double Your Max Pullups in 22 Days!](https://youtu.be/eb7tgP7Bla8) video by Jeff Cavaliere of [ATHLEAN-X](http://youtube.com/user/jdcav24).
 
 ## Usage/Examples
-
-<!-- ```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-``` -->
+![22days_screenshot](https://github.com/aenyeart/22days/assets/65784446/539b3616-fb03-4be4-90a7-0d19209a1865)
 
 ## Component Hierarchy
 
