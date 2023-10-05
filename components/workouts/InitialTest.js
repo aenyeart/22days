@@ -5,6 +5,7 @@ import { useState } from "react";
 import { View } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
+import CountdownTimer from '../CountdownTimer.js';
 import styles from "../../styles/styles.js";
 
 export default ({ mtf, latestAmrap, today }) => {
@@ -33,6 +34,7 @@ export default ({ mtf, latestAmrap, today }) => {
           <Text style={workoutStyles.text}>
             2-min rest
           </Text>
+          <CountdownTimer />
         </View>
 
         <View>
