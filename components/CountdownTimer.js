@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Button, Text } from 'react-native';
-import { Icon } from "@rneui/themed";
+import React, {useEffect, useState} from 'react';
+import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Icon} from "@rneui/themed";
 
-const CountdownTimer = () => {
-  const [timeRemaining, setTimeRemaining] = useState(120); // 2 minutes in seconds
+const CountdownTimer = (props) => {
+  const [timeRemaining, setTimeRemaining] = useState(props.seconds);
   const [isRunning, setIsRunning] = useState(false);
 
-  // Function to start the timer
   const startTimer = () => {
     setIsRunning(true);
   };
 
-  // Function to pause the timer
   const pauseTimer = () => {
     setIsRunning(false);
   };
+
+  const resetTimer = () => {
+    setIsRunning(false);
+    setTimeRemaining(props.seconds);
+  }
 
   useEffect(() => {
     let timer;
@@ -49,26 +52,71 @@ const CountdownTimer = () => {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
+  const [pressIn, setPressIn] = useState(false);
+
   return (
     <View style={styles.container}>
+      <Pressable onPress={() => !isRunning && resetTimer()}
+       style={[
+         styles.pressable,
+         styles.pressableLeft,
+         isRunning && {opacity: 0.5},
+         !isRunning && pressIn && {opacity: 1, backgroundColor: "black"}
+       ]}
+       onPressIn={() => { setPressIn(true) }}
+       onPressOut={() => { setPressIn(false) }}
+      >
+        <Icon
+          name={'reload-outline'}
+          type='ionicon'
+          color="#FFF"
+          style={{ transform: [{ scaleX: -1 }] }}
+        />
+      </Pressable>
+
       <Text style={styles.timerText}>{formatTime(timeRemaining)}</Text>
-      {!isRunning ? (
-        <Button title="Start" onPress={startTimer} />
-      ) : (
-        <Button title="Pause" onPress={pauseTimer} />
-      )}
+
+      <Pressable onPress={!isRunning ? startTimer : pauseTimer} style={[styles.pressable, styles.pressableRight]}>
+        <Icon
+          name={isRunning ? 'pause-outline' : 'play-outline'}
+          type='ionicon'
+          color="#FFF"
+          />
+      </Pressable>
     </View>
   );
 };
 
+const { width } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: .8 * width,
     alignItems: 'center',
+    backgroundColor: 'white',
+    marginTop: 15,
+    padding: 8,
+    borderRadius: 40,
   },
   timerText: {
-    fontSize: 48,
+    fontSize: 28,
+  },
+  pressable: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    width: 50,
+    height: 50,
+    borderRadius: 999,
+  },
+  pressableLeft: {
+    backgroundColor: '#FF9595'
+  },
+  pressableRight: {
+    backgroundColor: '#3FE180'
   },
 });
 
