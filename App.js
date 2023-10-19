@@ -1,13 +1,36 @@
 import {Text} from './components/Text.js';
 import Home from './components/Home.js';
-import { store, persistor } from './store/store';
+import {store, persistor} from './store/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {LinearGradient} from "expo-linear-gradient";
 import styles from "./styles/styles";
 import {SafeAreaProvider} from "react-native-safe-area-context";
+import {useEffect} from "react";
+import * as Permissions from "expo-permissions";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => {
+    return {
+      shouldShowAlert: true
+    }}
+})
 
 export default function App() {
+  useEffect(() => {
+    Permissions.getAsync(Permissions.NOTIFICATIONS).then((statusObj) => {
+      if (statusObj.status !== "granted") {
+        return Permissions.askAsync(Permissions.NOTIFICATIONS)
+      }
+      return statusObj;
+    }).then((statusObj) => {
+      if (statusObj.status !== "granted") {
+        return;
+      }
+    })
+  }, [])
+
   return (
     <SafeAreaProvider>
     <Provider store={store}>
@@ -20,6 +43,7 @@ export default function App() {
           style={styles.background}
         />
         <Home />
+
       </PersistGate>
     </Provider>
     </SafeAreaProvider>
