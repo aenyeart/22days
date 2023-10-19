@@ -34,7 +34,7 @@ export default ({ mtf, latestAmrap, today }) => {
           <Text style={workoutStyles.text}>
             2-min rest
           </Text>
-          <CountdownTimer seconds={120} />
+          <CountdownTimer seconds={2} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
         </View>
 
         <View>

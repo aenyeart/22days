@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
 import {Icon} from "@rneui/themed";
+import * as Notifications from "expo-notifications";
 
 const CountdownTimer = (props) => {
   const [timeRemaining, setTimeRemaining] = useState(props.seconds);
@@ -43,6 +44,7 @@ const CountdownTimer = (props) => {
   useEffect(() => {
     if (timeRemaining === 0) {
       // Timer has completed, you can add your logic here
+      triggerNotification(props.timerText)
     }
   }, [timeRemaining]);
 
@@ -86,6 +88,17 @@ const CountdownTimer = (props) => {
     </View>
   );
 };
+
+const triggerNotification = async (body) => {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "Time's Up!",
+      body: body,
+      data: {data: "goes here"},
+    },
+    trigger: null,
+  });
+}
 
 const { width } = Dimensions.get('window');
 
