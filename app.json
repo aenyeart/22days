@@ -22,7 +22,9 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.aenyeart.22days",
-      "runtimeVersion": "1.0.0"
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
