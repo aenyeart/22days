@@ -71,9 +71,8 @@ const styles = StyleSheet.create({
     inner: {
       display: 'flex',
       flex: '.85 1 auto',
-      alignSelf: 'stretch',
+      alignSelf: 'center',
       marginVertical: 20,
-      paddingBottom: 60,
       width: .8 * screen.width,
       flexDirection: 'column',
       alignItems: 'left',
