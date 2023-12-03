@@ -7,7 +7,7 @@ import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
 import CountdownTimer from '../CountdownTimer.js';
 import { Divider } from "@rneui/themed";
-import styles from "../../styles/styles.js";
+import styles, { screen } from "../../styles/styles.js";
 
 export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
@@ -17,7 +17,8 @@ export default ({ mtf, latestAmrap, today }) => {
   return (
     <>
       {/* GREEN */}
-      <ScrollView style={workoutStyles.inner} bounces='true'>
+      <ScrollView bounces='true' style={workoutStyles.inner}>
+
         {/* PINK */}
         <Text style={{
           textAlign: 'center',
