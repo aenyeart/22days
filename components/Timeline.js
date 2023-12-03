@@ -5,11 +5,12 @@ export default () => {
   return (
     <View style={{
       width: 1,
-      height: 100,
-      // height: Dimensions.get('window').height,
+      // height: 100,
+      height: Dimensions.get('window').height,
       backgroundColor: 'white',
       position: 'relative',
-      left: 0,
+      marginHorizontal: 10,
+      left: -2,
       top: 6,
     }} />
   );

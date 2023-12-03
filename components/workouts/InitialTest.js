@@ -14,6 +14,9 @@ export default ({ mtf, latestAmrap, today }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   const workoutStyles = styles.workoutStyles;
 
+  const colors = ['transparent', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'];
+
+
   return (
     <>
       {/* GREEN */}
@@ -32,35 +35,49 @@ export default ({ mtf, latestAmrap, today }) => {
           Workout #{today}:
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
-        <View>
-          <TimelineNode />
+        <View style={{
+          flexDirection: 'row',
+          backgroundColor: colors[0],
+        }}>
           <Timeline />
-          <Text style={workoutStyles.text}>
-            Maximum consecutive pull-ups until failure (no breaks):
-          </Text>
-          <Input
-            initialValue={mtf}
-            handleChange={setNewMtf}
-          />
-        </View>
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            2-min rest
-          </Text>
-          <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-        </View>
+          <View
+          style={{backgroundColor: colors[0]}}
+          >
+            <View
+            style={{ backgroundColor: colors[0]}}
+            >
+              <TimelineNode />
 
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Do pull-ups for AMRAP(i) within a 5-min period:
-            {`\n`}– Breaks are allowed, but the timer must not stop.
-          </Text>
-          <Input
-            initialValue={latestAmrap}
-            handleChange={setNewAmrap}
-          />
+              <Text style={workoutStyles.text}>
+                Maximum consecutive pull-ups until failure (no breaks):
+              </Text>
+
+              <Input
+                initialValue={mtf}
+                handleChange={setNewMtf}
+              />
+            </View>
+
+            <View style={{}}>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                2-min rest
+              </Text>
+              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+            </View>
+
+            <View style={{}}>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                Do pull-ups for AMRAP(i) within a 5-min period:
+                {`\n`}– Breaks are allowed, but the timer must not stop.
+              </Text>
+              <Input
+                initialValue={latestAmrap}
+                handleChange={setNewAmrap}
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
       <CompleteButton action={today === 1

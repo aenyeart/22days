@@ -72,11 +72,12 @@ const styles = StyleSheet.create({
       display: 'flex',
       marginVertical: 20,
       paddingBottom: 75,
-      width: .8 * screen.width,
+      width: .9 * screen.width,
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
     },
     text: {
-      paddingLeft: 8
+      paddingLeft: 8,
+      flexWrap: 'wrap',
     },
   },
 });
