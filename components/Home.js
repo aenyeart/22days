@@ -18,7 +18,8 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: 0,
+    // marginTop: StatusBar.currentHeight || 0,
     marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'flex-start', // 'center' pushes content above statusbar

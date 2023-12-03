@@ -2,10 +2,11 @@ import { Text } from '../Text.js';
 import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { useState } from "react";
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
 import CountdownTimer from '../CountdownTimer.js';
+import { Divider } from "@rneui/themed";
 import styles from "../../styles/styles.js";
 
 export default ({ mtf, latestAmrap, today }) => {
@@ -16,8 +17,20 @@ export default ({ mtf, latestAmrap, today }) => {
   return (
     <>
       {/* GREEN */}
-      <View style={workoutStyles.inner}>
+      <ScrollView style={workoutStyles.inner} bounces='true'>
         {/* PINK */}
+        <Text style={{
+          textAlign: 'center',
+          alignSelf: 'center',
+          fontSize: 24,
+          fontWeight: 'bold',
+          marginTop: 10,
+          marginBottom: 20,
+          width: '80%',
+        }}>
+          Workout #{today}:
+        </Text>
+        <Divider style={{ width: "100%", marginBottom: 20 }} />
         <View>
           <TimelineNode />
           <Timeline />
@@ -48,8 +61,7 @@ export default ({ mtf, latestAmrap, today }) => {
             handleChange={setNewAmrap}
           />
         </View>
-      </View>
-
+      </ScrollView>
       <CompleteButton action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }

@@ -46,10 +46,10 @@ function Today({ today, renderReport, latestMaxPullUps, latestAmrap, latestScapH
       <Header />
       {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
-        <Text style={localStyles.title}>
+        {/* <Text style={localStyles.title}>
           {renderReport ? `FINAL REPORT:` : `Workout #${today}:`}
         </Text>
-        <Divider style={{ width: '80%', marginBottom: 20 }} />
+        <Divider style={{ width: '80%', marginBottom: 20 }} /> */}
         <View style={localStyles.workoutWrapper}>
           {renderTodaysWorkout()}
         </View>
@@ -79,13 +79,14 @@ const localStyles = StyleSheet.create({
     width: "100%",
     height: height,
     alignItems: 'center',
-    marginTop: .05 * height,
+    // marginTop: .05 * height,
     // backgroundColor: "red" // DEBUG ONLY
   },
   workoutWrapper: {
     display: "flex",
-    flex: '.8 0 auto',
+    // flex: '.8 0 auto', // TODO expand out instead of flex shorthand
     justifyContent: 'space-between',
+    alignItems: 'center',
     // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
   },
 });
