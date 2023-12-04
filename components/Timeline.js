@@ -6,7 +6,7 @@ export default () => {
     <View style={{
       width: 1,
       // height: 100,
-      height: Dimensions.get('window').height,
+      // height: Dimensions.get('window').height,
       backgroundColor: 'white',
       position: 'relative',
       marginHorizontal: 10,

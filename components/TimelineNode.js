@@ -9,7 +9,7 @@ export default () => {
       backgroundColor: '#D5FF2C',
       position: 'absolute',
       // left: -5,
-      left: -17,
+      left: -17.5,
       top: 5,
       borderRadius: 50,
       zIndex: 1,

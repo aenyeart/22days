@@ -12,6 +12,11 @@ import styles, { screen } from "../../styles/styles.js";
 export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    console.log('height check', event.nativeEvent.layout.height);
+    setWorkoutHeight(event.nativeEvent.layout.height);
+  }
   const workoutStyles = styles.workoutStyles;
 
   const colors = ['transparent', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'];
@@ -36,10 +41,12 @@ export default ({ mtf, latestAmrap, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
         <View style={{
-          flexDirection: 'row',
-          backgroundColor: colors[0],
-        }}>
-          <Timeline />
+            flexDirection: 'row',
+            backgroundColor: colors[0],
+          }}
+          onLayout={getHeightForTimeline}
+        >
+          <Timeline style={{height: this.workoutHeight }}/>
           <View
           style={{backgroundColor: colors[0]}}
           >
