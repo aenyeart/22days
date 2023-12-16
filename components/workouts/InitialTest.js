@@ -14,13 +14,14 @@ export default ({ mtf, latestAmrap, today }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   const [workoutHeight, setWorkoutHeight] = useState(0);
   const getHeightForTimeline = (event) => {
-    console.log('height check', event.nativeEvent.layout.height);
-    setWorkoutHeight(event.nativeEvent.layout.height);
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
   }
   const workoutStyles = styles.workoutStyles;
 
   const colors = ['transparent', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'];
-
 
   return (
     <>
