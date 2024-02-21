@@ -4,7 +4,7 @@ import { Divider } from "@rneui/themed";
 import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
 
-export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
+export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, today }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
   const amrapDelta = finalAmrap - initialAmrap;
   return (

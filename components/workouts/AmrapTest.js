@@ -9,7 +9,7 @@ import { Divider } from "@rneui/themed";
 import styles  from "../../styles/styles.js";
 
 // export default ({ tdt, latestAmrap, style }) => {
-export default ({ tdt, latestAmrap }) => {
+export default ({ tdt, latestAmrap, today }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   const workoutStyles = styles.workoutStyles;
   return (

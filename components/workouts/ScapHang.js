@@ -8,7 +8,7 @@ import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
 import styles  from "../../styles/styles.js";
 
-export default ({ mtf, scapHang, style }) => {
+export default ({ mtf, scapHang, style, today }) => {
   const [newScapHang, setNewScapHang] = useState(scapHang);
   const workoutStyles = styles.workoutStyles;
 

@@ -8,7 +8,7 @@ import Timeline from '../Timeline.js';
 import { Divider } from "@rneui/themed";
 import styles  from "../../styles/styles.js";
 
-export default ({ mtf, style }) => {
+export default ({ mtf, style, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
   const workoutStyles = styles.workoutStyles;
 
