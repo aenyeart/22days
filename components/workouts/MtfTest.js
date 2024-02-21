@@ -6,9 +6,16 @@ import { View, ScrollView } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
 import { Divider } from "@rneui/themed";
-import styles  from "../../styles/styles.js";
+import styles from "../../styles/styles.js";
 
 export default ({ mtf, style, today }) => {
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
+  }
   const [newMtf, setNewMtf] = useState(mtf);
   const workoutStyles = styles.workoutStyles;
 

@@ -1,5 +1,6 @@
 import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
+import { useState } from "react";
 import { View, ScrollView } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
@@ -8,8 +9,14 @@ import { Divider } from "@rneui/themed";
 import styles  from "../../styles/styles.js";
 
 export default ({ mtf, style, today }) => {
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
+  }
   const workoutStyles = styles.workoutStyles;
-
 
   return (
     <>

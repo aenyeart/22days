@@ -6,10 +6,17 @@ import { View, ScrollView } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import { Divider } from "@rneui/themed";
-import styles  from "../../styles/styles.js";
+import styles from "../../styles/styles.js";
 
 // export default ({ tdt, latestAmrap, style }) => {
 export default ({ tdt, latestAmrap, today }) => {
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
+  }
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   const workoutStyles = styles.workoutStyles;
   return (

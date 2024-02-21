@@ -5,6 +5,13 @@ import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
 
 export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, today }) => {
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
+  }
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;
   const amrapDelta = finalAmrap - initialAmrap;
   return (

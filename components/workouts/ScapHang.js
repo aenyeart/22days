@@ -6,9 +6,16 @@ import { View, ScrollView } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
-import styles  from "../../styles/styles.js";
+import styles from "../../styles/styles.js";
 
 export default ({ mtf, scapHang, style, today }) => {
+  const [workoutHeight, setWorkoutHeight] = useState(0);
+  const getHeightForTimeline = (event) => {
+    let { height } = event.nativeEvent.layout;
+    height += 20;
+    console.log('height check', height);
+    setWorkoutHeight(height);
+  }
   const [newScapHang, setNewScapHang] = useState(scapHang);
   const workoutStyles = styles.workoutStyles;
 
