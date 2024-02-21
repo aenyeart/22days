@@ -37,27 +37,37 @@ export default ({ mtf, style, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
 
-        <Timeline />
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
-          </Text>
-        </View>
+        <View style={{
+          flexDirection: 'row',
+        }}
+          onLayout={getHeightForTimeline}
+        >
+          <Timeline style={{ height: this.workoutHeight }} />
 
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            2 min rest
-          </Text>
-          <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-        </View>
+          <View style={{}}>
 
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
-          </Text>
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
+              </Text>
+            </View>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                2 min rest
+              </Text>
+              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+            </View>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
+              </Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
       <CompleteButton action={null} />
