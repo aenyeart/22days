@@ -38,14 +38,24 @@ export default ({ mtf, style, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
 
-        <View >
-          <TimelineNode />
-          <Timeline />
-          <Text style={workoutStyles.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
-          <Input
-            initialValue={mtf}
-            handleChange={setNewMtf}
-          />
+        <View style={{
+          flexDirection: 'row',
+        }}
+          onLayout={getHeightForTimeline}
+        >
+          <Timeline style={{ height: this.workoutHeight }} />
+
+          <View style={{}}>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
+              <Input
+                initialValue={mtf}
+                handleChange={setNewMtf}
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
       <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS', value: newMtf }} />
