@@ -23,15 +23,15 @@ function Today({ today, renderReport, latestMaxPullUps, latestAmrap, latestScapH
   const renderTodaysWorkout = () => {
     switch (workout) {
       case "mtfTest":
-        return <MtfTest mtf={latestMaxPullUps} />;
+        return <MtfTest mtf={latestMaxPullUps} today={today} />;
       case "amrapTest":
-        return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} />;
+        return <AmrapTest tdt={testDayTotal} latestAmrap={latestAmrap} today={today} />;
       case "scapHang":
-        return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} />;
+        return <ScapHang mtf={latestMaxPullUps} scapHang={latestScapHang} today={today} />;
       case "chinUps":
-        return <ChinUps mtf={latestMaxPullUps} />
+        return <ChinUps mtf={latestMaxPullUps} today={today} />
       case "commando":
-        return <Commando mtf={latestMaxPullUps} />;
+        return <Commando mtf={latestMaxPullUps} today={today} />;
       case "initialTest":
         return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
       case "report":
