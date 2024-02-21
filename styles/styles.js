@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   h2: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 10,
+    // marginTop: 10,
   },
   input: {
     height: 40,
