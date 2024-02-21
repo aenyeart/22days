@@ -24,7 +24,21 @@ export default ({ tdt, latestAmrap, today }) => {
     <>
       {/* GREEN */}
       <ScrollView bounces='true' style={workoutStyles.inner}>
+
         {/* PINK */}
+        <Text style={{
+          textAlign: 'center',
+          alignSelf: 'center',
+          fontSize: 24,
+          fontWeight: 'bold',
+          marginTop: 10,
+          marginBottom: 20,
+          width: '80%',
+        }}>
+          Workout #{today}:
+        </Text>
+        <Divider style={{ width: "100%", marginBottom: 20 }} />
+
         <View>
           <TimelineNode />
           <Timeline />

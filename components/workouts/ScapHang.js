@@ -3,6 +3,8 @@ import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { View, ScrollView } from 'react-native';
+import { Divider } from "@rneui/themed";
+
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
@@ -23,7 +25,20 @@ export default ({ mtf, scapHang, style, today }) => {
     <>
       {/* GREEN */}
       <ScrollView bounces='true' style={workoutStyles.inner}>
+
         {/* PINK */}
+        <Text style={{
+          textAlign: 'center',
+          alignSelf: 'center',
+          fontSize: 24,
+          fontWeight: 'bold',
+          marginTop: 10,
+          marginBottom: 20,
+          width: '80%',
+        }}>
+          Workout #{today}:
+        </Text>
+        <Divider style={{ width: "100%", marginBottom: 20 }} />
 
         <View>
           <TimelineNode />
