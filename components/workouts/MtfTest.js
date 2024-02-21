@@ -5,6 +5,7 @@ import { useState } from "react";
 import { View, ScrollView } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
+import { Divider } from "@rneui/themed";
 import styles  from "../../styles/styles.js";
 
 export default ({ mtf, style }) => {

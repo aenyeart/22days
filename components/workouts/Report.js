@@ -1,8 +1,8 @@
+import { Text } from "../Text.js";
 import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
 import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
-import { Text } from "../Text.js";
 
 export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap }) => {
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;

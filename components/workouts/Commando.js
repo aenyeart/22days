@@ -4,6 +4,7 @@ import { View, ScrollView } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
+import { Divider } from "@rneui/themed";
 import styles  from "../../styles/styles.js";
 
 export default ({ mtf, style }) => {
