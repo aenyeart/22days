@@ -1,6 +1,6 @@
 import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
@@ -13,7 +13,7 @@ export default ({ mtf, style }) => {
   return (
     <>
       {/* GREEN */}
-      <View style={workoutStyles.inner}>
+      <ScrollView bounces='true' style={workoutStyles.inner}>
         {/* PINK */}
         <View>
           <TimelineNode />
@@ -37,7 +37,7 @@ export default ({ mtf, style }) => {
             Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <CompleteButton action={null} />
     </>
 

@@ -2,7 +2,7 @@ import { Text } from "../Text.js";
 import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { useState } from "react";
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
 import styles  from "../../styles/styles.js";

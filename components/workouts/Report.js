@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
 import CompleteButton from '../CompleteButton.js';
 import styles from '../../styles/styles'
