@@ -23,7 +23,7 @@ export default ({ tdt, latestAmrap, today }) => {
     // BUG: Final Report is triggered by tapping somewhere outside the complete button
     <>
       {/* GREEN */}
-      <View style={workoutStyles.inner}>
+      <ScrollView bounces='true' style={workoutStyles.inner}>
         {/* PINK */}
         <View>
           <TimelineNode />
@@ -38,7 +38,7 @@ export default ({ tdt, latestAmrap, today }) => {
             handleChange={setNewAmrap}
           />
         </View>
-      </View>
+      </ScrollView>
       <CompleteButton action={{ type: "SET_FINAL_AMRAP", value: newAmrap }} />
     </>
   );

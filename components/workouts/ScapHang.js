@@ -22,7 +22,7 @@ export default ({ mtf, scapHang, style, today }) => {
   return (
     <>
       {/* GREEN */}
-      <View style={workoutStyles.inner}>
+      <ScrollView bounces='true' style={workoutStyles.inner}>
         {/* PINK */}
 
         <View>
@@ -59,7 +59,7 @@ export default ({ mtf, scapHang, style, today }) => {
           </Text>
         </View>
 
-      </View>
+      </ScrollView>
       <CompleteButton action=
         {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
       />

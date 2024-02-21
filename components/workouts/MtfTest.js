@@ -22,7 +22,7 @@ export default ({ mtf, style, today }) => {
   return (
     <>
       {/* GREEN */}
-      <View style={workoutStyles.inner}>
+      <ScrollView bounces='true' style={workoutStyles.inner}>
         {/* PINK */}
         <View >
           <TimelineNode />
@@ -33,7 +33,7 @@ export default ({ mtf, style, today }) => {
             handleChange={setNewMtf}
           />
         </View>
-      </View>
+      </ScrollView>
       <CompleteButton title='Finish & View Report' action={{ type: 'SAVE_RESULTS', value: newMtf }} />
     </>
   );

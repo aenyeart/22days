@@ -16,7 +16,7 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
   const amrapDelta = finalAmrap - initialAmrap;
   return (
     <>
-      <View style={styles.workoutStyles.inner}>
+      <ScrollView bounces='true' style={styles.workoutStyles.inner}>
 
         <View >
           <Text style={styles.h2}>
@@ -49,7 +49,7 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
           {`\n`}
         </Text>
 
-      </View>
+      </ScrollView>
 
       <CompleteButton
         title='Start New 22-Day Cycle'
