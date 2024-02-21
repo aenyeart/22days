@@ -4,7 +4,6 @@ import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
-
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
@@ -40,40 +39,49 @@ export default ({ mtf, scapHang, style, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
 
-        <View>
-          <TimelineNode />
-          <Timeline />
-          <Text style={workoutStyles.text}>
-            {/* <Text style={{ marginBottom: 20 }}> */}
+        <View style={{
+          flexDirection: 'row',
+        }}
+          onLayout={getHeightForTimeline}
+        >
+          <Timeline style={{ height: this.workoutHeight }} />
 
-            Scap-Pull Hang for time
-            {scapHang === null
-              ? " until failure (seconds):"
-              : ` for at least ${parseInt(scapHang) + 5} seconds (prev time +5 sec) OR until failure:`
-            }
-          </Text>
-          <Input
-            placeholder="Enter scap-pull hang duration (seconds)"
-            initialValue={newScapHang}
-            handleChange={setNewScapHang}
-          />
-        </View>
+          <View style={{}}>
 
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            2 min rest
-          </Text>
-          <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-        </View>
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                {/* <Text style={{ marginBottom: 20 }}> */}
 
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
-          </Text>
-        </View>
+                Scap-Pull Hang for time
+                {scapHang === null
+                  ? " until failure (seconds):"
+                  : ` for at least ${parseInt(scapHang) + 5} seconds (prev time +5 sec) OR until failure:`
+                }
+              </Text>
+              <Input
+                placeholder="Enter scap-pull hang duration (seconds)"
+                initialValue={newScapHang}
+                handleChange={setNewScapHang}
+              />
+            </View>
 
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                2 min rest
+              </Text>
+              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+            </View>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
+              </Text>
+            </View>
+          </View>
+        </View >
       </ScrollView>
       <CompleteButton action=
         {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
