@@ -37,6 +37,7 @@ export default ({ mtf, style, today }) => {
           Workout #{today}:
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
+
         <View style={{
           flexDirection: 'row',
         }}
@@ -45,29 +46,31 @@ export default ({ mtf, style, today }) => {
           <Timeline style={{ height: this.workoutHeight }} />
 
           <View style={{}}>
-            <TimelineNode />
+            <View >
+              <TimelineNode />
 
-            <Text style={workoutStyles.text}>
-              Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
-            </Text>
+              <Text style={workoutStyles.text}>
+                Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
+              </Text>
+            </View>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                2 min rest
+              </Text>
+              <TimelineNode />
+              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+            </View>
+
+            <View>
+              <TimelineNode />
+              <Text style={workoutStyles.text}>
+                Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
+              </Text>
+            </View>
           </View>
         </View>
-
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            2 min rest
-          </Text>
-          <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-        </View>
-
-        <View>
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
-          </Text>
-        </View>
-
       </ScrollView>
       <CompleteButton action={null} />
     </>
