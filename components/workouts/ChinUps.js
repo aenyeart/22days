@@ -23,6 +23,7 @@ export default ({ mtf, style, today }) => {
     <>
       {/* GREEN */}
       <ScrollView bounces='true' style={workoutStyles.inner}>
+
         {/* PINK */}
         <Text style={{
           textAlign: 'center',
@@ -36,14 +37,20 @@ export default ({ mtf, style, today }) => {
           Workout #{today}:
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
+        <View style={{
+          flexDirection: 'row',
+        }}
+          onLayout={getHeightForTimeline}
+        >
+          <Timeline style={{ height: this.workoutHeight }} />
 
+          <View style={{}}>
+            <TimelineNode />
 
-        <View>
-          <Timeline />
-          <TimelineNode />
-          <Text style={workoutStyles.text}>
-            Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
-          </Text>
+            <Text style={workoutStyles.text}>
+              Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
+            </Text>
+          </View>
         </View>
 
         <View>
