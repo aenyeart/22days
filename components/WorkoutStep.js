@@ -2,13 +2,11 @@ import { View } from 'react-native'
 import React from 'react'
 import TimelineNode from './TimelineNode'
 
-const WorkoutStep = (content) => {
+export default ({children}) => {
   return (
-    <View style={{ width: '98%' }}>
+    <View style={{ width: '98%', paddingBottom: 10 }}>
       <TimelineNode />
-      {content}
+      {children}
     </View>
-  )
+  );
 }
-
-export default WorkoutStep
