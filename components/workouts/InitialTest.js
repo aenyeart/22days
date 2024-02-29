@@ -8,6 +8,7 @@ import Timeline from '../Timeline.js';
 import CountdownTimer from '../CountdownTimer.js';
 import { Divider } from "@rneui/themed";
 import styles, { screen } from "../../styles/styles.js";
+import WorkoutStep from '../WorkoutStep.js';
 
 export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
@@ -42,40 +43,33 @@ export default ({ mtf, latestAmrap, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
         <View style={{
-            flexDirection: 'row',
-            backgroundColor: colors[0],
-          }}
+          flexDirection: 'row',
+          backgroundColor: colors[0],
+        }}
           onLayout={getHeightForTimeline}
         >
-          <Timeline style={{height: this.workoutHeight }}/>
-          <View
-          style={{backgroundColor: colors[0]}}
-          >
-            <View
-            style={{ backgroundColor: colors[0]}}
-            >
-              <TimelineNode />
+          <Timeline style={{ height: this.workoutHeight }} />
+          <View>
+            {/* WRAPPER: Workout Elements */}
 
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 Maximum consecutive pull-ups until failure (no breaks):
               </Text>
-
               <Input
                 initialValue={mtf}
                 handleChange={setNewMtf}
               />
-            </View>
+            </WorkoutStep>
 
-            <View style={{}}>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 2-min rest
               </Text>
               <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-            </View>
+            </WorkoutStep>
 
-            <View style={{}}>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 Do pull-ups for AMRAP(i) within a 5-min period:
                 {`\n`}– Breaks are allowed, but the timer must not stop.
@@ -84,7 +78,8 @@ export default ({ mtf, latestAmrap, today }) => {
                 initialValue={latestAmrap}
                 handleChange={setNewAmrap}
               />
-            </View>
+            </WorkoutStep>
+
           </View>
         </View>
       </ScrollView>
