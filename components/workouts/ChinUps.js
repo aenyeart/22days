@@ -2,7 +2,7 @@ import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { useState } from "react";
 import { View, ScrollView } from 'react-native';
-import TimelineNode from "../TimelineNode";
+import WorkoutStep from '../WorkoutStep.js';
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
 import { Divider } from "@rneui/themed";
@@ -46,29 +46,29 @@ export default ({ mtf, style, today }) => {
           <Timeline style={{ height: this.workoutHeight }} />
 
           <View style={{}}>
-            <View >
-              <TimelineNode />
+            <WorkoutStep>
+
 
               <Text style={workoutStyles.text}>
                 Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
               </Text>
-            </View>
+            </WorkoutStep>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
+
               <Text style={workoutStyles.text}>
                 2 min rest
               </Text>
-              <TimelineNode />
-              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-            </View>
 
-            <View>
-              <TimelineNode />
+              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+            </WorkoutStep>
+
+            <WorkoutStep>
+
               <Text style={workoutStyles.text}>
                 Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
               </Text>
-            </View>
+            </WorkoutStep>
           </View>
         </View>
       </ScrollView>
