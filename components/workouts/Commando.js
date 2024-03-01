@@ -2,7 +2,7 @@ import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { useState } from "react";
 import { View, ScrollView } from 'react-native';
-import TimelineNode from "../TimelineNode";
+import WorkoutStep from '../WorkoutStep.js';
 import Timeline from "../Timeline";
 import CountdownTimer from "../CountdownTimer";
 import { Divider } from "@rneui/themed";
@@ -20,10 +20,7 @@ export default ({ mtf, style, today }) => {
 
   return (
     <>
-      {/* GREEN */}
       <ScrollView bounces='true' style={workoutStyles.inner}>
-
-        {/* PINK */}
         <Text style={{
           textAlign: 'center',
           alignSelf: 'center',
@@ -37,41 +34,33 @@ export default ({ mtf, style, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
 
-        <View style={{
-          flexDirection: 'row',
-        }}
-          onLayout={getHeightForTimeline}
-        >
+        <View style={{ flexDirection: 'row' }} onLayout={getHeightForTimeline}>
           <Timeline style={{ height: this.workoutHeight }} />
 
           <View style={{}}>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 Commando Pullups x {Math.floor(2 * mtf)} (2x current MTF)
               </Text>
-            </View>
+            </WorkoutStep>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 2 min rest
               </Text>
               <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-            </View>
+            </WorkoutStep>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
               </Text>
-            </View>
+            </WorkoutStep>
           </View>
         </View>
       </ScrollView>
       <CompleteButton action={null} />
     </>
-
   );
 }
