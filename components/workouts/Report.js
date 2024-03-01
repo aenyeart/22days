@@ -3,7 +3,6 @@ import { useState } from "react";
 import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
 import CompleteButton from '../CompleteButton.js';
-import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
 import styles from '../../styles/styles'
 

@@ -3,7 +3,6 @@ import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { useState } from "react";
 import { View, ScrollView } from 'react-native';
-import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
 import CountdownTimer from '../CountdownTimer.js';
 import { Divider } from "@rneui/themed";
