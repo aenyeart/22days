@@ -16,7 +16,8 @@ export default ({ ...props }) => {
         marginTop: 15,
         padding: 8,
         borderRadius: 40,
-        width: .8 * width,
+        // width: '100%',
+        width: .75 * width,
       }}
       min={0}
       step={1}

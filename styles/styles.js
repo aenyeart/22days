@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   h2: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 10,
+    // marginTop: 10,
   },
   input: {
     height: 40,
@@ -70,18 +70,14 @@ const styles = StyleSheet.create({
   workoutStyles: {
     inner: {
       display: 'flex',
-      flex: '.85 1 auto',
-      alignSelf: 'stretch',
       marginVertical: 20,
-      paddingBottom: 60,
-      width: .8 * screen.width,
-      flexDirection: 'column',
-      alignItems: 'left',
-      justifyContent: 'space-between',
+      paddingBottom: 75,
+      width: .9 * screen.width,
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
     },
     text: {
-      paddingLeft: 8
+      paddingLeft: 8,
+      flexWrap: 'wrap',
     },
   },
 });

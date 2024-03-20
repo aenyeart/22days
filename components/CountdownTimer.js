@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    width: .8 * width,
+    width: .75 * width,
     alignItems: 'center',
     backgroundColor: 'white',
     marginTop: 15,

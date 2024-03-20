@@ -51,17 +51,16 @@ const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
   gradient: {
     backgroundColor: '#6641AF',
-    width: 1.05 * width,
-    alignItems: 'center',
-    position: 'absolute',
-    left: "-12%", // NOTE: if button loses alignment, adjust this value
-    bottom: -2,
+    width: width,
+    position: 'fixed',
+    left: 0, // NOTE: if button loses alignment, adjust this value
+    bottom: 10,
     borderTopLeftRadius: 45,
   },
   button: {
     width: '100%',
     padding: 15,
-    paddingBottom: 25,
+    paddingBottom: 75,
     borderTopLeftRadius: 45,
   }
 });
