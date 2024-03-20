@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   workoutStyles: {
     inner: {
       display: 'flex',
-      marginVertical: 20,
+      marginTop: 20,
       paddingBottom: 75,
       width: .9 * screen.width,
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
