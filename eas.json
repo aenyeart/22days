@@ -18,6 +18,9 @@
       "channel": "preview"
     },
     "production": {
+      "ios": {
+        "image": "latest"
+      },
       "channel": "production"
     }
   },
