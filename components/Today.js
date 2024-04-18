@@ -35,7 +35,7 @@ function Today({ today, renderReport, latestMaxPullUps, latestAmrap, latestScapH
       case "initialTest":
         return <InitialTest mtf={latestMaxPullUps} latestAmrap={latestAmrap} today={today} />;
       case "report":
-        return <Report />;
+        return <Report initialMaxPullUps={initialMaxPullUps} initialAmrap={initialAmrap} finalMaxPullUps={finalMaxPullUps} finalAmrap={finalAmrap} />;
       default:
         return <Text>~~~ Hmmmmmm..... ~~~</Text>
     };
