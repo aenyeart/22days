@@ -24,7 +24,6 @@ const persistConfig = {
 }
 const initialState = {
   today: 1,
-  currentFieldValue: '',
   newMtf: null,
   newAmrap: null,
   currentScapHang: null,
@@ -78,7 +77,6 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         today: 0,
-        currentFieldValue: '',
         newMtf: null,
         newAmrap: null,
         currentScapHang: null,
