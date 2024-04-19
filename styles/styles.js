@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     },
     text: {
       paddingLeft: 8,
+      width: .75 * screen.width,
       flexWrap: 'wrap',
     },
   },
