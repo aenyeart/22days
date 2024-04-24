@@ -14,7 +14,7 @@ export default ({ mtf, scapHang, style, today }) => {
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('ScapHang height check', height);
     setWorkoutHeight(height);
   }
   const [newScapHang, setNewScapHang] = useState(scapHang);

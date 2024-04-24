@@ -12,7 +12,7 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('Report height check', height);
     setWorkoutHeight(height);
   }
   const mtfDelta = finalMaxPullUps - initialMaxPullUps;

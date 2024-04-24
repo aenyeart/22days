@@ -16,7 +16,7 @@ export default ({ mtf, latestAmrap, today }) => {
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('InitialTest height check', height);
     setWorkoutHeight(height);
   }
   const workoutStyles = styles.workoutStyles;

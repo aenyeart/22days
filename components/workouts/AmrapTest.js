@@ -14,7 +14,7 @@ export default ({ tdt, latestAmrap, today }) => {
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('AMRAP height check', height);
     setWorkoutHeight(height);
   }
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
