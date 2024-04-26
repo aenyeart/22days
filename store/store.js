@@ -20,8 +20,6 @@ import {
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  // blacklist: ['navigation'], // navigation will not be persisted
-  // whitelist: ['navigation'], // only navigation will be persisted
 }
 const initialState = {
   today: 1,
