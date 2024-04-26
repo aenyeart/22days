@@ -43,18 +43,14 @@ export default ({ mtf, latestAmrap, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
         <View style={{
-            flexDirection: 'row',
-            backgroundColor: colors[0],
-          }}
+          flexDirection: 'row',
+          backgroundColor: colors[0],
+        }}
           onLayout={getHeightForTimeline}
         >
-          <Timeline style={{height: this.workoutHeight }}/>
-          <View
-          style={{backgroundColor: colors[0]}}
-          >
-            <View
-            style={{ backgroundColor: colors[0]}}
-            >
+          <Timeline style={{ height: workoutHeight }} />
+          <View style={{ backgroundColor: colors[0] }} >
+            <View style={{ backgroundColor: colors[0] }} >
               <TimelineNode />
 
               <Text style={workoutStyles.text}>
