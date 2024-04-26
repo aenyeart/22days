@@ -5,22 +5,21 @@ import { Text } from '../Text.js';
 import { View, ScrollView } from 'react-native';
 import WorkoutStep from '../WorkoutStep.js';
 import Timeline from "../Timeline";
+import TimelineBottom from '../TimelineBottom.js';
 import { Divider } from "@rneui/themed";
 import styles from "../../styles/styles.js";
 
-// export default ({ tdt, latestAmrap, style }) => {
 export default ({ tdt, latestAmrap, today }) => {
   const [workoutHeight, setWorkoutHeight] = useState(0);
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('AMRAP height check', height);
     setWorkoutHeight(height);
   }
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   const workoutStyles = styles.workoutStyles;
   return (
-    // BUG: Final Report is triggered by tapping somewhere outside the complete button
     <>
       {/* GREEN */}
       <ScrollView bounces='true' style={workoutStyles.inner}>
@@ -62,6 +61,8 @@ export default ({ tdt, latestAmrap, today }) => {
           </View>
         </View>
       </ScrollView>
+      <TimelineBottom />
+      {/* BUG: timelineLayout.x gets different values (e.g. sometimes 27, or 48) when navigating to this specific workout. Perhaps a race condition needing a setTimeout? */}
       <CompleteButton action={{ type: "SET_FINAL_AMRAP", value: newAmrap }} />
     </>
   );

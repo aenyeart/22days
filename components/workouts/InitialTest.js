@@ -4,9 +4,10 @@ import CompleteButton from '../CompleteButton.js';
 import { useState } from "react";
 import { View, ScrollView } from 'react-native';
 import Timeline from '../Timeline.js';
+import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from '../CountdownTimer.js';
 import { Divider } from "@rneui/themed";
-import styles, { screen } from "../../styles/styles.js";
+import styles from "../../styles/styles.js";
 import WorkoutStep from '../WorkoutStep.js';
 
 export default ({ mtf, latestAmrap, today }) => {
@@ -16,7 +17,7 @@ export default ({ mtf, latestAmrap, today }) => {
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('InitialTest height check', height);
     setWorkoutHeight(height);
   }
   const workoutStyles = styles.workoutStyles;
@@ -47,7 +48,8 @@ export default ({ mtf, latestAmrap, today }) => {
         }}
           onLayout={getHeightForTimeline}
         >
-          <Timeline style={{ height: this.workoutHeight }} />
+          <Timeline style={{ height: workoutHeight }} />
+
           <View>
             {/* WRAPPER: Workout Elements */}
 
@@ -82,6 +84,8 @@ export default ({ mtf, latestAmrap, today }) => {
           </View>
         </View>
       </ScrollView>
+
+      <TimelineBottom />
       <CompleteButton action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }

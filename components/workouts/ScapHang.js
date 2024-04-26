@@ -6,6 +6,7 @@ import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
 import WorkoutStep from '../WorkoutStep.js';
 import Timeline from "../Timeline";
+import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from "../CountdownTimer";
 import styles from "../../styles/styles.js";
 
@@ -14,7 +15,7 @@ export default ({ mtf, scapHang, style, today }) => {
   const getHeightForTimeline = (event) => {
     let { height } = event.nativeEvent.layout;
     height += 20;
-    console.log('height check', height);
+    console.log('ScapHang height check', height);
     setWorkoutHeight(height);
   }
   const [newScapHang, setNewScapHang] = useState(scapHang);
@@ -78,6 +79,7 @@ export default ({ mtf, scapHang, style, today }) => {
           </View>
         </View >
       </ScrollView>
+      <TimelineBottom />
       <CompleteButton action=
         {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
       />

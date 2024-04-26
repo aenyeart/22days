@@ -70,13 +70,14 @@ const styles = StyleSheet.create({
   workoutStyles: {
     inner: {
       display: 'flex',
-      marginVertical: 20,
-      paddingBottom: 75,
+      paddingTop: 20,
+      paddingBottom: .5 * screen.height,
       width: .9 * screen.width,
       // backgroundColor: 'rgba(255, 0, 255, .75)', // DEBUG ONLY
     },
     text: {
       paddingLeft: 8,
+      width: .75 * screen.width,
       flexWrap: 'wrap',
     },
   },

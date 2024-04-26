@@ -13,18 +13,16 @@ import {
   SET_LATEST_SCAP_HANG,
   SET_TEST_DAY_TOTAL,
   START_NEW_CYCLE,
-  TEST_DAYS
+  TEST_DAYS,
+  SET_TIMELINE_LAYOUT
 } from "./actions";
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  // blacklist: ['navigation'], // navigation will not be persisted
-  // whitelist: ['navigation'], // only navigation will be persisted
 }
 const initialState = {
   today: 1,
-  currentFieldValue: '',
   newMtf: null,
   newAmrap: null,
   currentScapHang: null,
@@ -34,6 +32,7 @@ const initialState = {
   latestScapHang: null,
   history: [],
   renderReport: false,
+  timelineLayout: {},
 };
 
 function reducer(state = initialState, action) {
@@ -78,7 +77,6 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         today: 0,
-        currentFieldValue: '',
         newMtf: null,
         newAmrap: null,
         currentScapHang: null,
@@ -99,6 +97,8 @@ function reducer(state = initialState, action) {
           amrapDelta: state.initialAmrap - state.finalAmrap,
         }]
       };
+    case SET_TIMELINE_LAYOUT:
+      return { ...state, timelineLayout: action.value };
     case PURGE:
       return initialState;
     default:
