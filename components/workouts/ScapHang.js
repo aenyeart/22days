@@ -6,6 +6,7 @@ import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
 import TimelineNode from "../TimelineNode";
 import Timeline from "../Timeline";
+import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from "../CountdownTimer";
 import styles from "../../styles/styles.js";
 
@@ -83,6 +84,7 @@ export default ({ mtf, scapHang, style, today }) => {
           </View>
         </View >
       </ScrollView>
+      <TimelineBottom />
       <CompleteButton action=
         {{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
       />

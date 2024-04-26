@@ -5,9 +5,10 @@ import { useState } from "react";
 import { View, ScrollView } from 'react-native';
 import TimelineNode from '../TimelineNode.js';
 import Timeline from '../Timeline.js';
+import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from '../CountdownTimer.js';
 import { Divider } from "@rneui/themed";
-import styles, { screen } from "../../styles/styles.js";
+import styles from "../../styles/styles.js";
 
 export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
@@ -88,6 +89,8 @@ export default ({ mtf, latestAmrap, today }) => {
           </View>
         </View>
       </ScrollView>
+
+      <TimelineBottom />
       <CompleteButton action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }
