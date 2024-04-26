@@ -13,7 +13,8 @@ import {
   SET_LATEST_SCAP_HANG,
   SET_TEST_DAY_TOTAL,
   START_NEW_CYCLE,
-  TEST_DAYS
+  TEST_DAYS,
+  SET_TIMELINE_LAYOUT
 } from "./actions";
 
 const persistConfig = {
@@ -33,6 +34,7 @@ const initialState = {
   latestScapHang: null,
   history: [],
   renderReport: false,
+  timelineLayout: {},
 };
 
 function reducer(state = initialState, action) {
@@ -97,6 +99,8 @@ function reducer(state = initialState, action) {
           amrapDelta: state.initialAmrap - state.finalAmrap,
         }]
       };
+    case SET_TIMELINE_LAYOUT:
+      return { ...state, timelineLayout: action.value };
     case PURGE:
       return initialState;
     default:
