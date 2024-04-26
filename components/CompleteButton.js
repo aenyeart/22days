@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Dimensions } from 'react-native';
 import { Text } from './Text.js';
-import { connect } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useDispatch } from "react-redux";
 
-function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
+export default function CompleteButton({ action, title = "Complete Workout" }) {
+  const [pressIn, setPressIn] = useState(false);
+  const dispatch = useDispatch();
   const handlePress = () => {
     action && dispatch(action);
     dispatch({ type: 'INCREMENT' });
   }
-  const [pressIn, setPressIn] = useState(false);
   // const [pressOut, setPressOut] = useState(false); // TODO: See about adding a color flash or animation on button release
 
   return (
@@ -42,25 +43,21 @@ function CompleteButton({ action, dispatch, title = "Complete Workout" }) {
   )
 }
 
-function mapStateToProps(state) {
-  return { ...state };
-}
-
-export default connect(mapStateToProps)(CompleteButton);
 const { height, width } = Dimensions.get('window');
+console.log('window height: ', height);
 const localStyles = StyleSheet.create({
   gradient: {
     backgroundColor: '#6641AF',
     width: width,
     position: 'fixed',
     left: 0, // NOTE: if button loses alignment, adjust this value
-    bottom: 10,
+    bottom: .08 * height,
     borderTopLeftRadius: 45,
   },
   button: {
     width: '100%',
     padding: 15,
-    paddingBottom: 75,
+    paddingBottom: .08 * height,
     borderTopLeftRadius: 45,
   }
 });
