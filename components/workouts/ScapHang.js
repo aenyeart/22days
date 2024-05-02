@@ -4,7 +4,7 @@ import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
 import { View, ScrollView } from 'react-native';
 import { Divider } from "@rneui/themed";
-import TimelineNode from "../TimelineNode";
+import WorkoutStep from '../WorkoutStep.js';
 import Timeline from "../Timeline";
 import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from "../CountdownTimer";
@@ -49,11 +49,8 @@ export default ({ mtf, scapHang, style, today }) => {
 
           <View style={{}}>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
-                {/* <Text style={{ marginBottom: 20 }}> */}
-
                 Scap-Pull Hang for time
                 {scapHang === null
                   ? " until failure (seconds):"
@@ -65,22 +62,20 @@ export default ({ mtf, scapHang, style, today }) => {
                 initialValue={newScapHang}
                 handleChange={setNewScapHang}
               />
-            </View>
+            </WorkoutStep>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 2 min rest
               </Text>
               <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-            </View>
+            </WorkoutStep>
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>
                 Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
               </Text>
-            </View>
+            </WorkoutStep>
           </View>
         </View >
       </ScrollView>

@@ -3,7 +3,7 @@ import Input from '../NumberInput.js';
 import CompleteButton from '../CompleteButton.js';
 import { useState } from "react";
 import { View, ScrollView } from 'react-native';
-import TimelineNode from '../TimelineNode.js';
+import WorkoutStep from '../WorkoutStep.js';
 import Timeline from '../Timeline.js';
 import TimelineBottom from '../TimelineBottom.js';
 import { Divider } from "@rneui/themed";
@@ -46,16 +46,17 @@ export default ({ mtf, style, today }) => {
         >
           <Timeline style={{ height: this.workoutHeight }} />
 
-          <View style={{}}>
+          <View>
+            {/* WRAPPER: Workout Elements */}
 
-            <View>
-              <TimelineNode />
+            <WorkoutStep>
               <Text style={workoutStyles.text}>FINAL Test – Maximum consecutive pull-ups until failure (no breaks):</Text>
               <Input
                 initialValue={mtf}
                 handleChange={setNewMtf}
               />
-            </View>
+            </WorkoutStep>
+
           </View>
         </View>
       </ScrollView>

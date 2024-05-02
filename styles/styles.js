@@ -3,6 +3,8 @@ import {StatusBar} from 'expo-status-bar';
 import { Dimensions } from 'react-native';
 
 export const screen = Dimensions.get('window');
+export const colors = ['transparent', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'];
+
 const styles = StyleSheet.create({
   background: {
     position: 'absolute',
