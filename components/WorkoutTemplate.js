@@ -14,7 +14,7 @@ import WorkoutStep from './WorkoutStep.js';
 import WorkoutWrapper from './WorkoutWrapper.js';
 import StepList from './StepList.js';
 
-export default ({ ...props }) => {
+export default ({ today, children, action }) => {
   // TODO IMPORT CONSTANTS FOR STATE OF EACH WORKOUT? TODO
   // const [newMtf, setNewMtf] = useState(mtf);
 
@@ -45,7 +45,7 @@ export default ({ ...props }) => {
         onScroll={handleScroll}
         scrollEventThrottle={2}>
 
-        <WorkoutHeader today={props.today} />
+        <WorkoutHeader today={today} />
 
         <Divider style={{ width: '100%', marginBottom: 20 }} />
 
@@ -55,7 +55,8 @@ export default ({ ...props }) => {
           {/* <Timeline style={{ height: timelineHeight }} /> */}
 
           <StepList>
-            {steps.map(step => <WorkoutStep>{step}</WorkoutStep>)}
+            {/*{steps.map(step => <WorkoutStep>{step}</WorkoutStep>)}*/}
+            {children}
           </StepList>
 
         </WorkoutWrapper>
@@ -64,7 +65,7 @@ export default ({ ...props }) => {
 
       <TimelineBottom />
 
-      <CompleteButton action={props.action} />
+      <CompleteButton action={action} />
     </>
   );
 }
