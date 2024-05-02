@@ -38,11 +38,7 @@ export default ({ tdt, latestAmrap, today }) => {
         </Text>
         <Divider style={{ width: "100%", marginBottom: 20 }} />
 
-        <View style={{
-          flexDirection: 'row',
-        }}
-          onLayout={getHeightForTimeline}
-        >
+        <View style={{ flexDirection: 'row' }} onLayout={getHeightForTimeline} >
           <Timeline style={{ height: this.workoutHeight }} />
           <View>
             {/* WRAPPER: Workout Elements */}
