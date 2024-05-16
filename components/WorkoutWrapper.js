@@ -4,7 +4,7 @@ import { colors } from '../styles/styles.js';
 export default function WorkoutWrapper({ children, getHeightForTimeline }) {
   const styles = {
     flexDirection: 'row',
-    backgroundColor: colors[1],
+    backgroundColor: colors[0],
   };
 
   return (
