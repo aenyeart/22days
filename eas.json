@@ -21,7 +21,8 @@
     "production": {
       "autoIncrement": true,
       "ios": {
-        "image": "latest"
+        "image": "latest",
+        "cocoapods": "1.15.2"
       },
       "channel": "production"
     }
