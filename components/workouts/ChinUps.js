@@ -1,80 +1,35 @@
-import CompleteButton from '../CompleteButton.js';
 import { Text } from "../Text.js";
-import { useState } from "react";
-import { View, ScrollView } from 'react-native';
 import WorkoutStep from '../WorkoutStep.js';
-import Timeline from "../Timeline";
-import TimelineBottom from '../TimelineBottom.js';
 import CountdownTimer from "../CountdownTimer";
-import { Divider } from "@rneui/themed";
+
 import styles from "../../styles/styles.js";
+import WorkoutTemplate from "../WorkoutTemplate";
 
 
-export default ({ mtf, style, today }) => {
-  const [workoutHeight, setWorkoutHeight] = useState(0);
-  const getHeightForTimeline = (event) => {
-    let { height } = event.nativeEvent.layout;
-    height += 20;
-    console.log('ChinUps height check', height);
-    setWorkoutHeight(height);
-  }
-  const workoutStyles = styles.workoutStyles;
-
+export default ({ mtf, today }) => {
   return (
     <>
-      {/* GREEN */}
-      <ScrollView bounces='true' style={workoutStyles.inner}>
+      <WorkoutTemplate action={null} today={today}>
+        <WorkoutStep>
+          <Text style={styles.workoutStyles.text}>
+            Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
+          </Text>
+        </WorkoutStep>
 
-        {/* PINK */}
-        <Text style={{
-          textAlign: 'center',
-          alignSelf: 'center',
-          fontSize: 24,
-          fontWeight: 'bold',
-          marginTop: 10,
-          marginBottom: 20,
-          width: '80%',
-        }}>
-          Workout #{today}:
-        </Text>
-        <Divider style={{ width: "100%", marginBottom: 20 }} />
+        <WorkoutStep>
+          <Text style={styles.workoutStyles.text}>
+            2 min rest
+          </Text>
 
-        <View style={{
-          flexDirection: 'row',
-        }}
-          onLayout={getHeightForTimeline}
-        >
-          <Timeline style={{ height: this.workoutHeight }} />
+          <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
+        </WorkoutStep>
 
-          <View style={{}}>
-            <WorkoutStep>
-
-
-              <Text style={workoutStyles.text}>
-                Chin-ups x {Math.floor(2 * mtf)} (2x current MTF)
-              </Text>
-            </WorkoutStep>
-
-            <WorkoutStep>
-
-              <Text style={workoutStyles.text}>
-                2 min rest
-              </Text>
-
-              <CountdownTimer seconds={120} timerText={"2 minute rest finished.\nTime to start the next exercise!"} />
-            </WorkoutStep>
-
-            <WorkoutStep>
-
-              <Text style={workoutStyles.text}>
-                Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
-              </Text>
-            </WorkoutStep>
-          </View>
-        </View>
-      </ScrollView>
-      <TimelineBottom />
-      <CompleteButton action={null} />
+        <WorkoutStep>
+          <Text style={styles.workoutStyles.text}>
+            Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
+          </Text>
+        </WorkoutStep>
+      </WorkoutTemplate>
     </>
   );
 }
