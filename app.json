@@ -2,9 +2,10 @@
   "expo": {
     "name": "22days",
     "slug": "22days",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "jsEngine": "hermes",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -12,22 +13,36 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/a48791c7-9be0-40e1-8c1d-ee0d9170d94c"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.aenyeart.22days",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "runtimeVersion": {
+        "policy": "sdkVersion"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ad028502-19d5-47ae-b626-49a49b86a97e"
+      }
+    },
+    "owner": "22days"
   }
 }
