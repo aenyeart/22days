@@ -10,7 +10,6 @@ export default ({ mtf, scapHang, today }) => {
   const [newScapHang, setNewScapHang] = useState(scapHang);
 
   return (
-    <>
       <WorkoutTemplate
         action={{ type: 'SET_LATEST_SCAP_HANG', value: newScapHang }}
         today={today}
@@ -42,7 +41,6 @@ export default ({ mtf, scapHang, today }) => {
                 Pull-ups x {Math.floor(1.6 * mtf)} (1.6x MTF)
               </Text>
             </WorkoutStep>
-      </WorkoutTemplate>
-    </>
+    </WorkoutTemplate>
   );
 }

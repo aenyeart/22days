@@ -13,7 +13,6 @@ export default ({ mtf, latestAmrap, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   return (
-    <>
       <WorkoutTemplate action={today === 1
         ? { type: 'SET_INITIAL_STATS', value: { newMtf, newAmrap } }
         : { type: 'COMPLETE_TEST', value: { newMtf, newAmrap } }
@@ -45,7 +44,6 @@ export default ({ mtf, latestAmrap, today }) => {
                 handleChange={setNewAmrap}
               />
             </WorkoutStep>
-      </WorkoutTemplate>
-    </>
+    </WorkoutTemplate>
   );
 }

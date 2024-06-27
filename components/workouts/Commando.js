@@ -8,7 +8,6 @@ import WorkoutTemplate from "../WorkoutTemplate";
 
 export default ({ mtf, today }) => {
   return (
-    <>
       <WorkoutTemplate action={null} today={today}>
         <WorkoutStep>
           <Text style={styles.workoutStyles.text}>
@@ -28,7 +27,6 @@ export default ({ mtf, today }) => {
             Pullups x {Math.floor(1.5 * mtf)} (1.5x MTF)
           </Text>
         </WorkoutStep>
-      </WorkoutTemplate>
-    </>
+    </WorkoutTemplate>
   );
 }

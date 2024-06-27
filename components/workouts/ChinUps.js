@@ -8,7 +8,6 @@ import WorkoutTemplate from "../WorkoutTemplate";
 
 export default ({ mtf, today }) => {
   return (
-    <>
       <WorkoutTemplate action={null} today={today}>
         <WorkoutStep>
           <Text style={styles.workoutStyles.text}>
@@ -29,8 +28,7 @@ export default ({ mtf, today }) => {
             Pullups x {Math.floor(1.4 * mtf)} (1.4x MTF)
           </Text>
         </WorkoutStep>
-      </WorkoutTemplate>
-    </>
+    </WorkoutTemplate>
   );
 }
 // TODO change floor to round

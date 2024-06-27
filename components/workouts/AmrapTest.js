@@ -8,7 +8,6 @@ import WorkoutTemplate from "../WorkoutTemplate";
 export default ({ tdt, latestAmrap, today }) => {
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
   return (
-    <>
       <WorkoutTemplate
         action={{ type: "SET_FINAL_AMRAP", value: newAmrap }}
         today={today}
@@ -23,10 +22,8 @@ export default ({ tdt, latestAmrap, today }) => {
             initialValue={newAmrap}
             handleChange={setNewAmrap}
           />
-        </WorkoutStep>
-      </WorkoutTemplate>
+      </WorkoutStep>
       {/* BUG: timelineLayout.x gets different values (e.g. sometimes 27, or 48) when navigating to this specific workout. Perhaps a race condition needing a setTimeout? */}
-
-    </>
+    </WorkoutTemplate>
   );
 }

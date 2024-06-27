@@ -9,7 +9,6 @@ export default ({ mtf, style, today }) => {
   const [newMtf, setNewMtf] = useState(mtf);
 
   return (
-    <>
       <WorkoutTemplate
         title='Finish & View Report'
         action={{ type: 'SAVE_RESULTS', value: newMtf }}
@@ -22,7 +21,6 @@ export default ({ mtf, style, today }) => {
             handleChange={setNewMtf}
           />
         </WorkoutStep>
-      </WorkoutTemplate>
-    </>
+    </WorkoutTemplate>
   );
 }
