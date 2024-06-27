@@ -1,65 +1,29 @@
-import CompleteButton from '../CompleteButton.js';
 import Input from '../NumberInput.js';
 import { useState } from "react";
 import { Text } from '../Text.js';
-import { View, ScrollView } from 'react-native';
 import WorkoutStep from '../WorkoutStep.js';
-import Timeline from "../Timeline";
-import TimelineBottom from '../TimelineBottom.js';
-import { Divider } from "@rneui/themed";
 import styles from "../../styles/styles.js";
+import WorkoutTemplate from "../WorkoutTemplate";
 
 export default ({ tdt, latestAmrap, today }) => {
-  const [workoutHeight, setWorkoutHeight] = useState(0);
-  const getHeightForTimeline = (event) => {
-    let { height } = event.nativeEvent.layout;
-    height += 20;
-    console.log('AMRAP height check', height);
-    setWorkoutHeight(height);
-  }
   const [newAmrap, setNewAmrap] = useState(latestAmrap);
-  const workoutStyles = styles.workoutStyles;
   return (
-    <>
-      {/* GREEN */}
-      <ScrollView bounces='true' style={workoutStyles.inner}>
+      <WorkoutTemplate
+        action={{ type: "SET_FINAL_AMRAP", value: newAmrap }}
+        today={today}
+      >
+        <WorkoutStep>
+          <Text style={styles.workoutStyles.text}>Test – Do pull-ups for AMRAP(i) within a 5-min period:
+            {`\n`}– Breaks are allowed, but the timer must not stop.
+            {`\n`}– Try to beat {tdt} reps, your total pull-ups from Day 1.
+          </Text>
 
-        {/* PINK */}
-        <Text style={{
-          textAlign: 'center',
-          alignSelf: 'center',
-          fontSize: 24,
-          fontWeight: 'bold',
-          marginTop: 10,
-          marginBottom: 20,
-          width: '80%',
-        }}>
-          Workout #{today}:
-        </Text>
-        <Divider style={{ width: "100%", marginBottom: 20 }} />
-
-        <View style={{ flexDirection: 'row' }} onLayout={getHeightForTimeline} >
-          <Timeline style={{ height: this.workoutHeight }} />
-          <View>
-            {/* WRAPPER: Workout Elements */}
-            <WorkoutStep>
-              <Text style={workoutStyles.text}>Test – Do pull-ups for AMRAP(i) within a 5-min period:
-                {`\n`}– Breaks are allowed, but the timer must not stop.
-                {`\n`}– Try to beat {tdt} reps, your total pull-ups from Day 1.
-              </Text>
-
-              <Input
-                initialValue={newAmrap}
-                handleChange={setNewAmrap}
-              />
-            </WorkoutStep>
-
-          </View>
-        </View>
-      </ScrollView>
-      <TimelineBottom />
+          <Input
+            initialValue={newAmrap}
+            handleChange={setNewAmrap}
+          />
+      </WorkoutStep>
       {/* BUG: timelineLayout.x gets different values (e.g. sometimes 27, or 48) when navigating to this specific workout. Perhaps a race condition needing a setTimeout? */}
-      <CompleteButton action={{ type: "SET_FINAL_AMRAP", value: newAmrap }} />
-    </>
+    </WorkoutTemplate>
   );
 }
