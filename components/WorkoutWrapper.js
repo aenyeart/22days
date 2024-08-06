@@ -5,8 +5,7 @@ export default function WorkoutWrapper({ children, getHeightForTimeline }) {
   const styles = {
     flexDirection: 'row',
     backgroundColor: colors[1],
-    flex: '1 0 auto' // flex-grow: 1; flex-shrink: 0; flex-basis: auto;
-
+    flex: 1,
   };
 
   return (
