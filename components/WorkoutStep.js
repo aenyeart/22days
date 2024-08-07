@@ -6,13 +6,17 @@ export default function WorkoutStep({ children }) {
   const styles = {
     width: '98%',
     paddingBottom: 10,
-    flexGrow: 1
+    flex: '1 0 auto',
+    // flex: 1,
   };
 
   return (
     <View style={styles}>
       <TimelineNode />
       {children}
+      {/* <View style={{
+        flex: '1 0 20px'
+      }} /> */}
     </View>
   );
 }

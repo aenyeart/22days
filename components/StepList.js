@@ -2,10 +2,11 @@ import { View } from 'react-native';
 
 export default function StepList({ children }) {
   const styles = {
+    flex: 1,
     flexDirection: 'column',
-    alignContent: 'space-between',  // BUG: Is this doing anything to the layout at all?
+    backgroundColor: 'red',
   };
-  console.log('inside StepList');
+  console.log('inside StepList'); // This fires every time a child changes. Room to optimize?
   return (
     <View style={styles}>
       {children}

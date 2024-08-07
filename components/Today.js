@@ -42,11 +42,10 @@ function Today({ today, renderReport, latestMaxPullUps, latestAmrap, latestScapH
   return (
     <>
       <Header />
-      {/* Wrapper (RED) should fill remainder of screen height at full width  */}
       <View style={localStyles.wrapper}>
-        <View style={localStyles.workoutWrapper}>
+        {/* <View style={localStyles.workoutWrapper}> */}
           {renderTodaysWorkout()}
-        </View>
+        {/* </View> */}
       </View>
     </>
   );
@@ -60,25 +59,18 @@ export default connect(mapStateToProps)(Today);
 
 const { height, width } = Dimensions.get('window');
 const localStyles = StyleSheet.create({
-  title: {
-    textAlign: 'center',
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 20,
-    width: '80%',
-  },
   wrapper: {
-    display: "flex",
-    width: "100%",
-    height: height,
+    flex: 1,
+    // display: "flex",
+    // width: "100%",
+    // height: height,
     alignItems: 'center',
     // backgroundColor: "red" // DEBUG ONLY
   },
   workoutWrapper: {
-    display: "flex",
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    // display: "flex",
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
     // backgroundColor: 'rgba(1, 128, 1, .75)', // DEBUG ONLY
   },
 });
