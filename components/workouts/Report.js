@@ -18,7 +18,7 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
   const amrapDelta = finalAmrap - initialAmrap;
   return (
     <>
-      <ScrollView bounces='true' style={styles.workoutStyles.inner}>
+      <ScrollView bounces='false' style={styles.workoutStyles.inner}>
         <Text style={{
           textAlign: 'center',
           alignSelf: 'center',

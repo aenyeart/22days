@@ -25,7 +25,7 @@ export default ({ today, children, action }) => {
   return (
     <>
       <ScrollView
-        // bounces='false' // defaults to true
+        bounces='false' // defaults to true
         style={scrollviewStyles}
         contentContainerStyle={contentContainerStyles}
         scrollEventThrottle={2}>
