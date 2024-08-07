@@ -48,16 +48,16 @@ console.log('window height: ', height);
 const localStyles = StyleSheet.create({
   gradient: {
     backgroundColor: '#6641AF',
-    width: width,
-    position: 'fixed',
-    left: 0, // NOTE: if button loses alignment, adjust this value
-    bottom: .08 * height,
-    borderTopLeftRadius: 45,
+    width: '100%',
+    // position: 'fixed',
+    // left: 0, // NOTE: if button loses alignment, adjust this value
+    // bottom: .08 * height,
+    // borderTopLeftRadius: 45,
   },
   button: {
-    width: '100%',
-    padding: 15,
-    paddingBottom: .08 * height,
-    borderTopLeftRadius: 45,
+    // width: '100%',
+    // padding: 15,
+    // paddingBottom: .08 * height,
+    // borderTopLeftRadius: 45,
   }
 });
