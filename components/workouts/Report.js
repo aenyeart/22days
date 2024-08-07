@@ -48,9 +48,9 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
                   Max-to-Failure Pull-Ups:{`\n`}
                 </Text>
                 <Text>
-                  Day 1: {initialMaxPullUps} reps{`\n`}
-                  Day 22: {finalMaxPullUps} reps{`\n`}
-                  Change to Max Pull-Ups: {mtfDelta} reps ({Math.round(100 * mtfDelta / initialMaxPullUps)}%){`\n`}
+                  Day 1: {initialMaxPullUps || 0} reps{`\n`}
+                  Day 22: {finalMaxPullUps || 0} reps{`\n`}
+                  Change to Max Pull-Ups: {mtfDelta} reps ({Math.round(100 * mtfDelta / initialMaxPullUps) || 0}%){`\n`}
                 </Text>
               </View>
 
@@ -61,9 +61,9 @@ export default ({ initialMaxPullUps, initialAmrap, finalMaxPullUps, finalAmrap, 
                   5-minute AMRAP:{`\n`}
                 </Text>
                 <Text>
-                  Day 1: {initialAmrap} reps{`\n`}
-                  Day 21: {finalAmrap} reps{`\n`}
-                  Change to AMRAP: {amrapDelta} reps ({Math.round(100 * amrapDelta / initialAmrap)}%) {`\n`}
+                  Day 1: {initialAmrap || 0} reps{`\n`}
+                  Day 21: {finalAmrap || 0} reps{`\n`}
+                  Change to AMRAP: {amrapDelta} reps ({Math.round(100 * amrapDelta / initialAmrap) || 0}%) {`\n`}
                 </Text >
               </View>
 
