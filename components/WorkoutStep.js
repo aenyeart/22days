@@ -5,7 +5,7 @@ import TimelineNode from './TimelineNode'
 export default function WorkoutStep({ children }) {
   const styles = {
     width: '98%',
-    paddingBottom: 10,
+    paddingBottom: 30, // TODO: Make this responsive to different screen sizes
     flex: '1 0 auto',
     // flex: 1,
   };
