@@ -51,13 +51,9 @@ const localStyles = StyleSheet.create({
     width: '112%',
     position: 'relative',
     left: '-6%', // NOTE: if button loses alignment, adjust this value
-    // bottom: .08 * height,
     borderTopLeftRadius: 45,
   },
   button: {
-    // width: '100%',
     padding: 10,
-    // paddingBottom: .08 * height,
-    // borderTopLeftRadius: 45,
   }
 });
