@@ -1,11 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-import CompleteButton from '../CompleteButton.js';
 import CountdownTimer from '../CountdownTimer.js';
 import Input from '../NumberInput.js';
 import styles from '../../styles/styles.js';
-import {Text} from '../Text.js';
-import TimelineBottom from '../TimelineBottom.js';
+import { Text } from '../Text.js';
 import WorkoutStep from '../WorkoutStep.js';
 import WorkoutTemplate from "../WorkoutTemplate";
 
