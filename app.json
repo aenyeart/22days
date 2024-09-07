@@ -24,6 +24,10 @@
       "bundleIdentifier": "com.aenyeart.22days",
       "runtimeVersion": {
         "policy": "fingerprint"
+      },
+      "infoPlist": {
+        "CFBundleShortVersionString": "1.0.3",
+        "CFBundleVersion": "3"
       }
     },
     "android": {
