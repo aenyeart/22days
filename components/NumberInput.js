@@ -8,7 +8,7 @@ export default ({ ...props }) => {
 
   return (
     <InputSpinner
-      append={props.append || ''}
+      append={props.append || <></>}
       background={"#FFFFFF"}
       colorLeft={"#FF9595"}
       colorRight={"#3FE180"}
