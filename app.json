@@ -23,7 +23,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.aenyeart.22days",
       "runtimeVersion": {
-        "policy": "fingerprint"
+        "policy": "fingerprintExperimental"
       }
     },
     "android": {
